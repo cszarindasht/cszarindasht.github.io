@@ -143,7 +143,7 @@
     <div class="absolute top-1/3 right-1/4 w-20 h-20 rounded-full bg-blue-500 opacity-20 floating" style="animation-delay: 2s;"></div>
     
     <!-- Main container with jelly effect -->
-    <div id="main-container" class="min-h-screen flex flex-col jelly-effect">
+    <div id="main-container" class="min-h-screen flex flex-col">
         <!-- Header -->
         <header class="glass-card p-6 mx-4 mt-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -600,58 +600,11 @@
             document.getElementById('moreInfoModal').classList.add('hidden');
         }
         
-        // Touch effect for mobile
-        let touchStartX = 0;
-        let touchStartY = 0;
-        let transformX = 0;
-        let transformY = 0;
-        const mainContainer = document.getElementById('main-container');
-        
-        function handleTouchStart(e) {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-        }
-        
-        function handleTouchMove(e) {
-            if (!touchStartX || !touchStartY) return;
-            
-            const touchX = e.touches[0].clientX;
-            const touchY = e.touches[0].clientY;
-            
-            const diffX = touchX - touchStartX;
-            const diffY = touchY - touchStartY;
-            
-            // Apply a small transform effect (like jelly)
-            transformX = diffX * 0.2;
-            transformY = diffY * 0.2;
-            
-            mainContainer.style.transform = `translate(${transformX}px, ${transformY}px)`;
-        }
-        
-        function handleTouchEnd() {
-            // Return to original position with animation
-            mainContainer.style.transition = 'transform 0.5s ease-out';
-            mainContainer.style.transform = 'translate(0, 0)';
-            
-            // Remove transition after animation completes
-            setTimeout(() => {
-                mainContainer.style.transition = '';
-            }, 500);
-            
-            touchStartX = 0;
-            touchStartY = 0;
-        }
         
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             createMeteors();
             
-            // Add touch event listeners
-            if ('ontouchstart' in window) {
-                mainContainer.addEventListener('touchstart', handleTouchStart, {passive: true});
-                mainContainer.addEventListener('touchmove', handleTouchMove, {passive: true});
-                mainContainer.addEventListener('touchend', handleTouchEnd, {passive: true});
-            }
         });
     </script>
 </body>
