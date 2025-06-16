@@ -155,6 +155,72 @@
             opacity: 0.2;
             z-index: 0;
         }
+
+        /* Mobile specific styles */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .hero-buttons button {
+                width: 100%;
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .active-field::after {
+                bottom: -15px;
+                font-size: 10px;
+                padding: 1px 6px;
+            }
+            
+            .glass-card {
+                padding: 20px !important;
+            }
+            
+            .book-card {
+                margin-bottom: 20px;
+            }
+            
+            .resource-link {
+                padding: 10px 12px !important;
+                font-size: 14px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px;
+            }
+            
+            .mobile-text-center {
+                text-align: center !important;
+            }
+            
+            .mobile-px-4 {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            .mobile-py-12 {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+            
+            .mobile-mb-8 {
+                margin-bottom: 2rem !important;
+            }
+            
+            .mobile-text-lg {
+                font-size: 1.125rem !important;
+                line-height: 1.75rem !important;
+            }
+            
+            .mobile-text-sm {
+                font-size: 0.875rem !important;
+                line-height: 1.25rem !important;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen relative overflow-x-hidden">
@@ -167,12 +233,12 @@
         <div id="meteors-container"></div>
         
         <!-- Header -->
-        <header class="w-full py-6 px-4 md:px-12 flex justify-between items-center relative z-10">
+        <header class="w-full py-4 md:py-6 px-4 md:px-12 flex justify-between items-center relative z-10">
             <div class="flex items-center space-x-2 space-x-reverse">
-                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                    <i class="fas fa-laptop-code text-white text-xl"></i>
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                    <i class="fas fa-laptop-code text-white text-lg md:text-xl"></i>
                 </div>
-                <h1 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h1 class="text-lg md:text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     گروه کامپیوتر زرین‌دشت
                 </h1>
             </div>
@@ -195,11 +261,11 @@
             <button id="close-menu" class="absolute top-6 left-6 text-white text-2xl">
                 <i class="fas fa-times"></i>
             </button>
-            <a href="#home" class="text-white text-2xl hover:text-pink-300 transition">صفحه اصلی</a>
-            <a href="#about" class="text-white text-2xl hover:text-pink-300 transition">هنرستان‌های شهرستان</a>
-            <a href="#team" class="text-white text-2xl hover:text-pink-300 transition">گروه کامپیوتر</a>
-            <a href="#books" class="text-white text-2xl hover:text-pink-300 transition">کتاب‌ها</a>
-            <a href="#resources" class="text-white text-2xl hover:text-pink-300 transition">منابع آموزشی</a>
+            <a href="#home" class="text-white text-xl md:text-2xl hover:text-pink-300 transition">صفحه اصلی</a>
+            <a href="#about" class="text-white text-xl md:text-2xl hover:text-pink-300 transition">هنرستان‌های شهرستان</a>
+            <a href="#team" class="text-white text-xl md:text-2xl hover:text-pink-300 transition">گروه کامپیوتر</a>
+            <a href="#books" class="text-white text-xl md:text-2xl hover:text-pink-300 transition">کتاب‌ها</a>
+            <a href="#resources" class="text-white text-xl md:text-2xl hover:text-pink-300 transition">منابع آموزشی</a>
         </div>
         
         <!-- Hero Section -->
@@ -207,18 +273,18 @@
             <div class="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-purple-500 opacity-20 blur-3xl"></div>
             <div class="absolute -left-20 -bottom-20 w-64 h-64 rounded-full bg-pink-500 opacity-20 blur-3xl"></div>
             
-            <div class="glass-card p-8 md:p-12 max-w-4xl mx-auto text-center relative z-10">
-                <h1 class="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <div class="glass-card p-6 md:p-12 max-w-4xl mx-auto text-center relative z-10">
+                <h1 class="text-2xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     وبسایت آموزشی گروه کامپیوتر زرین‌دشت
                 </h1>
-                <p class="text-lg md:text-xl mb-8 text-gray-200">
+                <p class="text-base md:text-xl mb-6 md:mb-8 text-gray-200">
                     این وب‌سایت به همت گروه آموزشی کامپیوتر شهرستان زرین‌دشت (استان فارس) و با هدف سامان‌دهی، آرشیو و تسهیل دسترسی هنرآموزان، هنرجویان، و مسئولان آموزشی به محتوای تخصصی دروس فنی‌وحرفه‌ای و کاردانش راه‌اندازی شده است
                 </p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-medium hover:opacity-90 transition">
+                <div class="hero-buttons flex flex-col md:flex-row justify-center gap-3 md:gap-4">
+                    <button class="px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white font-medium hover:opacity-90 transition text-sm md:text-base">
                         <span class="active-field">رشته تولید و توسعه دهنده پایگاه اینترنتی</span>
                     </button>
-                    <button class="px-6 py-3 border border-white rounded-full text-white font-medium hover:bg-white hover:bg-opacity-10 transition">
+                    <button class="px-4 md:px-6 py-2 md:py-3 border border-white rounded-full text-white font-medium hover:bg-white hover:bg-opacity-10 transition text-sm md:text-base">
                         <span class="active-field">رشته تولید محتوای آموزشی الکترونیکی</span>
                     </button>
                 </div>
@@ -232,25 +298,25 @@
         </section>
         
         <!-- About Section -->
-        <section id="about" class="py-20 px-4 md:px-12 relative">
+        <section id="about" class="py-12 md:py-20 px-4 md:px-12 relative">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div class="text-center mb-8 md:mb-16">
+                    <h2 class="text-xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                         هنرستان‌های شهرستان زرین‌دشت
                     </h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+                    <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-card p-8 rounded-2xl hover-scale">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-school text-white text-2xl"></i>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <div class="glass-card p-6 md:p-8 rounded-2xl hover-scale">
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                            <i class="fas fa-school text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-center mb-4">هنرستان زینب کبری حاجی آباد</h3>
-                        <p class="text-gray-300 text-center">یکی از مراکز آموزشی برتر در رشته کامپیوتر در شهرستان زرین‌دشت</p>
-                        <button onclick="toggleDetails('zeynab')" class="mt-4 text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
+                        <h3 class="text-lg md:text-xl font-bold text-center mb-3 md:mb-4">هنرستان زینب کبری حاجی آباد</h3>
+                        <p class="text-gray-300 text-center text-sm md:text-base">یکی از مراکز آموزشی برتر در رشته کامپیوتر در شهرستان زرین‌دشت</p>
+                        <button onclick="toggleDetails('zeynab')" class="mt-3 md:mt-4 text-xs md:text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
                         <div id="zeynab" class="school-details">
-                            <ul class="text-right text-sm text-gray-300 space-y-2">
+                            <ul class="text-right text-xs md:text-sm text-gray-300 space-y-1 md:space-y-2">
                                 <li>رشته تولید کننده و توسعه دهنده پایگاه های اینترنتی (کاردانش)</li>
                                 <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
                                 <li>رشته خیاطی لباس شب و عروس (کاردانش)</li>
@@ -258,30 +324,30 @@
                         </div>
                     </div>
                     
-                    <div class="glass-card p-8 rounded-2xl hover-scale">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-laptop-house text-white text-2xl"></i>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl hover-scale">
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                            <i class="fas fa-laptop-house text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-center mb-4">هنرستان والفجر شهرپیر</h3>
-                        <p class="text-gray-300 text-center">مرکز آموزشی پیشرو در زمینه‌های فنی و حرفه‌ای کامپیوتر</p>
-                        <button onclick="toggleDetails('valfajr')" class="mt-4 text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
+                        <h3 class="text-lg md:text-xl font-bold text-center mb-3 md:mb-4">هنرستان والفجر شهرپیر</h3>
+                        <p class="text-gray-300 text-center text-sm md:text-base">مرکز آموزشی پیشرو در زمینه‌های فنی و حرفه‌ای کامپیوتر</p>
+                        <button onclick="toggleDetails('valfajr')" class="mt-3 md:mt-4 text-xs md:text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
                         <div id="valfajr" class="school-details">
-                            <ul class="text-right text-sm text-gray-300 space-y-2">
+                            <ul class="text-right text-xs md:text-sm text-gray-300 space-y-1 md:space-y-2">
                                 <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
                                 <li>رشته حسابداری (فنی و حرفه ای)</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <div class="glass-card p-8 rounded-2xl hover-scale">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-user-graduate text-white text-2xl"></i>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl hover-scale">
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                            <i class="fas fa-user-graduate text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-center mb-4">هنرستان شهید پاکیزه خو دبیران</h3>
-                        <p class="text-gray-300 text-center">از مراکز آموزشی معتبر در رشته کامپیوتر در سطح شهرستان</p>
-                        <button onclick="toggleDetails('shahid')" class="mt-4 text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
+                        <h3 class="text-lg md:text-xl font-bold text-center mb-3 md:mb-4">هنرستان شهید پاکیزه خو دبیران</h3>
+                        <p class="text-gray-300 text-center text-sm md:text-base">از مراکز آموزشی معتبر در رشته کامپیوتر در سطح شهرستان</p>
+                        <button onclick="toggleDetails('shahid')" class="mt-3 md:mt-4 text-xs md:text-sm text-pink-400 mx-auto block">اطلاعات بیشتر</button>
                         <div id="shahid" class="school-details">
-                            <ul class="text-right text-sm text-gray-300 space-y-2">
+                            <ul class="text-right text-xs md:text-sm text-gray-300 space-y-1 md:space-y-2">
                                 <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
                             </ul>
                         </div>
@@ -291,44 +357,44 @@
         </section>
         
         <!-- Team Section -->
-        <section id="team" class="py-20 px-4 md:px-12 bg-gradient-to-b from-gray-900 to-gray-900 relative">
+        <section id="team" class="py-12 md:py-20 px-4 md:px-12 bg-gradient-to-b from-gray-900 to-gray-900 relative">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div class="text-center mb-8 md:mb-16">
+                    <h2 class="text-xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                         گروه کامپیوتر شهرستان زرین دشت
                     </h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+                    <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                     <!-- Work Experts -->
-                    <div class="glass-card p-8 rounded-2xl hover-scale">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-user-tie text-white text-2xl"></i>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl hover-scale">
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                            <i class="fas fa-user-tie text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-center mb-4">کارشناسان</h3>
-                        <ul class="text-right text-gray-300 space-y-2">
+                        <h3 class="text-lg md:text-xl font-bold text-center mb-3 md:mb-4">کارشناسان</h3>
+                        <ul class="text-right text-xs md:text-sm text-gray-300 space-y-1 md:space-y-2">
                             <li>کارشناس فنی حرفه ای و کاردانش: محمدامین ابراهیمی</li>
                             <li>کارشناس آموزش: حمید رضایی</li>
                         </ul>
                     </div>
                     
                     <!-- Head of Group -->
-                    <div class="glass-card p-8 rounded-2xl hover-scale">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-users text-white text-2xl"></i>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl hover-scale">
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                            <i class="fas fa-users text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-center mb-4">سرگروه</h3>
-                        <p class="text-gray-300 text-center">فاطمه معتمد</p>
+                        <h3 class="text-lg md:text-xl font-bold text-center mb-3 md:mb-4">سرگروه</h3>
+                        <p class="text-gray-300 text-center text-sm md:text-base">فاطمه معتمد</p>
                     </div>
                     
                     <!-- Teachers -->
-                    <div class="glass-card p-8 rounded-2xl hover-scale">
-                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-6 mx-auto">
-                            <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                    <div class="glass-card p-6 md:p-8 rounded-2xl hover-scale">
+                        <div class="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 md:mb-6 mx-auto">
+                            <i class="fas fa-chalkboard-teacher text-white text-xl md:text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-center mb-4">هنرآموزان</h3>
-                        <ul class="text-right text-gray-300 space-y-2">
+                        <h3 class="text-lg md:text-xl font-bold text-center mb-3 md:mb-4">هنرآموزان</h3>
+                        <ul class="text-right text-xs md:text-sm text-gray-300 space-y-1 md:space-y-2">
                             <li>شهره پورغلام</li>
                             <li>عبدالمحسن راستی</li>
                             <li>فاطمه معتمد</li>
@@ -343,24 +409,24 @@
         </section>
         
         <!-- Books Section -->
-        <section id="books" class="py-20 px-4 md:px-12 relative">
+        <section id="books" class="py-12 md:py-20 px-4 md:px-12 relative">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                        کتاب‌های کاردانش 
+                <div class="text-center mb-8 md:mb-16">
+                    <h2 class="text-xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        کتاب‌های کاردانش سال تحصیلی ۱۴۰۱-۱۴۰۲
                     </h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+                    <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                     <!-- Book 1 -->
                     <div class="book-card glass-card rounded-xl overflow-hidden hover-scale">
-                        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                            <i class="fas fa-book-open text-white text-6xl"></i>
+                        <div class="h-40 md:h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-book-open text-white text-4xl md:text-6xl"></i>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">کتاب واژه پرداز Word 2016</h3>
-                            <a href="https://t.me/c/1471422545/1366" target="_blank" class="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-sm hover:opacity-90 transition">
+                        <div class="p-4 md:p-6">
+                            <h3 class="text-base md:text-xl font-bold mb-2">کتاب واژه پرداز Word 2016</h3>
+                            <a href="https://t.me/c/1471422545/1366" target="_blank" class="inline-block mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs md:text-sm hover:opacity-90 transition">
                                 دریافت کتاب
                             </a>
                         </div>
@@ -368,12 +434,12 @@
                     
                     <!-- Book 2 -->
                     <div class="book-card glass-card rounded-xl overflow-hidden hover-scale">
-                        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                            <i class="fas fa-database text-white text-6xl"></i>
+                        <div class="h-40 md:h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-database text-white text-4xl md:text-6xl"></i>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">کتاب نرم افزار اداری تکمیلی (Access - OneNote)</h3>
-                            <a href="https://t.me/c/1471422545/1367" target="_blank" class="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-sm hover:opacity-90 transition">
+                        <div class="p-4 md:p-6">
+                            <h3 class="text-base md:text-xl font-bold mb-2">کتاب نرم افزار اداری تکمیلی (Access - OneNote)</h3>
+                            <a href="https://t.me/c/1471422545/1367" target="_blank" class="inline-block mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs md:text-sm hover:opacity-90 transition">
                                 دریافت کتاب
                             </a>
                         </div>
@@ -381,12 +447,12 @@
                     
                     <!-- Book 3 -->
                     <div class="book-card glass-card rounded-xl overflow-hidden hover-scale">
-                        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                            <i class="fas fa-file-excel text-white text-6xl"></i>
+                        <div class="h-40 md:h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-file-excel text-white text-4xl md:text-6xl"></i>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">کتاب بسته‌های نرم‌افزاری (Excel-PowerPoint)</h3>
-                            <a href="https://t.me/c/1471422545/1368" target="_blank" class="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-sm hover:opacity-90 transition">
+                        <div class="p-4 md:p-6">
+                            <h3 class="text-base md:text-xl font-bold mb-2">کتاب بسته‌های نرم‌افزاری (Excel-PowerPoint)</h3>
+                            <a href="https://t.me/c/1471422545/1368" target="_blank" class="inline-block mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs md:text-sm hover:opacity-90 transition">
                                 دریافت کتاب
                             </a>
                         </div>
@@ -394,12 +460,12 @@
                     
                     <!-- Book 4 -->
                     <div class="book-card glass-card rounded-xl overflow-hidden hover-scale">
-                        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                            <i class="fas fa-network-wired text-white text-6xl"></i>
+                        <div class="h-40 md:h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-network-wired text-white text-4xl md:text-6xl"></i>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">کتاب اطلاعات و ارتباطات</h3>
-                            <a href="https://t.me/c/1471422545/1369" target="_blank" class="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-sm hover:opacity-90 transition">
+                        <div class="p-4 md:p-6">
+                            <h3 class="text-base md:text-xl font-bold mb-2">کتاب اطلاعات و ارتباطات</h3>
+                            <a href="https://t.me/c/1471422545/1369" target="_blank" class="inline-block mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs md:text-sm hover:opacity-90 transition">
                                 دریافت کتاب
                             </a>
                         </div>
@@ -407,12 +473,12 @@
                     
                     <!-- Book 5 -->
                     <div class="book-card glass-card rounded-xl overflow-hidden hover-scale">
-                        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                            <i class="fas fa-photo-film text-white text-6xl"></i>
+                        <div class="h-40 md:h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-photo-film text-white text-4xl md:text-6xl"></i>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">تولیدکننده محتوای الکترونیکی عمومی (جلد اول)</h3>
-                            <a href="https://t.me/c/1471422545/1370" target="_blank" class="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-sm hover:opacity-90 transition">
+                        <div class="p-4 md:p-6">
+                            <h3 class="text-base md:text-xl font-bold mb-2">تولیدکننده محتوای الکترونیکی عمومی (جلد اول)</h3>
+                            <a href="https://t.me/c/1471422545/1370" target="_blank" class="inline-block mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs md:text-sm hover:opacity-90 transition">
                                 دریافت کتاب
                             </a>
                         </div>
@@ -420,20 +486,20 @@
                     
                     <!-- Book 6 -->
                     <div class="book-card glass-card rounded-xl overflow-hidden hover-scale">
-                        <div class="h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                            <i class="fas fa-video text-white text-6xl"></i>
+                        <div class="h-40 md:h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-video text-white text-4xl md:text-6xl"></i>
                         </div>
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold mb-2">تولیدکننده محتوای الکترونیکی عمومی (جلد دوم)</h3>
-                            <a href="https://t.me/c/1471422545/1371" target="_blank" class="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-sm hover:opacity-90 transition">
+                        <div class="p-4 md:p-6">
+                            <h3 class="text-base md:text-xl font-bold mb-2">تولیدکننده محتوای الکترونیکی عمومی (جلد دوم)</h3>
+                            <a href="https://t.me/c/1471422545/1371" target="_blank" class="inline-block mt-3 md:mt-4 px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-white text-xs md:text-sm hover:opacity-90 transition">
                                 دریافت کتاب
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="text-center mt-12">
-                    <a href="#resources" class="inline-block px-6 py-3 border border-white rounded-full text-white font-medium hover:bg-white hover:bg-opacity-10 transition">
+                <div class="text-center mt-8 md:mt-12">
+                    <a href="#resources" class="inline-block px-4 md:px-6 py-2 md:py-3 border border-white rounded-full text-white font-medium hover:bg-white hover:bg-opacity-10 transition text-sm md:text-base">
                         مشاهده منابع بیشتر
                     </a>
                 </div>
@@ -441,70 +507,70 @@
         </section>
         
         <!-- Resources Section -->
-        <section id="resources" class="py-20 px-4 md:px-12 bg-gradient-to-b from-gray-900 to-gray-900 relative">
+        <section id="resources" class="py-12 md:py-20 px-4 md:px-12 bg-gradient-to-b from-gray-900 to-gray-900 relative">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-2xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div class="text-center mb-8 md:mb-16">
+                    <h2 class="text-xl md:text-4xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                         منابع آموزشی و جزوات
                     </h2>
-                    <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+                    <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
                 </div>
                 
-                <div class="glass-card p-6 md:p-8 rounded-2xl mb-12">
-                    <h3 class="text-xl font-bold mb-6 text-center">جزوات دروس فنی و حرفه‌ای و کاردانش</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <a href="https://t.me/c/1471422545/1028" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-file-pdf text-pink-400 mr-3"></i>
+                <div class="glass-card p-4 md:p-8 rounded-2xl mb-8 md:mb-12">
+                    <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-center">جزوات دروس فنی و حرفه‌ای و کاردانش</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                        <a href="https://t.me/c/1471422545/1028" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-file-pdf text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>جزوه Adobe Animate</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1030" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-file-pdf text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1030" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-file-pdf text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>جزوه Premiere</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1032" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-file-pdf text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1032" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-file-pdf text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>جزوه WordPress</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1034" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-file-pdf text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1034" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-file-pdf text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>جزوه Excel 2019</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1041" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-file-pdf text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1041" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-file-pdf text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>جزوه Captivate 2019</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1052" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-file-pdf text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1052" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-file-pdf text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>جزوه WordPress روی cPanel</span>
                         </a>
                     </div>
                 </div>
                 
-                <div class="glass-card p-6 md:p-8 rounded-2xl">
-                    <h3 class="text-xl font-bold mb-6 text-center">بانک سوالات دروس فنی و حرفه‌ای</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <a href="https://t.me/c/1471422545/1018" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-question-circle text-pink-400 mr-3"></i>
+                <div class="glass-card p-4 md:p-8 rounded-2xl">
+                    <h3 class="text-lg md:text-xl font-bold mb-4 md:mb-6 text-center">بانک سوالات دروس فنی و حرفه‌ای</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+                        <a href="https://t.me/c/1471422545/1018" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-question-circle text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>بانک سوالات دانش فنی پایه</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1019" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-question-circle text-pink-400 mr-3"></i>
-                            <span>بانک سوالات نصب و راه‌اندازی سیستم</span>
+                        <a href="https://t.me/c/1471422545/1019" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-question-circle text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
+                            <span>بانк سوالات نصب و راه‌اندازی سیستم</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1020" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-question-circle text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1020" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-question-circle text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>بانک سوالات تولید محتوای الکترونیک</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1021" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-question-circle text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1021" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-question-circle text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>بانک سوالات توسعه برنامه‌سازی</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1022" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-question-circle text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1022" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-question-circle text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>بانک سوالات پیاده‌سازی سیستم‌های اطلاعاتی</span>
                         </a>
-                        <a href="https://t.me/c/1471422545/1023" target="_blank" class="px-4 py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center">
-                            <i class="fas fa-question-circle text-pink-400 mr-3"></i>
+                        <a href="https://t.me/c/1471422545/1023" target="_blank" class="resource-link px-3 md:px-4 py-2 md:py-3 bg-white bg-opacity-10 rounded-lg hover:bg-opacity-20 transition flex items-center text-xs md:text-sm">
+                            <i class="fas fa-question-circle text-pink-400 ml-2 md:ml-3 text-sm md:text-base"></i>
                             <span>بانک سوالات دانش فنی تخصصی</span>
                         </a>
                     </div>
@@ -513,32 +579,32 @@
         </section>
         
         <!-- Footer -->
-        <footer class="py-12 px-4 md:px-12 bg-gray-900 relative">
+        <footer class="py-8 md:py-12 px-4 md:px-12 bg-gray-900 relative">
             <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                    <div>
-                        <h3 class="text-xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <div class="footer-grid grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+                    <div class="mobile-text-center">
+                        <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                             گروه کامپیوتر زرین‌دشت
                         </h3>
-                        <p class="text-gray-400 mb-4">
+                        <p class="text-gray-400 mb-3 md:mb-4 text-sm md:text-base">
                             این وب‌سایت به همت گروه آموزشی کامپیوتر شهرستان زرین‌دشت (استان فارس) راه‌اندازی شده است.
                         </p>
-                        <div class="flex space-x-4 space-x-reverse">
-                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-to-r from-purple-500 to-pink-500 transition">
+                        <div class="flex space-x-4 space-x-reverse justify-center md:justify-start">
+                            <a href="#" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-to-r from-purple-500 to-pink-500 transition text-sm md:text-base">
                                 <i class="fab fa-telegram"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-to-r from-purple-500 to-pink-500 transition">
+                            <a href="#" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-to-r from-purple-500 to-pink-500 transition text-sm md:text-base">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-to-r from-purple-500 to-pink-500 transition">
+                            <a href="#" class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gradient-to-r from-purple-500 to-pink-500 transition text-sm md:text-base">
                                 <i class="fas fa-envelope"></i>
                             </a>
                         </div>
                     </div>
                     
-                    <div>
-                        <h3 class="text-xl font-bold mb-4 text-white">لینک‌های مفید</h3>
-                        <ul class="space-y-2">
+                    <div class="mobile-text-center">
+                        <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white">لینک‌های مفید</h3>
+                        <ul class="space-y-1 md:space-y-2 text-sm md:text-base">
                             <li><a href="https://zncd.ir" target="_blank" class="text-gray-400 hover:text-white transition">دبیرخانه راهبری کامپیوتر</a></li>
                             <li><a href="https://chap.sch.ir" target="_blank" class="text-gray-400 hover:text-white transition">سایت دفتر تالیف و چاپ</a></li>
                             <li><a href="https://t.me/+beIyxpcv1FI1MWVk" target="_blank" class="text-gray-400 hover:text-white transition">گروه دانش فنی تخصصی</a></li>
@@ -546,23 +612,23 @@
                         </ul>
                     </div>
                     
-                    <div>
-                        <h3 class="text-xl font-bold mb-4 text-white">رشته‌های مرتبط</h3>
-                        <div class="space-y-3">
+                    <div class="mobile-text-center">
+                        <h3 class="text-lg md:text-xl font-bold mb-3 md:mb-4 text-white">رشته‌های مرتبط</h3>
+                        <div class="space-y-2 md:space-y-3 text-sm md:text-base">
                             <div>
                                 <h4 class="text-pink-400 font-medium">رشته تولید و توسعه دهنده پایگاه اینترنتی</h4>
-                                <a href="https://t.me/+0lhWh5K6umk0M2Zk" target="_blank" class="text-sm text-gray-400 hover:text-white transition">ورود به گروه تلگرام</a>
+                                <a href="https://t.me/+0lhWh5K6umk0M2Zk" target="_blank" class="text-xs md:text-sm text-gray-400 hover:text-white transition">ورود به گروه تلگرام</a>
                             </div>
                             <div>
                                 <h4 class="text-pink-400 font-medium">رشته تولید محتوای آموزشی الکترونیک</h4>
-                                <a href="https://t.me/+og9ZGlyvM5UxMjhk" target="_blank" class="text-sm text-gray-400 hover:text-white transition">ورود به گروه تلگرام</a>
+                                <a href="https://t.me/+og9ZGlyvM5UxMjhk" target="_blank" class="text-xs md:text-sm text-gray-400 hover:text-white transition">ورود به گروه تلگرام</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-                    <p>© - کلیه حقوق برای گروه کامپیوتر زرین‌دشت محفوظ است.</p>
+                <div class="pt-6 md:pt-8 border-t border-gray-800 text-center text-gray-500 text-xs md:text-sm">
+                    <p>© ۱۴۰۲ - کلیه حقوق برای گروه کامپیوتر زرین‌دشت محفوظ است.</p>
                 </div>
             </div>
         </footer>
