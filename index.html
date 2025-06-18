@@ -177,6 +177,102 @@
             background: rgba(255, 255, 255, 0.1);
             transform: translateX(-5px);
         }
+        
+        /* PDF Card Styles */
+        .pdf-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(156, 39, 176, 0.5);
+        }
+        
+        .pdf-icon {
+            font-size: 3rem;
+            color: #e74c3c;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+        
+        /* Telegram Button */
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .telegram-btn:hover {
+            background: #006699;
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .header-nav a {
+                margin-bottom: 10px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .fields-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .schools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                margin-top: 15px;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body class="relative">
@@ -200,7 +296,7 @@
                     </div>
                 </div>
                 
-                <nav class="flex space-x-6 space-x-reverse">
+                <nav class="flex flex-wrap space-x-6 space-x-reverse header-nav">
                     <a href="#about" class="hover:text-purple-300 transition">درباره ما</a>
                     <a href="#schools" class="hover:text-purple-300 transition">هنرستان‌های شهرستان</a>
                     <a href="#team" class="hover:text-purple-300 transition">اعضای گروه</a>
@@ -218,7 +314,7 @@
                 <p class="text-lg mb-8">
                     این وب‌سایت به همت گروه آموزشی کامپیوتر شهرستان زرین‌دشت (استان فارس) و با هدف سامان‌دهی، آرشیو و تسهیل دسترسی هنرآموزان، هنرجویان، و مسئولان آموزشی به محتوای تخصصی دروس فنی‌وحرفه‌ای و کاردانش راه‌اندازی شده است
                 </p>
-                <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex flex-wrap justify-center gap-4 hero-buttons">
                     <a href="#schools" class="px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full font-medium hover:opacity-90 transition">
                         هنرستان‌های شهرستان
                     </a>
@@ -233,7 +329,7 @@
         <section id="fields" class="glass-card p-8 mx-4 my-8">
             <h2 class="text-2xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">رشته‌های فعال</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 fields-grid">
                 <!-- Web Development Field -->
                 <div class="glass-card p-6 rounded-xl">
                     <div class="flex items-center justify-between mb-4">
@@ -250,9 +346,9 @@
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0=" 
-                               target="_blank" class="course-link">
-                               استاندارد رشته تولید‌کننده و توسعه‌دهنده پایگاه‌های اینترنتی
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0="
+                                target="_blank" class="course-link">
+                                استاندارد رشته تولید‌کننده و توسعه‌دهنده پایگاه‌های اینترنتی
                             </a>
                         </div>
                     </div>
@@ -263,13 +359,13 @@
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0=" 
-                               target="_blank" class="course-link">
-                               توسعه دهنده صفحات وب با PHP و MySQL
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA5MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0="
+                                target="_blank" class="course-link">
+                                توسعه دهنده صفحات وب با PHP و MySQL
                             </a>
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjE0cUpjQzRzUDRQWWxSa210VXFHYTJfcHlSaHpMU3hmUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfd29yZHByZXNzLnBkZiJ9" 
-                               target="_blank" class="course-link">
-                               توسعه دهنده سیستم های مدیریت محتوا با WordPress
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjE0cUpjQzRzUDRQWWxSa210VXFHYTJfcHlSaHpMU3hmUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfd29yZHByZXNzLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                توسعه دهنده سیستم های مدیریت محتوا با WordPress
                             </a>
                         </div>
                     </div>
@@ -280,9 +376,9 @@
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFrTGhJWWxsT2t5TFBqeDNCOVFuaU9WSlRLU3lzLU1XQiIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTFfV2ViRGVzaWduLnBkZiJ9" 
-                               target="_blank" class="course-link">
-                               تولید کننده و توسعه دهنده پایگاه های اینترنتی
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFrTGhJWWxsT2t5TFBqeDNCOVFuaU9WSlRLU3lzLU1XQiIsImA2Y291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTFfV2ViRGVzaWduLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                تولید کننده و توسعه دهنده پایگاه های اینترنتی
                             </a>
                         </div>
                     </div>
@@ -293,17 +389,17 @@
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ==" 
-                               target="_blank" class="course-link">
-                               استفاده از مهارت شهروند الکترونیک
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                استفاده از مهارت شهروند الکترونیک
                             </a>
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlpeI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9" 
-                               target="_blank" class="course-link">
-                               کاربر رایانه
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlpeI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                کاربر رایانه
                             </a>
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ==" 
-                               target="_blank" class="course-link">
-                               کاربر اتوماسیون اداری
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                کاربر اتوماسیون اداری
                             </a>
                         </div>
                     </div>
@@ -325,9 +421,9 @@
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtNTJTbmRjRHF4bE9kTzRFUzlxeGo0dDRMWnZvRjhhVCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV9TZGFuZGFyZEFtb3plc2hpLnBkZiJ9" 
-                               target="_blank" class="course-link">
-                               استاندارد رشته تولید محتوای آموزشی الکترونیکی
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtNTJTbmRjRHF4bE9kTzRFUzlxeGo0dDRMWnZvRjhhVCIsImA2Y291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV9TZGFuZGFyZEFtb3plc2hpLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                استاندارد رشته تولید محتوای آموزشی الکترونیکی
                             </a>
                         </div>
                     </div>
@@ -338,13 +434,13 @@
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFaQ0JxalV4V2lxTnFNd1I3MUtYSl9TZWZwMGloWEtTQyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMl9Vc2VyR3JhcGhpY0Vjb250ZW50LnBkZiJ9" 
-                               target="_blank" class="course-link">
-                               کاربر گرافیکی محتوای آموزشی
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFaQ0JxalV4V2lxTnFNd1I3MUtYSl9TZWZwMGloWEtTQyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMl9Vc2VyR3JhcGhpY0Vjb250ZW50LnBkZiJ9"
+                                target="_blank" class="course-link">
+                                کاربر گرافیکی محتوای آموزشی
                             </a>
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFmUTJJSU90Qm44T281bmpyb3JLMWNzcWowSG5xbV9wTSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMl9lQ29udGVudE1ha2VyRm9yZUVkdWNhdGlvbi5wZGYifQ==" 
-                               target="_blank" class="course-link">
-                               محتواساز آموزش الکترونیکی
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFmUTJJSU90Qm44T281bmpyb3JLMWNzcWowSG5xbV9wTSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMl9lQ29udGVudE1ha2VyRm9yZUVkdWNhdGlvbi5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                محتواساز آموزش الکترونیکی
                             </a>
                         </div>
                     </div>
@@ -355,9 +451,9 @@
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjEzdDRTZ01henktOWlEVFZwWXluREVDWUF6VVE5STBoVyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMV9QdWJsaWNFQ29udGVudE1ha2VyLnBkZiJ9" 
-                               target="_blank" class="course-link">
-                               تولید کننده محتوای الکترونیکی عمومی
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjEzdDRTZ01henktOWlEVFZwWXluREVDWUF6VVE5STBoVyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMV9QdWJsaWNFQ29udGVudE1ha2VyLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                تولید کننده محتوای الکترونیکی عمومی
                             </a>
                         </div>
                     </div>
@@ -368,17 +464,17 @@
                             <i class="fas fa-chevron-down transition-transform duration-300"></i>
                         </div>
                         <div class="accordion-content">
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ==" 
-                               target="_blank" class="course-link">
-                               استفاده از مهارت شهروند الکترونیکی
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                استفاده از مهارت شهروند الکترونیکی
                             </a>
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9" 
-                               target="_blank" class="course-link">
-                               کاربر رایانه
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImA2cGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                کاربر رایانه
                             </a>
-                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ==" 
-                               target="_blank" class="course-link">
-                               کاربر اتوماسیون اداری
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                کاربر اتوماسیون اداری
                             </a>
                         </div>
                     </div>
@@ -392,7 +488,7 @@
             <p class="text-justify mb-6">
                 گروه کامپیوتر شهرستان زرین‌دشت با هدف ارتقای سطح آموزش و دسترسی آسان به منابع آموزشی برای هنرجویان و هنرآموزان تشکیل شده است. این گروه با همکاری دبیران متخصص و کارشناسان مجرب، محتوای آموزشی با کیفیت را تولید و در اختیار هنرجویان قرار می‌دهد.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 about-grid">
                 <div class="glass-card p-6 rounded-xl rotate-3d">
                     <i class="fas fa-graduation-cap text-4xl text-purple-400 mb-4"></i>
                     <h3 class="text-xl font-bold mb-2">رشته‌های موجود</h3>
@@ -428,7 +524,7 @@
         <section id="schools" class="glass-card p-8 mx-4 my-8">
             <h2 class="text-2xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">هنرستان‌های شهرستان</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 schools-grid">
                 <!-- School 1 -->
                 <div class="glass-card p-6 rounded-xl hover:shadow-lg transition duration-300">
                     <div class="flex items-center mb-4">
@@ -503,7 +599,39 @@
                         <i class="fas fa-times"></i>
                     </button>
                     <h3 id="modalTitle" class="text-xl font-bold mb-4"></h3>
-                    <div id="modalContent" class="space-y-4"></div>
+                    <div id="modalContent" class="space-y-4">
+                        <!-- School 1 Info -->
+                        <div id="zeynabInfo" class="hidden">
+                            <div class="space-y-2">
+                                <p class="font-medium">مدیر:</p>
+                                <p>فاطمه بروانیا</p>
+                            </div>
+                            <div class="space-y-2 mt-4">
+                                <p class="font-medium">اطلاعات تماس:</p>
+                                <p>تلفن: ۰۷۱۵۳۷۲۴۸۹۵</p>
+                            </div>
+                        </div>
+                                                
+                        <!-- School 2 Info -->
+                        <div id="valfajrInfo" class="hidden">
+                            <div class="space-y-2">
+                                <p class="font-medium">اطلاعات تماس:</p>
+                                <p>تلفن: ۰۷۱۵۳۷۴۳۵۷۸</p>
+                            </div>
+                        </div>
+                                                
+                        <!-- School 3 Info -->
+                        <div id="shahidInfo" class="hidden">
+                            <div class="space-y-2">
+                                <p class="font-medium">مدیر:</p>
+                                <p>فاطمه تروال</p>
+                            </div>
+                            <div class="space-y-2 mt-4">
+                                <p class="font-medium">اطلاعات تماس:</p>
+                                <p>تلفن: ۰۹۱۷۹۳۳۴۹۴۳</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -512,7 +640,7 @@
         <section id="team" class="glass-card p-8 mx-4 my-8">
             <h2 class="text-2xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">اعضای گروه کامپیوتر زرین‌دشت</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 team-grid">
                 <!-- Experts -->
                 <div class="glass-card p-6 rounded-xl">
                     <h3 class="text-xl font-bold mb-4 flex items-center">
@@ -623,23 +751,25 @@
                     <i class="fas fa-book text-purple-400 mr-2"></i>
                     کتاب‌های کاردانش 
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <a href="https://t.me/c/1471422545/1366" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
-                        <p class="font-medium">کتاب واژه پرداز Word 2016</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 resources-grid">
+                    <a href="https://www.softgozar.com" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                        <p class="font-medium">کتاب نرم افزار اداری</p>
+                        <p class="text-sm text-gray-300">Microsoft Access - OneNote</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1367" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
-                        <p class="font-medium">کتاب نرم افزار اداری تکمیلی Microsoft Access - One Note</p>
+                    <a href="http://dl.learninweb.com/learning/onenote2016.exe" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                        <p class="font-medium">دانلود OneNote</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1368" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
-                        <p class="font-medium">کتاب بسته‌های نرم‌افزاری Excel-PowerPoint</p>
+                    <a href="https://dl.yasdl.com/Arash/2018/eBook/PowerPoint.2019.For.Dummies_YasDL.com.rar?" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                        <p class="font-medium">کتاب بسته‌های نرم‌افزاری</p>
+                        <p class="text-sm text-gray-300">Excel-PowerPoint</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1369" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="https://pdn.sharezilla.ir/d/ebook/Information.And.Communication_p30download.com.zip" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">کتاب اطلاعات و ارتباطات</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1370" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1401-1402/693/C311253_0.pdf" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد اول)</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1371" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/693/C311254.pdf" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد دوم)</p>
                     </a>
                 </div>
@@ -651,22 +781,22 @@
                     جزوات دروس فنی و حرفه‌ای
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <a href="https://t.me/c/1471422545/1028" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="https://s18.picofile.com/d/8440744118/ffe47ae1-185b-420f-afb2-60c797708ba6/%D8%AC%D8%B2%D9%88%D9%87_%D8%A7%D9%86%DB%8C%D9%85%DB%8C%D8%AA.pdf" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">جزوه Adobe Animate</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1030" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="https://s31.picofile.com/d/8470329800/8a841a08-4eef-44de-b168-0e80ecc342a5/%D8%AC%D8%B2%D9%88%D9%87_%D8%A7%D9%93%D9%85%D9%88%D8%B2%D8%B4%DB%8C_%D9%BE%D8%B1%DB%8C%D9%85%DB%8C%D8%B1.pdf" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">جزوه Premiere</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1032" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="https://wphelper.ir/wp-content/uploads/2021/11/WordPress-Support-Site-Design-Tutorial.pdf" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">جزوه WordPress</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1041" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="https://sariasan.com/wp-content/uploads/2017/12/excel-1.pdf" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">جزوه Excel 2019</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1042" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1402-1403/598/C210290.pdf" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">بسته آموزشی تولید محتوای الکترونیکی</p>
                     </a>
-                    <a href="https://t.me/c/1471422545/1043" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
+                    <a href="https://gama.ir/test/download/101858/pdf?csrf_token=MTc1MDE1NDkzNzAwNjk4MmJiZjQ5MjYxNjNlY2E2M2IxYzI5NzkxY2JiMDc5ZWI5OWQ4MDRmYzc5YmQxNDY5ZjRjM2U4ZTg4OGQ2NjY0MWZjMTNlMTMxMjlh" target="_blank" class="glass-card p-4 hover:bg-purple-900 transition rounded-lg">
                         <p class="font-medium">جزوه Captivate 2019 (چهار فصل اول)</p>
                     </a>
                 </div>
@@ -689,18 +819,55 @@
             </div>
         </section>
         
+        <!-- Support Section -->
+        <section id="support" class="glass-card p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">ارتباط با پشتیبانی</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 support-grid">
+                <!-- WhatsApp Support -->
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fab fa-whatsapp text-5xl text-green-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">پشتیبانی من طریق واتساپ</h3>
+                        <p class="text-gray-300 mb-4">برای ارتباط مستقیم با پشتیبانی از طریق واتساپ روی دکمه زیر کلیک کنید</p>
+                        <a href="https://wa.me/989372565994?text=سلام%20وقت%20بخیر"
+                            target="_blank"
+                            class="px-6 py-3 rounded-full font-medium whatsapp-btn">
+                            <i class="fab fa-whatsapp ml-2"></i>
+                            ارتباط از طریق واتساپ
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Telegram Channel -->
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fab fa-telegram text-5xl text-blue-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">کانال تلگرام فن آموز زرین</h3>
+                        <p class="text-gray-300 mb-4">برای عضویت در کانال تلگرام ما روی دکمه زیر کلیک کنید</p>
+                        <a href="https://t.me/cszarindasht"
+                            target="_blank"
+                            class="px-6 py-3 rounded-full font-medium telegram-btn">
+                            <i class="fab fa-telegram ml-2"></i>
+                            عضویت در کانال تلگرام
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Footer -->
         <footer class="glass-card p-6 mx-4 mt-8 mb-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col md:flex-row justify-between items-center footer-content">
                 <div class="mb-4 md:mb-0">
                     <p class="text-sm text-gray-300"> گروه کامپیوتر زرین‌دشت - استان فارس</p>
                 </div>
                 
-                <div class="flex space-x-6 space-x-reverse">
-                    <a href="#" class="text-gray-300 hover:text-white">
+                <div class="flex space-x-6 space-x-reverse footer-links">
+                    <a href="https://t.me/cszarindasht" target="_blank" class="text-gray-300 hover:text-white">
                         <i class="fab fa-telegram text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-300 hover:text-white">
+                    <a href="mailto:support@example.com" class="text-gray-300 hover:text-white">
                         <i class="fas fa-envelope text-xl"></i>
                     </a>
                 </div>
@@ -743,58 +910,23 @@
         function showMoreInfo(school) {
             const modal = document.getElementById('moreInfoModal');
             const title = document.getElementById('modalTitle');
-            const content = document.getElementById('modalContent');
             
             modal.classList.remove('hidden');
             
+            // Hide all info sections first
+            document.querySelectorAll('#modalContent > div').forEach(div => {
+                div.classList.add('hidden');
+            });
+            
             if (school === 'zeynab') {
                 title.textContent = 'هنرستان زینب کبری حاجی آباد';
-                content.innerHTML = `
-                    <div class="space-y-2">
-                        <p class="font-medium">رشته‌های فعال:</p>
-                        <ul class="list-disc pr-5 space-y-1">
-                            <li>رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</li>
-                            <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                            <li>رشته خیاطی لباس شب و عروس (کاردانش)</li>
-                        </ul>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="font-medium">اطلاعات تماس:</p>
-                        <p>آدرس: شهرستان زرین‌دشت، حاجی‌آباد</p>
-                        <p>تلفن: ۰۷۱-۳۴۵۶۷۸۹</p>
-                    </div>
-                `;
+                document.getElementById('zeynabInfo').classList.remove('hidden');
             } else if (school === 'valfajr') {
                 title.textContent = 'هنرستان والفجر شهرپیر';
-                content.innerHTML = `
-                    <div class="space-y-2">
-                        <p class="font-medium">رشته‌های فعال:</p>
-                        <ul class="list-disc pr-5 space-y-1">
-                            <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                            <li>رشته حسابداری (فنی و حرفه‌ای)</li>
-                        </ul>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="font-medium">اطلاعات تماس:</p>
-                        <p>آدرس: شهرستان زرین‌دشت، شهرپیر</p>
-                        <p>تلفن: ۰۷۱-۳۴۵۶۱۲۳</p>
-                    </div>
-                `;
+                document.getElementById('valfajrInfo').classList.remove('hidden');
             } else if (school === 'shahid') {
                 title.textContent = 'هنرستان شهید پاکیزه خو';
-                content.innerHTML = `
-                    <div class="space-y-2">
-                        <p class="font-medium">رشته‌های فعال:</p>
-                        <ul class="list-disc pr-5 space-y-1">
-                            <li>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                        </ul>
-                    </div>
-                    <div class="space-y-2">
-                        <p class="font-medium">اطلاعات تماس:</p>
-                        <p>آدرس: شهرستان زرین‌دشت، مرکز شهر</p>
-                        <p>تلفن: ۰۷۱-۳۴۵۶۹۸۷</p>
-                    </div>
-                `;
+                document.getElementById('shahidInfo').classList.remove('hidden');
             }
         }
         
