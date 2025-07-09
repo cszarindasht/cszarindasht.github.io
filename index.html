@@ -323,9 +323,18 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
+        @media (max-width: 1024px) {
+            .grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+            .glass-effect {
+                padding: 12px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .glass-menu {
-                width: 80%;
+                width: 75%;
             }
             .section-title:after {
                 width: 70px;
@@ -344,22 +353,45 @@
             .grid {
                 grid-template-columns: 1fr !important;
             }
-            .pdf-card, .glass-effect {
+            .glass-effect {
                 margin: 0 auto;
-                max-width: 100%;
+                max-width: 90%;
+            }
+            .text-3xl {
+                font-size: 1.875rem !important;
+            }
+            .text-2xl {
+                font-size: 1.5rem !important;
+            }
+            .text-xl {
+                font-size: 1.25rem !important;
             }
         }
         
         @media (max-width: 480px) {
             .logo-img {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
+            }
+            .glass-menu {
+                width: 85%;
             }
             .text-3xl {
                 font-size: 1.5rem !important;
             }
+            .text-2xl {
+                font-size: 1.25rem !important;
+            }
             .text-xl {
                 font-size: 1rem !important;
+            }
+            .glass-effect {
+                padding: 8px;
+                max-width: 95%;
+            }
+            .menu-item {
+                padding: 10px 12px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -369,7 +401,7 @@
     
     <div class="fixed top-0 left-0 w-full bg-amber-50/80 backdrop-blur-sm z-50 p-4 flex justify-center">
         <div class="logo-container">
-            <img src="photo19676842511.jpg" alt="لوگوی گروه کامپیوتر زرین‌دشت" class="logo-img">
+            <img src="logo-computer.jpg" alt="لوگوی گروه کامپیوتر زرین‌دشت" class="logo-img">
             <div class="logo-text">
                 <h1 class="text-2xl font-bold text-amber-800">گروه کامپیوتر زرین‌دشت</h1>
                 <p class="text-sm text-amber-600">استان فارس | سال تحصیلی ۱۴۰۳ - ۱۴۰۴</p>
@@ -393,7 +425,7 @@
     
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <div id="main-container" class="min-h-screen flex flex-col pt-24">
+    <div id="main-container" class="min-h-screen flex flex-col pt-24 px-4">
         <section class="flex-grow flex items-center justify-center px-4 py-12">
             <div class="glass-effect p-8 max-w-4xl w-full text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-amber-800">
