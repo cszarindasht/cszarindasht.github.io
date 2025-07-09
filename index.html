@@ -1,55 +1,1079 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>گروه کامپیوتر زرین‌دشت</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>گروه کامپیوتر آموزش پرورش زرین‌دشت</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #f5f5dc 0%, #f8f8f8 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.2);
+        }
+        
+        .meteor {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #a67c52;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(166, 124, 82, 0.8);
+            animation: meteor-fall linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes meteor-fall {
+            0% {
+                transform: translateY(-100vh) translateX(0);
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        .jelly-effect {
+            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        .active {
+            position: relative;
+        }
+        
+        .active::after {
+            content: "فعال";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #8B4513;
+            color: white;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(139, 69, 19, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(139, 69, 19, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(139, 69, 19, 0);
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(166, 124, 82, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(166, 124, 82, 0.3);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(166, 124, 82, 0.5);
+        }
+        
+        /* Text selection */
+        ::selection {
+            background: rgba(139, 69, 19, 0.5);
+            color: white;
+        }
+        
+        /* Smooth transitions */
+        a, button {
+            transition: all 0.3s ease;
+        }
+        
+        /* Accordion styles */
+        .accordion-item {
+            margin-bottom: 10px;
+        }
+        
+        .accordion-header {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #d2b48c;
+        }
+        
+        .accordion-header:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .accordion-content.show {
+            max-height: 500px;
+            padding: 15px;
+        }
+        
+        .course-link {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: 1px solid #d2b48c;
+        }
+        
+        .course-link:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: translateX(-5px);
+        }
+        
+        /* PDF Card Styles */
+        .pdf-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 69, 19, 0.5);
+        }
+        
+        .pdf-icon {
+            font-size: 3rem;
+            color: #8B4513;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+        
+        /* Telegram Button */
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .telegram-btn:hover {
+            background: #006699;
+            transform: scale(1.05);
+        }
+        
+        /* Hamburger Menu */
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+        }
+        
+        .hamburger-line {
+            width: 100%;
+            height: 3px;
+            background-color: #8B4513;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-menu.open .hamburger-line:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        
+        .hamburger-menu.open .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-menu.open .hamburger-line:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+        
+        /* Glass Menu */
+        .glass-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+            padding: 80px 20px 20px;
+            overflow-y: auto;
+        }
+        
+        .glass-menu.open {
+            transform: translateX(0);
+        }
+        
+        .menu-item {
+            display: block;
+            padding: 12px 16px;
+            margin: 8px 0;
+            color: #5a3e36;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            background: rgba(139, 69, 19, 0.1);
+            color: #8B4513;
+            transform: translateX(5px);
+        }
+        
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* Section title */
+        .section-title {
+            color: #8B4513;
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #d2b48c, transparent);
+        }
+        
+        /* Logo styles */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-left: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #5a3e36;
+        }
+        
+        .logo-subtitle {
+            font-size: 0.8rem;
+            color: #a67c52;
+        }
+        
+        .btn-hover {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .glass-menu {
+                width: 80%;
+            }
+            
+            .section-title:after {
+                width: 70px;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-icon {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
-<body>
-  <!-- Navigation Header -->
-  <nav class="glass-nav">
-    <div class="nav-container">
-      <!-- Logo -->
-      <div class="logo">
-        <img src="attached_assets/اموزش_پرورش-removebg-preview_1751300273656.png" alt="لوگو گروه کامپیوتر" class="logo-img">
-      </div>
-      
-      <!-- Hamburger Menu -->
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+<body class="relative">
+    <div id="meteors-container"></div>
+    
+    <!-- Floating objects -->
+    <div class="absolute top-20 left-10 w-16 h-16 rounded-full bg-amber-200 opacity-20 floating"></div>
+    <div class="absolute bottom-40 right-20 w-24 h-24 rounded-full bg-amber-100 opacity-20 floating" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/3 right-1/4 w-20 h-20 rounded-full bg-amber-50 opacity-20 floating" style="animation-delay: 2s;"></div>
+    
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
     </div>
     
-    <!-- Dropdown Menu -->
-    <div class="dropdown-menu" id="dropdownMenu">
-      <div class="menu-content">
-        <a href="info.html#team" class="menu-item">اعضای گروه</a>
-        <a href="info.html#schools" class="menu-item">هنرستان‌های شهرستان</a>
-        <a href="info.html#reports" class="menu-item">گزارش عملکرد</a>
-        <a href="info.html#resources" class="menu-item">منابع آموزشی</a>
-        <a href="info.html#support" class="menu-item">ارتباط با پشتیبانی</a>
-        <a href="fit.html" class="menu-item">صفحه Fit</a>
-      </div>
+    <!-- Glass Menu -->
+    <div class="glass-menu" id="glassMenu">
+        <a href="#team" class="menu-item" onclick="navigateToSection('team')">
+            <i class="fas fa-users ml-2"></i>
+            اعضای گروه
+        </a>
+        <a href="#schools" class="menu-item" onclick="navigateToSection('schools')">
+            <i class="fas fa-school ml-2"></i>
+            هنرستان‌های شهرستان
+        </a>
+        <a href="#reports" class="menu-item" onclick="navigateToSection('reports')">
+            <i class="fas fa-chart-line ml-2"></i>
+            گزارش عملکرد
+        </a>
+        <a href="#resources" class="menu-item" onclick="navigateToSection('resources')">
+            <i class="fas fa-book ml-2"></i>
+            منابع آموزشی
+        </a>
+        <a href="#support" class="menu-item" onclick="navigateToSection('support')">
+            <i class="fas fa-headset ml-2"></i>
+            ارتباط با پشتیبانی
+        </a>
     </div>
-  </nav>
+    
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
 
-  <!-- Main Content -->
-  <main class="main-content">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <h1 class="main-title">گروه کامپیوتر زرین‌دشت</h1>
-        <h2 class="sub-title">مستقر در استان فارس | سال تحصیلی ۱۴۰۳ - ۱۴۰۴</h2>
-        <a href="info.html" class="info-button">ورود به اطلاعات</a>
-      </div>
-    </section>
-  </main>
+    <!-- Main container -->
+    <div id="main-container" class="min-h-screen flex flex-col">
+        <!-- Hero Section -->
+        <section class="flex-grow flex items-center justify-center px-4 py-12">
+            <div class="glass-effect p-8 max-w-4xl w-full text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-amber-800">
+                    وبسایت آموزشی گروه کامپیوتر زرین‌دشت
+                </h2>
+                <p class="text-lg mb-8 text-gray-700">
+                    این وب‌سایت به همت گروه آموزشی کامپیوتر شهرستان زرین‌دشت (استان فارس) و با هدف سامان‌دهی، آرشیو و تسهیل دسترسی هنرآموزان، هنرجویان، و مسئولان آموزشی به محتوای تخصصی دروس فنی‌وحرفه‌ای و کاردانش راه‌اندازی شده است
+                </p>
+                <a href="#team" onclick="navigateToSection('team')" class="btn-hover inline-block bg-gradient-to-r from-amber-600 to-amber-800 text-white text-lg font-medium py-3 px-8 rounded-full shadow-lg">
+                    ورود به اطلاعات
+                </a>
+            </div>
+        </section>
+        
+        <!-- Fields of Study Section -->
+        <section id="fields" class="glass-effect p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-amber-800 section-title">رشته‌های فعال</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Web Development Field -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold flex items-center text-amber-700">
+                            <i class="fas fa-code text-amber-600 mr-2"></i>
+                            تولید‌کننده و توسعه‌دهنده پایگاه‌های اینترنتی
+                        </h3>
+                        <span class="active"></span>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>استاندارد رشته</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0="
+                                target="_blank" class="course-link">
+                                استاندارد رشته تولید‌کننده و توسعه‌دهنده پایگاه‌های اینترنتی
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>دروس پایه ۱۲</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA5MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0="
+                                target="_blank" class="course-link">
+                                توسعه دهنده صفحات وب با PHP و MySQL
+                            </a>
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjE0cUpjQzRzUDRQWWxSa210VXFHYTJfcHlSaHpMU3hmUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfd29yZHByZXNzLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                توسعه دهنده سیستم های مدیریت محتوا با WordPress
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>دروس پایه ۱۱</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFrTGhJWWxsT2t5TFBqeDNCOVFuaU9WSlRLU3lzLU1XQiIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTFfV2ViRGVzaWduLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                تولید کننده و توسعه دهنده پایگاه های اینترنتی
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>دروس پایه ۱۰</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                استفاده از مهارت شهروند الکترونیک
+                            </a>
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                کاربر رایانه
+                            </a>
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                کاربر اتوماسیون اداری
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- E-Content Development Field -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold flex items-center text-amber-700">
+                            <i class="fas fa-laptop-code text-amber-600 mr-2"></i>
+                            تولید محتوای آموزشی الکترونیکی
+                        </h3>
+                        <span class="active"></span>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>استاندارد رشته</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtNTJTbmRjRHF4bE9kTzRFUzlxeGo0dDRMWnZvRjhhVCIsImFjY291bnRJZCI6IjA5MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV9TZGFuZGFyZEFtb3plc2hpLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                استاندارد رشته تولید محتوای آموزشی الکترونیکی
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>دروس پایه ۱۲</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFaQ0JxalV4V2lxTnFNd1I3MUtYSl9TZWZwMGloWEtTQyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMl9Vc2VyR3JhcGhpY0Vjb250ZW50LnBkZiJ9"
+                                target="_blank" class="course-link">
+                                کاربر گرافیکی محتوای آموزشی
+                            </a>
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFmUTJJSU90Qm44T281bmpyb3JLMWNzcWowSG5xbV9wTSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMl9lQ29udGVudE1ha2VyRm9yZUVkdWNhdGlvbi5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                محتواساز آموزش الکترونیکی
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>دروس پایه ۱۱</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjEzdDRTZ01henktOWlEVFZwWXluREVDWUF6VVE5STBoVyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV8xMV9QdWJsaWNFQ29udGVudE1ha2VyLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                تولید کننده محتوای الکترونیکی عمومی
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>دروس پایه ۱۰</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA5MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                استفاده از مهارت شهروند الکترونیکی
+                            </a>
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9"
+                                target="_blank" class="course-link">
+                                کاربر رایانه
+                            </a>
+                            <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ=="
+                                target="_blank" class="course-link">
+                                کاربر اتوماسیون اداری
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Schools Section -->
+        <section id="schools" class="glass-effect p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-amber-800 section-title">هنرستان‌های شهرستان</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- School 1 -->
+                <div class="glass-effect p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-school text-3xl text-amber-600 mr-3"></i>
+                        <h3 class="text-xl font-bold text-amber-700">هنرستان زینب کبری حاجی آباد</h3>
+                    </div>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-amber-600 ml-2"></i>
+                            <span>رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-amber-600 ml-2"></i>
+                            <span>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-amber-600 ml-2"></i>
+                            <span>رشته خیاطی لباس شب و عروس (کاردانش)</span>
+                        </li>
+                    </ul>
+                    <button onclick="showMoreInfo('zeynab')" class="text-amber-700 hover:text-amber-900 text-sm flex items-center">
+                        اطلاعات بیشتر
+                        <i class="fas fa-chevron-left mr-1"></i>
+                    </button>
+                </div>
+                
+                <!-- School 2 -->
+                <div class="glass-effect p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-school text-3xl text-amber-600 mr-3"></i>
+                        <h3 class="text-xl font-bold text-amber-700">هنرستان والفجر شهرپیر</h3>
+                    </div>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-amber-600 ml-2"></i>
+                            <span>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-amber-600 ml-2"></i>
+                            <span>رشته حسابداری (فنی و حرفه‌ای)</span>
+                        </li>
+                    </ul>
+                    <button onclick="showMoreInfo('valfajr')" class="text-amber-700 hover:text-amber-900 text-sm flex items-center">
+                        اطلاعات بیشتر
+                        <i class="fas fa-chevron-left mr-1"></i>
+                    </button>
+                </div>
+                
+                <!-- School 3 -->
+                <div class="glass-effect p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-school text-3xl text-amber-600 mr-3"></i>
+                        <h3 class="text-xl font-bold text-amber-700">هنرستان شهید پاکیزه خو</h3>
+                    </div>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-amber-600 ml-2"></i>
+                            <span>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</span>
+                        </li>
+                    </ul>
+                    <button onclick="showMoreInfo('shahid')" class="text-amber-700 hover:text-amber-900 text-sm flex items-center">
+                        اطلاعات بیشتر
+                        <i class="fas fa-chevron-left mr-1"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- More Info Modal -->
+            <div id="moreInfoModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+                <div class="glass-effect p-6 max-w-md w-full mx-4 relative">
+                    <button onclick="closeMoreInfo()" class="absolute top-4 left-4 text-gray-600 hover:text-amber-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h3 id="modalTitle" class="text-xl font-bold mb-4 text-amber-800"></h3>
+                    <div id="modalContent" class="space-y-4">
+                        <!-- School 1 Info -->
+                        <div id="zeynabInfo" class="hidden">
+                            <div class="space-y-2">
+                                <p class="font-medium text-amber-700">مدیر:</p>
+                                <p class="text-gray-700">فاطمه بروانیا</p>
+                            </div>
+                            <div class="space-y-2 mt-4">
+                                <p class="font-medium text-amber-700">اطلاعات تماس:</p>
+                                <p class="text-gray-700">تلفن: ۰۷۱۵۳۷۲۴۸۹۵</p>
+                            </div>
+                        </div>
+                        
+                        <!-- School 2 Info -->
+                        <div id="valfajrInfo" class="hidden">
+                            <div class="space-y-2">
+                                <p class="font-medium text-amber-700">مدیر:</p>
+                                <p class="text-gray-700">زهرا پوررستمی</p>
+                            </div>
+                            <div class="space-y-2 mt-4">
+                                <p class="font-medium text-amber-700">اطلاعات تماس:</p>
+                                <p class="text-gray-700">تلفن: ۰۷۱۵۳۷۴۳۵۷۸</p>
+                            </div>
+                        </div>
+                        
+                        <!-- School 3 Info -->
+                        <div id="shahidInfo" class="hidden">
+                            <div class="space-y-2">
+                                <p class="font-medium text-amber-700">مدیر:</p>
+                                <p class="text-gray-700">فاطمه تروال</p>
+                            </div>
+                            <div class="space-y-2 mt-4">
+                                <p class="font-medium text-amber-700">اطلاعات تماس:</p>
+                                <p class="text-gray-700">تلفن: ۰۹۱۷۹۳۳۴۹۴۳</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section id="team" class="glass-effect p-8 mx-4 my-8">
+            <div class="logo-container">
+                <i class="fas fa-laptop-code logo-icon"></i>
+                <div class="logo-text">
+                    <h1 class="logo-title">گروه کامپیوتر زرین‌دشت</h1>
+                    <p class="logo-subtitle">استان فارس | سال تحصیلی ۱۴۰۳ - ۱۴۰۴</p>
+                </div>
+            </div>
+            <h2 class="text-2xl font-bold mb-8 text-center text-amber-800 section-title">اعضای گروه کامپیوتر زرین‌دشت</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Experts -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-amber-700">
+                        <i class="fas fa-user-tie text-amber-600 mr-2"></i>
+                        کارشناسان
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <p class="font-medium text-gray-700">محمدامین ابراهیمی</p>
+                            <p class="text-sm text-gray-600">کارشناس فنی حرفه‌ای و کاردانش</p>
+                        </li>
+                        <li>
+                            <p class="font-medium text-gray-700">حمید رضایی</p>
+                            <p class="text-sm text-gray-600">کارشناس آموزش</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Head -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-amber-700">
+                        <i class="fas fa-user-shield text-amber-600 mr-2"></i>
+                        سرگروه
+                    </h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <p class="font-medium text-gray-700">فاطمه معتمد</p>
+                            <p class="text-sm text-gray-600">سرگروه کامپیوتر زرین‌دشت</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Teachers -->
+                <div class="glass-effect p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-amber-700">
+                        <i class="fas fa-chalkboard-teacher text-amber-600 mr-2"></i>
+                        هنرآموزان
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><p class="font-medium text-gray-700">شهره پورغلام</p></li>
+                        <li><p class="font-medium text-gray-700">عبدالمحسن راستی</p></li>
+                        <li><p class="font-medium text-gray-700">فاطمه معتمد</p></li>
+                        <li><p class="font-medium text-gray-700">اسما گل نژاد</p></li>
+                        <li><p class="font-medium text-gray-700">فاطمه رحمانی</p></li>
+                        <li><p class="font-medium text-gray-700">زینت راستگو</p></li>
+                        <li><p class="font-medium text-gray-700">فرج نظری</p></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Resources Section -->
+        <section id="resources" class="glass-effect p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-amber-800 section-title">منابع آموزشی</h2>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-4 flex items-center text-amber-700">
+                    <i class="fas fa-book text-amber-600 mr-2"></i>
+                    کتاب‌های کاردانش
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="https://www.softgozar.com" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">کتاب نرم افزار اداری</p>
+                        <p class="text-sm text-gray-600">Microsoft Access - OneNote</p>
+                    </a>
+                    <a href="http://dl.learninweb.com/learning/onenote2016.exe" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">دانلود OneNote</p>
+                    </a>
+                    <a href="https://dl.yasdl.com/Arash/2018/eBook/PowerPoint.2019.For.Dummies_YasDL.com.rar?" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">کتاب بسته‌های نرم‌افزاری</p>
+                        <p class="text-sm text-gray-600">Excel-PowerPoint</p>
+                    </a>
+                    <a href="https://pdn.sharezilla.ir/d/ebook/Information.And.Communication_p30download.com.zip" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">کتاب اطلاعات و ارتباطات</p>
+                    </a>
+                    <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1401-1402/693/C311253_0.pdf" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد اول)</p>
+                    </a>
+                    <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/693/C311254.pdf" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد دوم)</p>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-4 flex items-center text-amber-700">
+                    <i class="fas fa-file-alt text-amber-600 mr-2"></i>
+                    جزوات دروس فنی و حرفه‌ای
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="https://s18.picofile.com/d/8440744118/ffe47ae1-185b-420f-afb2-60c797708ba6/%D8%AC%D8%B2%D9%88%D9%87_%D8%A7%D9%86%DB%8C%D9%85%DB%8C%D8%AA.pdf" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">جزوه Adobe Animate</p>
+                    </a>
+                    <a href="https://s31.picofile.com/d/8470329800/8a841a08-4eef-44de-b168-0e80ecc342a5/%D8%AC%D8%B2%D9%88%D9%87_%D8%A7%D9%93%D9%85%D9%88%D8%B2%D8%B4%DB%8C_%D9%BE%D8%B1%DB%8C%D9%85%DB%8C%D8%B1.pdf" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">جزوه Premiere</p>
+                    </a>
+                    <a href="https://wphelper.ir/wp-content/uploads/2021/11/WordPress-Support-Site-Design-Tutorial.pdf" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">جزوه WordPress</p>
+                    </a>
+                    <a href="https://sariasan.com/wp-content/uploads/2017/12/excel-1.pdf" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">جزوه Excel 2019</p>
+                    </a>
+                    <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1402-1403/598/C210290.pdf" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">بسته آموزشی تولید محتوای الکترونیکی</p>
+                    </a>
+                    <a href="https://gama.ir/test/download/101858/pdf?csrf_token=MTc1MDE1NDkzNzAwNjk4MmJiZjQ5MjYxNjNlY2E2M2IxYzI5NzkxY2JiMDc5ZWI5OWQ4MDRmYzc5YmQxNDY5ZjRjM2U4ZTg4OGQ2NjY0MWZjMTNlMTMxMjlh" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">جزوه Captivate 2019 (چهار فصل اول)</p>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center text-amber-700">
+                    <i class="fas fa-link text-amber-600 mr-2"></i>
+                    لینک‌های مفید
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="https://zncd.ir" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">وب‌سایت دبیرخانه راهبری کامپیوتر</p>
+                        <p class="text-sm text-gray-600">مستقر در زنجان</p>
+                    </a>
+                    <a href="chap.sch.ir" target="_blank" class="glass-effect p-4 hover:bg-amber-100 transition rounded-lg border border-amber-200">
+                        <p class="font-medium text-gray-700">سایت دفتر تالیف و چاپ</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Annual Reports Section -->
+        <section id="reports" class="glass-effect p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-amber-800 section-title">گزارش عملکرد سالانه شهرستان زرین‌دشت</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Report 1 -->
+                <div class="glass-effect p-6 rounded-xl pdf-card border border-amber-200">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-file-pdf pdf-icon mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-amber-700">گزارش عملکرد سال تحصیلی 1402-1403</h3>
+                        <p class="text-gray-600 mb-4">گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت</p>
+                        <a href="https://drive.google.com/file/d/1kgTuGpCg3mjpKZlVtE-HqPl0UCj3q0CH/view?usp=drive_link"
+                            target="_blank"
+                            class="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition">
+                            دانلود گزارش
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Report 2 -->
+                <div class="glass-effect p-6 rounded-xl pdf-card border border-amber-200">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-file-pdf pdf-icon mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-amber-700">گزارش عملکرد سال تحصیلی 1403-1404</h3>
+                        <p class="text-gray-600 mb-4">گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت</p>
+                        <a href="https://drive.google.com/file/d/1VmS2ojUfDgiTjMhguMdUlGNIqgtmNmYm/view?usp=drive_link"
+                            target="_blank"
+                            class="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition">
+                            دانلود گزارش (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-gray-600">شما می‌توانید فایل‌های PDF گزارش‌های عملکرد را در این بخش بارگذاری کنید.</p>
+            </div>
+        </section>
+        
+        <!-- Support Section -->
+        <section id="support" class="glass-effect p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-amber-800 section-title">ارتباط با پشتیبانی</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- WhatsApp Support -->
+                <div class="glass-effect p-6 rounded-xl border border-amber-200">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fab fa-whatsapp text-5xl text-green-500 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-amber-700">پشتیبانی از طریق واتساپ</h3>
+                        <p class="text-gray-600 mb-4">برای ارتباط مستقیم با پشتیبانی از طریق واتساپ روی دکمه زیر کلیک کنید</p>
+                        <a href="https://wa.me/989372565994?text=سلام%20وقت%20بخیر"
+                           target="_blank"
+                           class="px-6 py-3 rounded-full font-medium whatsapp-btn">
+                            <i class="fab fa-whatsapp ml-2"></i>
+                            ارتباط از طریق واتساپ
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Telegram Channel -->
+                <div class="glass-effect p-6 rounded-xl border border-amber-200">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fab fa-telegram text-5xl text-blue-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-amber-700">کانال تلگرام فن آموز زرین</h3>
+                        <p class="text-gray-600 mb-4">برای عضویت در کانال تلگرام ما روی دکمه زیر کلیک کنید</p>
+                        <a href="https://t.me/cszarindasht"
+                           target="_blank"
+                           class="px-6 py-3 rounded-full font-medium telegram-btn">
+                            <i class="fab fa-telegram ml-2"></i>
+                            عضویت در کانال تلگرام
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="glass-effect p-6 mx-4 mt-8 mb-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-gray-600">گروه کامپیوتر زرین‌دشت - استان فارس</p>
+                </div>
+                
+                <div class="flex space-x-6 space-x-reverse">
+                    <a href="https://t.me/cszarindasht" target="_blank" class="text-gray-600 hover:text-amber-700">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                    <a href="mailto:support@example.com" class="text-gray-600 hover:text-amber-700">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-amber-200 text-center text-sm text-gray-500">
+                <p>توسعه دهنده پایگاه اینترنتی: رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی</p>
+                <p class="mt-2">تولید محتوای آموزشی الکترونیک: رشته تولید محتوای آموزشی الکترونیکی</p>
+            </div>
+        </footer>
+    </div>
 
-  <script src="script.js"></script>
+    <script>
+        // Create meteors
+        function createMeteors() {
+            const container = document.getElementById('meteors-container');
+            const count = 10;
+            
+            for (let i = 0; i < count; i++) {
+                const meteor = document.createElement('div');
+                meteor.className = 'meteor';
+                
+                // Random position
+                const left = Math.random() * 100;
+                meteor.style.left = `${left}%`;
+                
+                // Random delay
+                const delay = Math.random() * 10;
+                meteor.style.animationDelay = `${delay}s`;
+                
+                // Random duration
+                const duration = 3 + Math.random() * 5;
+                meteor.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(meteor);
+            }
+        }
+        
+        // School more info
+        function showMoreInfo(school) {
+            const modal = document.getElementById('moreInfoModal');
+            const title = document.getElementById('modalTitle');
+            
+            modal.classList.remove('hidden');
+            
+            // Hide all info sections first
+            document.querySelectorAll('#modalContent > div').forEach(div => {
+                div.classList.add('hidden');
+            });
+            
+            if (school === 'zeynab') {
+                title.textContent = 'هنرستان زینب کبری حاجی آباد';
+                document.getElementById('zeynabInfo').classList.remove('hidden');
+            } else if (school === 'valfajr') {
+                title.textContent = 'هنرستان والفجر شهرپیر';
+                document.getElementById('valfajrInfo').classList.remove('hidden');
+            } else if (school === 'shahid') {
+                title.textContent = 'هنرستان شهید پاکیزه خو';
+                document.getElementById('shahidInfo').classList.remove('hidden');
+            }
+        }
+        
+        function closeMoreInfo() {
+            document.getElementById('moreInfoModal').classList.add('hidden');
+        }
+        
+        // Accordion functionality
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            
+            // Toggle content
+            content.classList.toggle('show');
+            
+            // Rotate icon
+            if (content.classList.contains('show')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Hamburger Menu functionality
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const glassMenu = document.getElementById('glassMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        
+        function toggleMenu() {
+            hamburgerMenu.classList.toggle('open');
+            glassMenu.classList.toggle('open');
+            menuOverlay.classList.toggle('open');
+        }
+        
+        function closeMenu() {
+            hamburgerMenu.classList.remove('open');
+            glassMenu.classList.remove('open');
+            menuOverlay.classList.remove('open');
+        }
+        
+        hamburgerMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+        
+        // Navigate to section
+        function navigateToSection(sectionId) {
+            closeMenu();
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 300);
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createMeteors();
+            
+            // Open first accordion by default
+            const firstAccordion = document.querySelector('.accordion-header');
+            if (firstAccordion) {
+                toggleAccordion(firstAccordion);
+            }
+        });
+    </script>
 </body>
 </html>
