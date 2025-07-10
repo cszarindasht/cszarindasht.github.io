@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وبسایت گروه کامپیوتر زرین‌دشت</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #003366 0%, #006699 100%);
+            color: #f0f0f0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            perspective: 1000px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .glass-card {
+            background: rgba(0, 51, 102, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+        
+        .meteor {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 5px 1px #fff;
+            animation: meteor-fall linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes meteor-fall {
+            0% { transform: translateY(-100vh) translateX(0); opacity: 1; }
+            70% { opacity: 0.8; }
+            100% { transform: translateY(100vh) translateX(50px); opacity: 0; }
+        }
+        
+        .jelly-effect {
+            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        
+        .active {
+            position: relative;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .rotate-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+        
+        .rotate-3d:hover {
+            transform: rotateY(20deg);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 102, 153, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 102, 153, 0.3);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 102, 153, 0.5);
+        }
+        
+        ::selection {
+            background: rgba(0, 204, 204, 0.5);
+            color: white;
+        }
+        
+        a, button {
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-item {
+            margin-bottom: 8px;
+        }
+        
+        .accordion-header {
+            background: rgba(0, 51, 102, 0.9);
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #f0f0f0;
+            font-size: 14px;
+        }
+        
+        .accordion-header:hover {
+            background: rgba(0, 51, 102, 0.7);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(0, 51, 102, 0.5);
+            border-radius: 0 0 8px 8px;
+            color: #f0f0f0;
+            font-size: 13px;
+            padding: 0 12px;
+        }
+        
+        .accordion-content.show {
+            max-height: 400px;
+            padding: 12px;
+        }
+        
+        .course-link {
+            display: block;
+            padding: 8px;
+            margin: 4px 0;
+            background: rgba(0, 51, 102, 0.6);
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #f0f0f0;
+            font-size: 13px;
+            text-decoration: none;
+        }
+        
+        .course-link:hover {
+            background: rgba(0, 51, 102, 0.8);
+            transform: translateX(-5px);
+        }
+        
+        .pdf-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .pdf-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 204, 204, 0.5);
+        }
+        
+        .pdf-icon {
+            font-size: 2.5rem;
+            color: #00cccc;
+        }
+        
+        .whatsapp-btn {
+            background: #00cccc;
+            color: white;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #009999;
+            transform: scale(1.05);
+        }
+        
+        .telegram-btn {
+            background: #00cccc;
+            color: white;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .telegram-btn:hover {
+            background: #009999;
+            transform: scale(1.05);
+        }
+        
+        .sms-btn {
+            background: #00cccc;
+            color: white;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+        
+        .sms-btn:hover {
+            background: #009999;
+            transform: scale(1.05);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .hamburger div {
+            width: 20px;
+            height: 2px;
+            background-color: #f0f0f0;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100vh;
+            background: rgba(0, 51, 102, 0.9);
+            z-index: 1000;
+            padding: 16px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+            transform: translateX(0);
+        }
+        
+        .mobile-menu a {
+            display: block;
+            padding: 12px;
+            color: #f0f0f0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 14px;
+        }
+        
+        .mobile-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-size: 20px;
+            color: #f0f0f0;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        
+        .section-title {
+            color: #ffffff; /* تغییر از amber-800 به سفید */
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 2px;
+            background: #ffffff; /* تغییر از amber-800 به سفید */
+        }
+        
+        /* Media Queries */
+        @media (max-width: 640px) { /* Mobile */
+            .hamburger { display: block; }
+            nav { display: none; }
+            .logo { width: 80px; height: auto; }
+            header .flex { flex-direction: column; text-align: center; }
+            header h1 { font-size: 1.5rem; }
+            header p { font-size: 0.9rem; }
+            section { padding: 10px; }
+            .glass-card { padding: 10px; border-radius: 10px; }
+            h2 { font-size: 1.5rem; }
+            p { font-size: 0.9rem; }
+            .accordion-header { font-size: 12px; padding: 8px; }
+            .accordion-content { font-size: 11px; padding: 8px; }
+            .course-link { font-size: 11px; padding: 6px; }
+            .pdf-icon { font-size: 2rem; }
+            .whatsapp-btn, .telegram-btn, .sms-btn { font-size: 12px; padding: 6px 12px; }
+            .mobile-menu { width: 80%; }
+            .grid-cols-1 { grid-template-columns: 1fr; }
+            .grid-cols-2 { grid-template-columns: 1fr; }
+            .grid-cols-3 { grid-template-columns: 1fr; }
+            .container { width: 100%; padding: 0 10px; }
+        }
+        
+        @media (min-width: 641px) and (max-width: 1024px) { /* Tablet */
+            .hamburger { display: block; }
+            nav { display: none; }
+            .logo { width: 100px; height: auto; }
+            header .flex { flex-direction: column; text-align: center; }
+            header h1 { font-size: 2rem; }
+            header p { font-size: 1rem; }
+            section { padding: 15px; }
+            .glass-card { padding: 12px; border-radius: 12px; }
+            h2 { font-size: 2rem; }
+            p { font-size: 1rem; }
+            .accordion-header { font-size: 13px; padding: 10px; }
+            .accordion-content { font-size: 12px; padding: 10px; }
+            .course-link { font-size: 12px; padding: 7px; }
+            .pdf-icon { font-size: 2.2rem; }
+            .whatsapp-btn, .telegram-btn, .sms-btn { font-size: 13px; padding: 7px 14px; }
+            .mobile-menu { width: 70%; }
+            .grid-cols-1 { grid-template-columns: 1fr; }
+            .grid-cols-2 { grid-template-columns: 1fr 1fr; }
+            .grid-cols-3 { grid-template-columns: 1fr 1fr; }
+            .container { width: 90%; padding: 0 20px; }
+        }
+        
+        @media (min-width: 1025px) { /* Desktop */
+            .hamburger { display: none; }
+            .logo { width: 120px; height: auto; }
+            header .flex { flex-direction: row; text-align: left; }
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.2rem; }
+            section { padding: 20px; }
+            .glass-card { padding: 15px; border-radius: 15px; }
+            h2 { font-size: 2.5rem; }
+            p { font-size: 1.1rem; }
+            .accordion-header { font-size: 14px; padding: 12px; }
+            .accordion-content { font-size: 13px; padding: 12px; }
+            .course-link { font-size: 13px; padding: 8px; }
+            .pdf-icon { font-size: 2.5rem; }
+            .whatsapp-btn, .telegram-btn, .sms-btn { font-size: 14px; padding: 8px 16px; }
+            .grid-cols-1 { grid-template-columns: 1fr; }
+            .grid-cols-2 { grid-template-columns: 1fr 1fr; }
+            .grid-cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+            .container { width: 80%; max-width: 1200px; margin: 0 auto; padding: 0; }
+        }
+    </style>
+</head>
+<body class="relative">
+    <div id="meteors-container"></div>
+    
+    <!-- Floating objects -->
+    <div class="absolute top-20 left-10 w-16 h-16 rounded-full bg-blue-900 opacity-20 floating"></div>
+    <div class="absolute bottom-40 right-20 w-24 h-24 rounded-full bg-cyan-900 opacity-20 floating" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/3 right-1/4 w-20 h-20 rounded-full bg-indigo-900 opacity-20 floating" style="animation-delay: 2s;"></div>
+    
+    <!-- Mobile menu button -->
+    <div class="hamburger fixed top-4 right-4 z-50" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-btn" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mt-16">
+            <a href="#team" class="block text-lg px-4 py-2" onclick="navigateToSection('team')">اعضای گروه</a>
+            <a href="#schools" class="block text-lg px-4 py-2" onclick="navigateToSection('schools')">هنرستان‌های شهرستان</a>
+            <a href="#reports" class="block text-lg px-4 py-2" onclick="navigateToSection('reports')">گزارش عملکرد</a>
+            <a href="#resources" class="block text-lg px-4 py-2" onclick="navigateToSection('resources')">منابع آموزشی</a>
+            <a href="#support" class="block text-lg px-4 py-2" onclick="navigateToSection('support')">ارتباط با پشتیبانی</a>
+        </div>
+    </div>
+
+    <!-- Main container with jelly effect -->
+    <div id="main-container" class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="glass-card p-6 mx-4 mt-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <img src="logo.png" alt="لوگو" class="logo mr-3">
+                    <div>
+                        <h1 class="text-2xl font-bold text-white">گروه کامپیوتر زرین‌دشت</h1> <!-- تغییر از amber به سفید -->
+                        <p class="text-sm text-gray-300">استان فارس</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Hero Section -->
+        <section class="flex-grow flex items-center justify-center px-4 py-12">
+            <div class="glass-card p-8 max-w-4xl w-full text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white"> <!-- تغییر از amber به سفید -->
+                    وبسایت آموزشی گروه کامپیوتر زرین‌دشت
+                </h2>
+                <p class="text-lg mb-8 text-gray-400">
+                    این وب‌سایت به همت گروه آموزشی کامپیوتر شهرستان زرین‌دشت (استان فارس) و با هدف سامان‌دهی، آرشیو و تسهیل دسترسی هنرآموزان، هنرجویان، و مسئولان آموزشی به محتوای تخصصی دروس فنی‌وحرفه‌ای و کاردانش راه‌اندازی شده است
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#schools" class="px-6 py-3 bg-gradient-to-r from-blue-700 to-00cccc rounded-full font-medium text-white hover:opacity-90 transition">
+                        هنرستان‌های شهرستان
+                    </a>
+                    <a href="#resources" class="px-6 py-3 border border-00cccc rounded-full font-medium text-00cccc hover:bg-gray-800 transition">
+                        منابع آموزشی
+              <!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رشته‌های فعال</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .glass-card {
+            background: rgba(0, 51, 102, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            margin: 20px;
+        }
+        
+        .section-title {
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 2px;
+            background: #f59e0b;
+        }
+        
+        .accordion-item {
+            margin-bottom: 8px;
+        }
+        
+        .accordion-header {
+            background: rgba(0, 51, 102, 0.9);
+            padding: 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #f0f0f0;
+            font-size: 14px;
+        }
+        
+        .accordion-header:hover {
+            background: rgba(0, 51, 102, 0.7);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(0, 51, 102, 0.5);
+            border-radius: 0 0 8px 8px;
+            color: #f0f0f0;
+            font-size: 13px;
+            padding: 0 12px;
+        }
+        
+        .accordion-content.show {
+            max-height: 400px;
+            padding: 12px;
+        }
+        
+        .course-link {
+            display: block;
+            padding: 8px;
+            margin: 4px 0;
+            background: rgba(0, 51, 102, 0.6);
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #f0f0f0;
+            font-size: 13px;
+            text-decoration: none;
+        }
+        
+        .course-link:hover {
+            background: rgba(0, 51, 102, 0.8);
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <section id="fields" class="glass-card p-8 mx-4 my-8">
+        <h2 class="text-2xl font-bold mb-8 text-center text-amber-800 section-title">رشته‌های فعال</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Web Development Field -->
+            <div class="glass-card p-6 rounded-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold flex items-center text-amber-700">
+                        <i class="fas fa-code text-amber-600 mr-2"></i>
+                        تولید‌کننده و توسعه‌دهنده پایگاه‌های اینترنتی
+                    </h3>
+                    <span class="active"></span>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>استاندارد رشته</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0="
+                           target="_blank" class="course-link">
+                            استاندارد رشته تولید‌کننده و توسعه‌دهنده پایگاه‌های اینترنتی
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>دروس پایه ۱۲</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtRG12RFBnQUlMUS1sUm5ZT09PX1QxOWFrUlVxT1F3SCIsImFjY291bnRJZCI6IjA5MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfUGhwTXlzcWwucGRmIn0="
+                           target="_blank" class="course-link">
+                            توسعه دهنده صفحات وب با PHP و MySQL
+                        </a>
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjE0cUpjQzRzUDRQWWxSa210VXFHYTJfcHlSaHpMU3hmUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTJfd29yZHByZXNzLnBkZiJ9"
+                           target="_blank" class="course-link">
+                            توسعه دهنده سیستم های مدیریت محتوا با WordPress
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>دروس پایه ۱۱</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFrTGhJWWxsT2t5TFBqeDNCOVFuaU9WSlRLU3lzLU1XQiIsImA6Y291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJ3ZWJfMTFfV2ViRGVzaWduLnBkZiJ9"
+                           target="_blank" class="course-link">
+                            تولید کننده و توسعه دهنده پایگاه های اینترنتی
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>دروس پایه ۱۰</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ=="
+                           target="_blank" class="course-link">
+                            استفاده از مهارت شهروند الکترونیک
+                        </a>
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9"
+                           target="_blank" class="course-link">
+                            کاربر رایانه
+                        </a>
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA1MTI3MjA9MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ=="
+                           target="_blank" class="course-link">
+                            کاربر اتوماسیون اداری
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- E-Content Development Field -->
+            <div class="glass-card p-6 rounded-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold flex items-center text-amber-700">
+                        <i class="fas fa-laptop-code text-amber-600 mr-2"></i>
+                        تولید محتوای آموزشی الکترونیکی
+                    </h3>
+                    <span class="active"></span>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>استاندارد رشته</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFtNTJTbmRjRHF4bE9kTzRFUzlxeGo0dDRMWnZvRjhhVCIsImFjY291bnRJZCI6IjA5MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV9TZGFuZGFyZEFtb3plc2hpLnBkZiJ9"
+                           target="_blank" class="course-link">
+                            استاندارد رشته تولید محتوای آموزشی الکترونیکی
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>دروس پایه ۱۲</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFaQ0JxalV4V2lxTnFNd1I3MUtYSl9TZWZwMGloWEtTQyIsImFjY291bnRJZCI6IjA1MTI3MjA5MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV_8xMl9Vc2VyR3JhcGhpY0Vjb250ZW50LnBkZiJ9"
+                           target="_blank" class="course-link">
+                            کاربر گرافیکی محتوای آموزشی
+                        </a>
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFmUTJJSU90Qm44T281bmpyb3JLMWNzcWowSG5xbV9wTSIsImFjY291bnRJZCI6IjA1MTI3MjA9MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV_8xMl9lQ29udGVudE1ha2VyRm9yZUVkdWNhdGlvbi5wZGYifQ=="
+                           target="_blank" class="course-link">
+                            محتواساز آموزش الکترونیکی
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>دروس پایه ۱۱</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjEzdDRTZ01henktOWlEVFZwWXluREVDWUF6VVE5STBoVyIsImFjY291bnRJZCI6IjA1MTI3MjA9MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiJlQ29udGVudEVkdV_8xMV9QdWJsaWNFQ29udGVudE1ha2VyLnBkZiJ9"
+                           target="_blank" class="course-link">
+                            تولید کننده محتوای الکترونیکی عمومی
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>دروس پایه ۱۰</span>
+                        <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFJdThXckNaLTVhRlhzVFJpWTd6dlo0LU1YRl81M2RidCIsImFjY291bnRJZCI6IjA5MTI3MjA9MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1lQ2l0aXplbi5wZGYifQ=="
+                           target="_blank" class="course-link">
+                            استفاده از مهارت شهروند الکترونیکی
+                        </a>
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFQQkdmZXRYc2gzbkZKZ1hldWYybkdBZHNzb054MWhuUSIsImFjY291bnRJZCI6IjA1MTI3MjA9MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1Db21Vc2VyLnBkZiJ9"
+                           target="_blank" class="course-link">
+                            کاربر رایانه
+                        </a>
+                        <a href="https://zncd.ir/?direct_file=eyJpZCI6IjFpaXJrSzM3N1NYT2V5QkEtanhwNGpZV3dsOVk1UHdPVSIsImFjY291bnRJZCI6IjA5MTI3MjA9MDc5MTM1ODgwNDk2IiwidHlwZSI6ImFwcGxpY2F0aW9uL3BkZiIsIm5hbWUiOiIxMC1PZmZpY2VBdXRvVXNlci5wZGYifQ=="
+                           target="_blank" class="course-link">
+                            کاربر اتوماسیون اداری
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            const accordionItems = header.closest('.glass-card').querySelectorAll('.accordion-item');
+
+            if (content && icon) {
+                accordionItems.forEach(item => {
+                    const itemContent = item.querySelector('.accordion-content');
+                    const itemIcon = item.querySelector('.accordion-header i');
+                    if (itemContent !== content) {
+                        itemContent.classList.remove('show');
+                        itemIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+                content.classList.toggle('show');
+                icon.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        }
+    </script>
+</body>
+</html>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Schools Section -->
+        <section id="schools" class="glass-card p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-white section-title">هنرستان‌های شهرستان</h2> <!-- تغییر از amber-800 به سفید -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-school text-2.5rem text-white mr-3"></i> <!-- تغییر از amber-600 به سفید -->
+                        <h3 class="text-xl font-bold text-white">هنرستان زینب کبری حاجی آباد</h3> <!-- تغییر از amber-700 به سفید -->
+                    </div>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-white ml-2"></i> <!-- تغییر از amber-600 به سفید -->
+                            <span>رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-white ml-2"></i> <!-- تغییر از amber-600 به سفید -->
+                            <span>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-white ml-2"></i> <!-- تغییر از amber-600 به سفید -->
+                            <span>رشته خیاطی لباس شب و عروس (کاردانش)</span>
+                        </li>
+                    </ul>
+                    <div class="space-y-2 mt-4">
+                        <p class="font-medium text-white">مدیر:</p> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-400">فاطمه بروانیا</p>
+                        <p class="font-medium text-white">تلفن مدرسه:</p> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-400">۰۷۱۵۳۷۲۴۸۹۵</p>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-school text-2.5rem text-white mr-3"></i> <!-- تغییر از amber-600 به سفید -->
+                        <h3 class="text-xl font-bold text-white">هنرستان والفجر شهرپیر</h3> <!-- تغییر از amber-700 به سفید -->
+                    </div>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-white ml-2"></i> <!-- تغییر از amber-600 به سفید -->
+                            <span>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-white ml-2"></i> <!-- تغییر از amber-600 به سفید -->
+                            <span>رشته حسابداری (فنی و حرفه‌ای)</span>
+                        </li>
+                    </ul>
+                    <div class="space-y-2 mt-4">
+                        <p class="font-medium text-white">مدیر:</p> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-400">زهرا پوررستمی</p>
+                        <p class="font-medium text-white">تلفن مدرسه:</p> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-400">۰۷۱۵۳۷۴۳۵۷۸</p>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-school text-2.5rem text-white mr-3"></i> <!-- تغییر از amber-600 به سفید -->
+                        <h3 class="text-xl font-bold text-white">هنرستان شهید پاکیزه خو</h3> <!-- تغییر از amber-700 به سفید -->
+                    </div>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-white ml-2"></i> <!-- تغییر از amber-600 به سفید -->
+                            <span>رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</span>
+                        </li>
+                    </ul>
+                    <div class="space-y-2 mt-4">
+                        <p class="font-medium text-white">مدیر:</p> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-400">فاطمه تروال</p>
+                        <p class="font-medium text-white">تلفن مدرسه:</p> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-400">۰۹۱۷۹۳۳۴۹۴۳</p>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-school text-2.5rem text-white mr-3"></i> <!-- تغییر از amber-600 به سفید -->
+                        <h3 class="text-xl font-bold text-white">هنرستان پسرانه شهید باهنر</h3> <!-- تغییر از amber-700 به سفید -->
+                    </div>
+                    <ul class="space-y-2 mb-4">
+                        <li class="flex items-center">
+                            <i class="fas fa-circle text-xs text-white ml-2"></i> <!-- تغییر از amber-600 به سفید -->
+                            <span>رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</span>
+                        </li>
+                    </ul>
+                    <div class="space-y-2 mt-4">
+                        <p class="font-medium text-white">مدیر:</p> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-400">عباس امیری</p>
+                        <p class="font-medium text-white">تلفن مدرسه:</p> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-400">۰۷۱۵۳۷۲۳۰۰۷</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section id="team" class="glass-card p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-white section-title">اعضای گروه کامپیوتر زرین‌دشت</h2> <!-- تغییر از amber-800 به سفید -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"> <!-- تغییر از amber-700 به سفید -->
+                        <i class="fas fa-user-tie text-white mr-2"></i> <!-- تغییر از amber-600 به سفید -->
+                        کارشناسان
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-400">محمدامین ابراهیمی</p>
+                                <p class="text-sm text-gray-500">کارشناس فنی حرفه‌ای و کاردانش</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-400">حمید رضایی</p>
+                                <p class="text-sm text-gray-500">کارشناس آموزش</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"> <!-- تغییر از amber-700 به سفید -->
+                        <i class="fas fa-user-shield text-white mr-2"></i> <!-- تغییر از amber-600 به سفید -->
+                        سرگروه
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-400">فاطمه معتمد</p>
+                                <p class="text-sm text-gray-500">سرگروه کامپیوتر زرین‌دشت</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-white"> <!-- تغییر از amber-700 به سفید -->
+                        <i class="fas fa-chalkboard-teacher text-white mr-2"></i> <!-- تغییر از amber-600 به سفید -->
+                        هنرآموزان
+                    </h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <p class="font-medium text-gray-400">شهره پورغلام</p>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <p class="font-medium text-gray-400">عبدالمحسن راستی</p>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <p class="font-medium text-gray-400">فاطمه معتمد</p>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <p class="font-medium text-gray-400">اسما گل نژاد</p>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <p class="font-medium text-gray-400">فاطمه رحمانی</p>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <p class="font-medium text-gray-400">زینت راستگو</p>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-00cccc flex items-center justify-center mr-2 text-white">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <p class="font-medium text-gray-400">فرج نظری</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Resources Section -->
+        <section id="resources" class="glass-card p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-white section-title">منابع آموزشی</h2> <!-- تغییر از amber-800 به سفید -->
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-4 flex items-center text-white"> <!-- تغییر از amber-700 به سفید -->
+                    <i class="fas fa-book text-white mr-2"></i> <!-- تغییر از amber-600 به سفید -->
+                    کتاب‌های کاردانش
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="https://www.softgozar.com" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">کتاب نرم افزار اداری</p>
+                        <p class="text-sm text-gray-500">Microsoft Access - OneNote</p>
+                    </a>
+                    <a href="http://dl.learninweb.com/learning/onenote2016.exe" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">دانلود OneNote</p>
+                    </a>
+                    <a href="https://dl.yasdl.com/Arash/2018/eBook/PowerPoint.2019.For.Dummies_YasDL.com.rar?" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">کتاب بسته‌های نرم‌افزاری</p>
+                        <p class="text-sm text-gray-500">Excel-PowerPoint</p>
+                    </a>
+                    <a href="https://pdn.sharezilla.ir/d/ebook/Information.And.Communication_p30download.com.zip" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">کتاب اطلاعات و ارتباطات</p>
+                    </a>
+                    <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1401-1402/693/C311253_0.pdf" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد اول)</p>
+                    </a>
+                    <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/693/C311254.pdf" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد دوم)</p>
+                    </a>
+                </div>
+            </div>
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-4 flex items-center text-white"> <!-- تغییر از amber-700 به سفید -->
+                    <i class="fas fa-file-alt text-white mr-2"></i> <!-- تغییر از amber-600 به سفید -->
+                    جزوات دروس فنی و حرفه‌ای
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a href="https://s18.picofile.com/d/8440744118/ffe47ae1-185b-420f-afb2-60c797708ba6/%D8%AC%D8%B2%D9%88%D9%87_%D8%A7%D9%86%DB%8C%D9%85%DB%8C%D8%AA.pdf" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">جزوه Adobe Animate</p>
+                    </a>
+                    <a href="https://s31.picofile.com/d/8470329800/8a841a08-4eef-44de-b168-0e80ecc342a5/%D8%AC%D8%B2%D9%88%D9%87_%D8%A7%D9%93%D9%85%D9%88%D8%B2%D8%B4%DB%8C_%D9%BE%D8%B1%DB%8C%D9%85%DB%8C%D8%B1.pdf" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">جزوه Premiere</p>
+                    </a>
+                    <a href="https://wphelper.ir/wp-content/uploads/2021/11/WordPress-Support-Site-Design-Tutorial.pdf" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">جزوه WordPress</p>
+                    </a>
+                    <a href="https://sariasan.com/wp-content/uploads/2017/12/excel-1.pdf" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">جزوه Excel 2019</p>
+                    </a>
+                    <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1402-1403/598/C210290.pdf" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">بسته آموزشی تولید محتوای الکترونیکی</p>
+                    </a>
+                    <a href="https://gama.ir/test/download/101858/pdf?csrf_token=MTc1MDE1NDkzNzAwNjk4MmJiZjQ5MjYxNjNlY2E2M2IxYzI5NzkxY2JiMDc5ZWI5OWQ4MDRmYzc5YmQxNDY5ZjRjM2U4ZTg4OGQ2NjY0MWZjMTNlMTMxMjlh" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">جزوه Captivate 2019 (چهار فصل اول)</p>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4 flex items-center text-white"> <!-- تغییر از amber-700 به سفید -->
+                    <i class="fas fa-link text-white mr-2"></i> <!-- تغییر از amber-600 به سفید -->
+                    لینک‌های مفید
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <a href="https://zncd.ir" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">وب‌سایت دبیرخانه راهبری کامپیوتر</p>
+                        <p class="text-sm text-gray-500">مستقر در زنجان</p>
+                    </a>
+                    <a href="chap.sch.ir" target="_blank" class="glass-card p-4 hover:bg-gray-800 transition rounded-lg border border-00cccc">
+                        <p class="font-medium text-gray-400">سایت دفتر تالیف و چاپ</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Annual Reports Section -->
+        <section id="reports" class="glass-card p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-white section-title">گزارش عملکرد سالانه شهرستان زرین‌دشت</h2> <!-- تغییر از amber-800 به سفید -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-xl pdf-card border border-00cccc">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-file-pdf pdf-icon mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-white">گزارش عملکرد سال تحصیلی 1402-1403</h3> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-500 mb-4">گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت</p>
+                        <a href="https://drive.google.com/file/d/1kgTuGpCg3mjpKZlVtE-HqPl0UCj3q0CH/view?usp=drive_link"
+                           target="_blank"
+                           class="px-4 py-2 bg-00cccc text-white rounded-lg hover:bg-009999 transition">
+                            دانلود گزارش
+                        </a>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl pdf-card border border-00cccc">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-file-pdf pdf-icon mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-white">گزارش عملکرد سال تحصیلی 1403-1404</h3> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-500 mb-4">گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت</p>
+                        <a href="https://drive.google.com/file/d/1VmS2ojUfDgiTjMhguMdUlGNIqgtmNmYm/view?usp=drive_link"
+                           target="_blank"
+                           class="px-4 py-2 bg-00cccc text-white rounded-lg hover:bg-009999 transition">
+                            دانلود گزارش (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p class="text-gray-500">شما می‌توانید فایل‌های PDF گزارش‌های عملکرد را در این بخش بارگذاری کنید.</p>
+            </div>
+        </section>
+        
+        <!-- Support Section -->
+        <section id="support" class="glass-card p-8 mx-4 my-8">
+            <h2 class="text-2xl font-bold mb-8 text-center text-white section-title">ارتباط با پشتیبانی</h2> <!-- تغییر از amber-800 به سفید -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-xl border border-00cccc">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fab fa-whatsapp text-4xl text-00cccc mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-white">پشتیبانی از طریق واتساپ</h3> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-500 mb-4">برای ارتباط مستقیم با پشتیبانی از طریق واتساپ روی دکمه زیر کلیک کنید</p>
+                        <a href="https://wa.me/989372565994?text=سلام%20وقت%20بخیر"
+                           target="_blank"
+                           class="px-6 py-3 rounded-full font-medium whatsapp-btn">
+                            <i class="fab fa-whatsapp ml-2"></i>
+                            ارتباط از طریق واتساپ
+                        </a>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl border border-00cccc">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fab fa-telegram text-4xl text-00cccc mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-white">کانال تلگرام فن آموز زرین</h3> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-500 mb-4">برای عضویت در کانال تلگرام ما روی دکمه زیر کلیک کنید</p>
+                        <a href="https://t.me/cszarindasht"
+                           target="_blank"
+                           class="px-6 py-3 rounded-full font-medium telegram-btn">
+                            <i class="fab fa-telegram ml-2"></i>
+                            عضویت در کانال تلگرام
+                        </a>
+                    </div>
+                </div>
+                <div class="glass-card p-6 rounded-xl border border-00cccc">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-sms text-4xl text-00cccc mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2 text-white">ارتباط از طریق پیامک</h3> <!-- تغییر از amber-700 به سفید -->
+                        <p class="text-gray-500 mb-4">برای تماس از طریق پیامک روی دکمه زیر کلیک کنید</p>
+                        <a href="sms:09372565994"
+                           target="_blank"
+                           class="px-6 py-3 rounded-full font-medium sms-btn">
+                            <i class="fas fa-sms ml-2"></i>
+                            ارسال پیامک
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="glass-card p-6 mx-4 mt-8 mb-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-gray-500">گروه کامپیوتر زرین‌دشت - استان فارس</p>
+                </div>
+                <div class="flex space-x-4 space-x-reverse">
+                    <a href="https://t.me/cszarindasht" target="_blank" class="text-gray-500 hover:text-00cccc">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                    <a href="mailto:support@example.com" class="text-gray-500 hover:text-00cccc">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-00cccc text-center text-sm text-gray-500">
+                <p>توسعه دهنده پایگاه اینترنتی: رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی</p>
+                <p class="mt-2">تولید محتوای آموزشی الکترونیک: رشته تولید محتوای آموزشی الکترونیکی</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeMenu = document.getElementById('closeMenu');
+
+            if (hamburger && mobileMenu && closeMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                });
+
+                closeMenu.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (mobileMenu.classList.contains('active') && !mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                        hamburger.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    }
+                });
+            }
+
+            function navigateToSection(sectionId) {
+                const hamburger = document.getElementById('hamburger');
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (hamburger && mobileMenu) {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    setTimeout(() => {
+                        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            }
+
+            function createMeteors() {
+                const container = document.getElementById('meteors-container');
+                const count = 10;
+                for (let i = 0; i < count; i++) {
+                    const meteor = document.createElement('div');
+                    meteor.className = 'meteor';
+                    meteor.style.left = `${Math.random() * 100}vw`;
+                    meteor.style.animationDelay = `${Math.random() * 10}s`;
+                    meteor.style.animationDuration = `${3 + Math.random() * 5}s`;
+                    container.appendChild(meteor);
+                }
+            }
+            
+            function toggleAccordion(header) {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('i');
+                const accordionItems = header.closest('.glass-card').querySelectorAll('.accordion-item');
+
+                if (content && icon) {
+                    accordionItems.forEach(item => {
+                        const itemContent = item.querySelector('.accordion-content');
+                        const itemIcon = item.querySelector('.accordion-header i');
+                        if (itemContent !== content) {
+                            itemContent.classList.remove('show');
+                            itemIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                    content.classList.toggle('show');
+                    icon.style.transform = content.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+            }
+
+            createMeteors();
+        });
+    </script>
+</body>
+</html>
