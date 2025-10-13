@@ -619,11 +619,21 @@
         /* Responsive Design - Enhanced for full responsiveness */
         @media (max-width: 1024px) {
             .hero-gradient {
-                py: 16;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
             }
 
             .container {
-                px-4;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .web-software-card {
+                padding: 1.25rem;
+            }
+
+            .ai-button-section {
+                padding: 2.5rem 1.5rem;
             }
         }
 
@@ -665,6 +675,20 @@
                 padding: 2rem 1rem;
             }
 
+            .ai-button {
+                padding: 14px 28px;
+                font-size: 13px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            .chatbot-window {
+                width: 90vw;
+                height: 70vh;
+            }
+
             /* Hamburger Menu Enhancements for Mobile */
             .mobile-menu {
                 width: 80vw;
@@ -700,8 +724,9 @@
             }
 
             .hero-gradient {
-                py: 12;
-                rounded-2xl;
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+                border-radius: 1.5rem;
             }
 
             .hero-gradient h2 {
@@ -721,19 +746,21 @@
 
             /* Logo adjustments for small screens */
             .logo-3d {
-                width: 12;
-                height: 12;
+                width: 3rem;
+                height: 3rem;
             }
 
             .logo-3d img {
-                width: 10;
-                height: 10;
+                width: 2.5rem;
+                height: 2.5rem;
             }
 
             /* Header adjustments */
             header .container {
-                px: 4;
-                py: 3;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
             }
 
             /* Chatbot on small screens */
@@ -749,7 +776,7 @@
             }
 
             .chatbot-window {
-                width: 90vw;
+                width: 95vw;
                 max-width: 320px;
                 height: 60vh;
                 max-height: 500px;
@@ -762,6 +789,18 @@
 
             .chatbot-input-container {
                 padding: 10px 15px;
+            }
+
+            .heading-primary {
+                font-size: 24px;
+            }
+
+            .heading-secondary {
+                font-size: 16px;
+            }
+
+            .text-body {
+                font-size: 11px;
             }
         }
 
@@ -800,21 +839,33 @@
             }
         }
 
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 18px !important;
+                white-space: normal;
+            }
+
+            h3 {
+                font-size: 14px !important;
+            }
+        }
+
         /* Grid responsiveness enhancement */
         .grid {
             display: grid;
             gap: 1rem;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
         }
 
         @media (min-width: 768px) {
-            .md\:grid-cols-2 > * {
-                grid-column: span 1 / span 2;
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
         @media (min-width: 1024px) {
-            .lg\:grid-cols-3 > * {
-                grid-column: span 1 / span 3;
+            .grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
             }
         }
 
@@ -932,15 +983,24 @@
         <div class="container mx-auto">
             <h2>
                 <i class="fas fa-globe ml-3"></i>
-                نرم‌افزارهای اصلی (نسخه‌های وب‌بیس)
+                نرم‌افزارهای مورد نیاز و منابع آموزشی (نسخه‌های وب‌بیس)
             </h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <p class="text-center mb-8">
+                در ادامه، برای هر نرم‌افزار لیست‌شده، نسخه وب‌بیس یا جایگزین آنلاین مناسب را معرفی می‌کنم. این گزینه‌ها اجازه می‌دهند بدون نصب روی سیستم محلی، مستقیماً از طریق مرورگر وب (مانند Chrome یا Edge) استفاده کنید. لینک‌های مستقیم به صفحات مربوطه اضافه شده و در صورت نیاز، به حساب کاربری رایگان (مانند Adobe ID یا Microsoft Account) نیاز دارید. اگر گزینه‌ای مستقیماً موجود نباشد، بهترین جایگزین آنلاین را پیشنهاد می‌دهم. هدف این است که دانش‌آموزان بدون سیستم بتوانند از طریق گوشی وارد شوند و استفاده کنند.
+            </p>
+
+            <h2>
+                <i class="fas fa-globe ml-3"></i>
+                نرم‌افزارهای اصلی:
+            </h2>
+
+            <div class="grid gap-4 mb-8">
                 <!-- Windows 10/11 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Windows 10/11</h3>
+                    <h3 class="font-bold mb-2">Windows 10/11:</h3>
                     <p class="text-sm mb-3 text-secondary">از Windows 365 Cloud PC یا Azure Virtual Desktop استفاده کنید. این سرویس‌ها ویندوز کامل را در مرورگر شبیه‌سازی می‌کنند.</p>
-                    <a href="https://rdweb.wvd.microsoft.com/arm/webclient" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://windows365.microsoft.com/windows-app" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         Windows App for Azure Virtual Desktop
                     </a>
@@ -948,129 +1008,129 @@
 
                 <!-- Microsoft Office -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Microsoft Office 2016/2025</h3>
+                    <h3 class="font-bold mb-2">Microsoft Office 2016/2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Microsoft 365 for the web (شامل Word، Excel، PowerPoint و OneNote).</p>
-                    <a href="https://www.office.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.office.com/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         office.com
                     </a>
                 </div>
 
-                <!-- Adobe Photoshop -->
+                <!-- Adobe Photoshop CC 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Adobe Photoshop CC 2025</h3>
+                    <h3 class="font-bold mb-2">Adobe Photoshop CC 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Photoshop on the web (ویرایش تصاویر مستقیم در مرورگر).</p>
-                    <a href="https://photoshop.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.adobe.com/products/photoshop/web.html" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         photoshop.adobe.com
                     </a>
                 </div>
 
-                <!-- Adobe Illustrator -->
+                <!-- Adobe Illustrator CC 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Adobe Illustrator CC 2025</h3>
+                    <h3 class="font-bold mb-2">Adobe Illustrator CC 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Illustrator on the web (Beta) (طراحی وکتور در مرورگر).</p>
-                    <a href="https://illustrator.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.adobe.com/products/illustrator/web.html" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         illustrator.adobe.com
                     </a>
                 </div>
 
-                <!-- Adobe Animate -->
+                <!-- Adobe Animate 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Adobe Animate 2025</h3>
+                    <h3 class="font-bold mb-2">Adobe Animate 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Adobe Express Animation Maker (ساخت انیمیشن ساده و سریع آنلاین).</p>
-                    <a href="https://express.adobe.com/create/animation" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.adobe.com/express/create/animation" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         express.adobe.com/create/animation
                     </a>
                 </div>
 
-                <!-- Visual Studio -->
+                <!-- Microsoft Visual Studio 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Microsoft Visual Studio 2025</h3>
+                    <h3 class="font-bold mb-2">Microsoft Visual Studio 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Visual Studio Code for the Web (ویرایش کد و IDE سبک در مرورگر؛ برای پروژه‌های کامل، از GitHub Codespaces استفاده کنید).</p>
-                    <a href="https://vscode.dev" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://vscode.dev/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         vscode.dev
                     </a>
                 </div>
 
-                <!-- Adobe Dreamweaver -->
+                <!-- Adobe Dreamweaver CC 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Adobe Dreamweaver CC 2025</h3>
+                    <h3 class="font-bold mb-2">Adobe Dreamweaver CC 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Adobe XD for Web (طراحی و ویرایش وب‌صفحات آنلاین؛ جایگزین مناسب برای کدنویسی وب). از Express برای ویرایش ساده‌تر استفاده کنید.</p>
-                    <a href="https://xd.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.adobe.com/products/xd.html" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         xd.adobe.com
                     </a>
                 </div>
 
-                <!-- WampServer -->
+                <!-- WampServer 3.3 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">WampServer 3.3</h3>
+                    <h3 class="font-bold mb-2">WampServer 3.3:</h3>
                     <p class="text-sm mb-3 text-secondary">Replit یا Glitch (محیط توسعه وب آنلاین با PHP/MySQL بدون سرور محلی).</p>
-                    <a href="https://replit.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://replit.com/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         replit.com (پشتیبانی از PHP و دیتابیس)
                     </a>
                 </div>
 
-                <!-- XAMPP -->
+                <!-- XAMPP 8.2 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">XAMPP 8.2</h3>
+                    <h3 class="font-bold mb-2">XAMPP 8.2:</h3>
                     <p class="text-sm mb-3 text-secondary">CodeSandbox یا Heroku Free Tier (سرور آنلاین برای تست PHP/Apache/MySQL).</p>
-                    <a href="https://codesandbox.io" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://codesandbox.io/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         codesandbox.io (برای پروژه‌های وب‌بیس)
                     </a>
                 </div>
 
-                <!-- WordPress -->
+                <!-- WordPress 6.6 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">WordPress 6.6</h3>
+                    <h3 class="font-bold mb-2">WordPress 6.6:</h3>
                     <p class="text-sm mb-3 text-secondary">WordPress.com (میزبانی و ویرایش کامل سایت بدون نصب).</p>
-                    <a href="https://wordpress.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://wordpress.com/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         wordpress.com
                     </a>
                 </div>
 
-                <!-- Adobe Premiere -->
+                <!-- Adobe Premiere Pro 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Adobe Premiere Pro 2025</h3>
+                    <h3 class="font-bold mb-2">Adobe Premiere Pro 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Adobe Express Video Editor (ویرایش ویدیو آنلاین با ابزارهای پایه).</p>
-                    <a href="https://express.adobe.com/video/editor" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.adobe.com/express/feature/video/editor" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         express.adobe.com/video/editor
                     </a>
                 </div>
 
-                <!-- Adobe Audition -->
+                <!-- Adobe Audition 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Adobe Audition 2025</h3>
+                    <h3 class="font-bold mb-2">Adobe Audition 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Adobe Podcast (ویرایش و ضبط صدا با AI در مرورگر).</p>
-                    <a href="https://podcast.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://podcast.adobe.com/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         podcast.adobe.com
                     </a>
                 </div>
 
-                <!-- Adobe Captivate -->
+                <!-- Adobe Captivate 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Adobe Captivate 2025</h3>
+                    <h3 class="font-bold mb-2">Adobe Captivate 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Articulate Rise 360 (ساخت دوره‌های آموزشی آنلاین بدون نصب؛ جایگزین قدرتمند). نسخه آزمایشی رایگان.</p>
-                    <a href="https://rise.articulate.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.articulate.com/360/rise/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         rise.articulate.com
                     </a>
                 </div>
 
-                <!-- Adobe Photoshop Elements -->
+                <!-- Adobe Photoshop Elements 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Adobe Photoshop Elements 2025</h3>
+                    <h3 class="font-bold mb-2">Adobe Photoshop Elements 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Adobe Elements Web App (Beta) (ویرایش عکس ساده در وب).</p>
-                    <a href="https://elements.adobe.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://elements.adobe.com/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         elements.adobe.com
                     </a>
@@ -1079,45 +1139,45 @@
 
             <h2>
                 <i class="fas fa-globe ml-3"></i>
-                جایگزین‌های رایگان دائمی (نسخه‌های وب‌بیس)
+                جایگزین‌های رایگان دائمی:
             </h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="grid gap-4">
                 <!-- GIMP -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">GIMP (جایگزین Photoshop)</h3>
+                    <h3 class="font-bold mb-2">GIMP (جایگزین Photoshop):</h3>
                     <p class="text-sm mb-3 text-secondary">GIMP Online (ویرایش تصاویر در مرورگر).</p>
-                    <a href="https://gimp-online.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.photopea.com/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
-                        gimp-online.com
+                        gimp-online.com (یا Photopea به عنوان جایگزین بهتر)
                     </a>
                 </div>
 
                 <!-- Inkscape -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Inkscape (جایگزین Illustrator)</h3>
+                    <h3 class="font-bold mb-2">Inkscape (جایگزین Illustrator):</h3>
                     <p class="text-sm mb-3 text-secondary">Inkscape on rollApp (طراحی وکتور آنلاین).</p>
-                    <a href="https://rollapp.com/app/inkscape" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.rollapp.com/app/inkscape" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         rollapp.com/app/inkscape
                     </a>
                 </div>
 
-                <!-- DaVinci Resolve -->
+                <!-- DaVinci Resolve 18 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">DaVinci Resolve 18 (جایگزین Premiere)</h3>
-                    <p class="text-sm mb-3 text-secondary">Kapwing Video Editor (ویرایش ویدیو آنلاین رایگان؛ جایگزین مناسب). ابزارهای حرفه‌ای بدون نصب.</p>
-                    <a href="https://kapwing.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <h3 class="font-bold mb-2">DaVinci Resolve 18 (جایگزین Premiere):</h3>
+                    <p class="text-sm mb-3 text-secondary">Kapwing Video Editor (ویرایش ویدیو آنلاین رایگان؛ جایگزین مناسب).</p>
+                    <a href="https://www.kapwing.com/editor/video" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
-                        kapwing.com
+                        kapwing.com (ابزارهای حرفه‌ای بدون نصب)
                     </a>
                 </div>
 
                 <!-- Audacity -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Audacity (جایگزین Audition)</h3>
+                    <h3 class="font-bold mb-2">Audacity (جایگزین Audition):</h3>
                     <p class="text-sm mb-3 text-secondary">Wavacity (ویرایش صدا آنلاین بر پایه Audacity).</p>
-                    <a href="https://wavacity.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://wavacity.com/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         wavacity.com
                     </a>
@@ -1125,19 +1185,19 @@
 
                 <!-- Visual Studio Code -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Visual Studio Code</h3>
+                    <h3 class="font-bold mb-2">Visual Studio Code:</h3>
                     <p class="text-sm mb-3 text-secondary">VS Code for the Web (vscode.dev).</p>
-                    <a href="https://vscode.dev" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://vscode.dev/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         vscode.dev
                     </a>
                 </div>
 
-                <!-- Canva -->
+                <!-- Canva AI 2025 -->
                 <div class="web-software-card">
-                    <h3 class="font-bold mb-2">Canva AI 2025</h3>
+                    <h3 class="font-bold mb-2">Canva AI 2025:</h3>
                     <p class="text-sm mb-3 text-secondary">Canva.com با ابزارهای AI (طراحی گرافیکی و AI کاملاً آنلاین).</p>
-                    <a href="https://canva.com" target="_blank" rel="noopener noreferrer" class="web-link">
+                    <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer" class="web-link">
                         <i class="fas fa-external-link-alt ml-2"></i>
                         canva.com
                     </a>
