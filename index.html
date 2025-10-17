@@ -1571,6 +1571,55 @@
         .dark-mode #reports .glass-card p {
             color: #BDBDBD !important;
         }
+
+        .glass-square {
+            width: 360px;
+            height: 360px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 2rem;
+        }
+
+        .glass-square:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 25px 50px rgba(0, 31, 63, 0.3);
+        }
+
+        .neon-sweep {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            border-radius: 24px;
+            background: linear-gradient(45deg, transparent, rgba(38, 166, 154, 0.8), transparent);
+            animation: neon-sweep 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes neon-sweep {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @media (max-width: 768px) {
+            .glass-square {
+                width: 280px;
+                height: 280px;
+            }
+        }
     </style>
 </head>
 <body class="light-mode transition-all duration-300">
@@ -1629,11 +1678,10 @@
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
                            onmouseout="this.style.color='white'; this.style.textShadow='none'" 
                            onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'})">منابع</a>
-                        <a href="#ethics" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                        <a href="herfei.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
-                           onmouseout="this.style.color='white'; this.style.textShadow='none'" 
-                           onclick="document.getElementById('ethics').scrollIntoView({behavior: 'smooth'})">اخلاق حرفه‌ای</a>
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">اخلاق حرفه‌ای</a>
                         <a href="ai.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
                            style="font-family: 'Vazirmatn', sans-serif; color: white;" 
                            onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
@@ -1666,8 +1714,8 @@
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('team').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اعضای گروه</a>
                     <a href="#resources" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">منابع</a>
-                    <a href="#ethics" class="block text-white hover:text-accent-green transition-colors font-semibold" 
-                       style="font-family: 'Vazirmatn', sans-serif;" onclick="document.getElementById('ethics').scrollIntoView({behavior: 'smooth'}); toggleMobileMenu()">اخلاق حرفه‌ای</a>
+                    <a href="herfei.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">اخلاق حرفه‌ای</a>
                     <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold" 
                        style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
                 </nav>
@@ -1698,884 +1746,62 @@
         </div>
     </section>
 
-    <!-- Fields Section -->
+    <!-- Fields Section with Glass Square -->
     <section id="fields" class="py-8 px-4">
-        <div class="container mx-auto">
-            <h2>رشته‌های فعال</h2>
-            
-            <!-- Field 1: Web Development -->
-            <div class="field-card mb-1 tilt-card">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center">
-                        <div class="logo-3d w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center ml-4">
-                            <i class="fas fa-code text-white text-3xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="heading-secondary text-white">تولید‌کننده و توسعه‌دهنده پایگاه‌های اینترنتی</h3>
-                        </div>
-                    </div>
-                    <span class="bg-green-500 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">فعال</span>
-                </div>
-                
-                <div class="grid lg:grid-cols-4 gap-6">
-                    <!-- استاندارد رشته -->
-                    <div>
-                        <h4 class="font-bold mb-4 text-lg">استاندارد رشته</h4>
-                        <a href="https://payait.com/Standards/104-560.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            استاندارد رشته
-                        </a>
-                    </div>
-                    
-                    <!-- دروس پایه ۱۰ -->
-                    <div>
-                        <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۰</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310215.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            استفاده از مهارت شهروند الکترونیک
-                        </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310183.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            کاربر رایانه
-                        </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/97-98/741/001-320-C310184%20%26%20C311184.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            کاربر اتوماسیون اداری
-                        </a>
-                    </div>
-                    
-                    <!-- دروس پایه ۱۱ -->
-                    <div>
-                        <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۱</h4>
-                        <a href="http://chap.sch.ir/books/13352" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            تولید کننده و توسعه دهنده پایگاه های اینترنتی 
-                        </a>
-                    </div>
-                    
-                    <!-- دروس پایه ۱۲ -->
-                    <div>
-                        <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۲</h4>
-                        <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1403-1404/146/C211288.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            توسعه دهنده صفحات وب با PHP و MySQL
-                        </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/694/C312260.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            توسعه دهنده سیستم های مدیریت محتوا با WordPress
-                        </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1404-1405/598/C210291.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            تولید محتوای آموزشی الکترونیکی
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Field 2: E-Learning Content -->
-            <div class="field-card tilt-card">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="flex items-center">
-                        <div class="logo-3d w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center ml-4">
-                            <i class="fas fa-laptop text-white text-3xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="heading-secondary text-white">تولید محتوای آموزشی الکترونیکی</h3>
-                        </div>
-                    </div>
-                    <span class="bg-green-500 text-white px-6 py-3 rounded-full text-sm font-semibold shadow-lg">فعال</span>
-                </div>
-                
-                <div class="grid lg:grid-cols-4 gap-6">
-                    <!-- استاندارد رشته -->
-                    <div>
-                        <h4 class="font-bold mb-4 text-lg">استاندارد رشته</h4>
-                        <a href="https://payait.com/Standards/104-555.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            استاندارد رشته
-                        </a>
-                    </div>
-                    
-                    <!-- دروس پایه ۱۰ -->
-                    <div>
-                        <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۰</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310215.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            استفاده از مهارت شهروند الکترونیک
-                        </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1403-1404/847/C310183.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            کاربر رایانه
-                        </a>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/97-98/741/001-320-C310184%20%26%20C311184.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            کاربر اتوماسیون اداری
-                        </a>
-                    </div>
-                    
-                    <!-- دروس پایه ۱۱ -->
-                    <div>
-                        <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۱</h4>
-                        <a href="http://chap.sch.ir/sites/default/files/lbooks/1401-1402/693/C311253_0.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            تولید کننده محتوای الکترونیکی عمومی
-                        </a>
-                    </div>
-                    
-                    <!-- دروس پایه ۱۲ -->
-                    <div>
-                        <h4 class="font-bold mb-4 text-lg">دروس پایه ۱۲</h4>
-                        <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1403-1404/1265/C312271.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            کاربر گرافیکی محتوای آموزشی
-                        </a>
-                        <a href="http://www.chap.sch.ir/sites/default/files/lbooks/1401-1402/694/C312267.pdf" target="_blank" rel="noopener noreferrer" class="course-link">
-                            <i class="fas fa-file-pdf ml-2"></i>
-                            محتواساز آموزش الکترونیکی (جلد اول)
-                        </a>
-                    </div>
-                </div>
+        <div class="container mx-auto text-center">
+            <div class="glass-square" onclick="window.location.href = 'rashte.html';">
+                <div class="neon-sweep"></div>
+                <i class="fas fa-graduation-cap text-6xl mb-4" style="color: #26A69A;"></i>
+                <h2 class="text-3xl font-bold text-white mb-2">رشته‌های فعال</h2>
+                <p class="text-sm opacity-70">برای مشاهده جزئیات کلیک کنید</p>
             </div>
         </div>
     </section>
 
-    <!-- Schools Section -->
-    <section id="schools" class="py-4 px-4" style="background-color: var(--secondary-gray);">
-        <div class="container mx-auto">
-            <h2>هنرستان‌های شهرستان</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- هنرستان زینب کبری -->
-                <div class="school-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
-                            <i class="fas fa-school text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">هنرستان زینب کبری</h3>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-semibold mb-2" style="color: var(--accent-green);">رشته‌ها:</h4>
-                        <ul class="text-sm space-y-1 mr-4">
-                            <li>• رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</li>
-                            <li>• رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                            <li>• رشته خیاطی لباس شب و عروس (کاردانش)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-t pt-4">
-                        <p class="mb-2"><strong>مدیر:</strong> فاطمه بروانیا</p>
-                        <p><strong>تلفن مدرسه:</strong> ۰۷۱۵۳۷۲۴۸۹۵</p>
-                    </div>
-                </div>
-
-                <!-- هنرستان والفجر -->
-                <div class="school-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
-                            <i class="fas fa-school text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">هنرستان والفجر</h3>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-semibold mb-2" style="color: var(--accent-green);">رشته‌ها:</h4>
-                        <ul class="text-sm space-y-1 mr-4">
-                            <li>• رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                            <li>• رشته حسابداری (فنی و حرفه‌ای)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-t pt-4">
-                        <p class="mb-2"><strong>مدیر:</strong> زهرا پوررستمی</p>
-                        <p><strong>تلفن مدرسه:</strong> ۰۷۱۵۳۷۴۳۵۷۸</p>
-                    </div>
-                </div>
-
-                <!-- هنرستان شهید پاکیزه خو -->
-                <div class="school-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
-                            <i class="fas fa-school text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">هنرستان شهید پاکیزه خو</h3>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-semibold mb-2" style="color: var(--accent-green);">رشته‌ها:</h4>
-                        <ul class="text-sm space-y-1 mr-4">
-                            <li>• رشته تولید کننده محتوای آموزشی الکترونیکی (کاردانش)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-t pt-4">
-                        <p class="mb-2"><strong>مدیر:</strong> فاطمه تروال</p>
-                        <p><strong>تلفن مدرسه:</strong> ۰۹۱۷۹۳۳۴۹۴۳</p>
-                    </div>
-                </div>
-
-                <!-- هنرستان شهید باهنر -->
-                <div class="school-card">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
-                            <i class="fas fa-school text-white"></i>
-                        </div>
-                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">هنرستان شهید باهنر</h3>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <h4 class="font-semibold mb-2" style="color: var(--accent-green);">رشته‌ها:</h4>
-                        <ul class="text-sm space-y-1 mr-4">
-                            <li>• رشته تولید کننده و توسعه دهنده پایگاه‌های اینترنتی (کاردانش)</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="border-t pt-4">
-                        <p class="mb-2"><strong>مدیر:</strong> عباس امیری</p>
-                        <p><strong>تلفن مدرسه:</strong> ۰۷۱۵۳۷۲۳۰۰۷</p>
-                    </div>
-                </div>
+    <!-- Schools Section with Glass Square -->
+    <section id="schools" class="py-8 px-4">
+        <div class="container mx-auto text-center">
+            <div class="glass-square" onclick="window.location.href = 'mdrese.html';">
+                <div class="neon-sweep"></div>
+                <i class="fas fa-school text-6xl mb-4" style="color: #26A69A;"></i>
+                <h2 class="text-3xl font-bold text-white mb-2">هنرستان‌های شهرستان</h2>
+                <p class="text-sm opacity-70">برای مشاهده جزئیات کلیک کنید</p>
             </div>
         </div>
     </section>
 
-    <!-- Software Resources Section -->
-    <section id="resources" class="py-8 px-4 bg-white/5 dark:bg-slate-900/50">
-        <div class="container mx-auto">
-            <h2>
-                <i class="fas fa-download ml-3"></i>
-                نرم‌افزارهای مورد نیاز و منابع آموزشی
-            </h2>
-
-            <!-- نرم‌افزارهای پایه ۱۰ -->
-            <div class="mb-4">
-                <h3 class="text-xl font-bold mb-4 text-accent"></h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                    <a href="https://www.microsoft.com/en-us/software-download/windows11" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-windows text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Windows 10/11</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.microsoft.com/en-us/microsoft-365/try" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-file-word text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Microsoft Office 2016/2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.adobe.com/products/photoshop/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-image text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Adobe Photoshop CC 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.adobe.com/products/illustrator/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-vector-square text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Adobe Illustrator CC 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.adobe.com/products/animate/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-film text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Adobe Animate 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://visualstudio.microsoft.com/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-code text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Microsoft Visual Studio 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- نرم‌افزارهای پایه ۱۱ -->
-            <div class="mb-4">
-                <h3 class="text-xl font-bold mb-4 text-accent"></h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                    <a href="https://www.adobe.com/products/dreamweaver/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-code text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Adobe Dreamweaver CC 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.wampserver.com/en/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-server text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">WampServer 3.3</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.apachefriends.org/download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-database text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">XAMPP 8.2</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://wordpress.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fab fa-wordpress text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">WordPress 6.6</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- نرم‌افزارهای پایه ۱۲ -->
-            <div class="mb-4">
-                <h3 class="text-xl font-bold mb-4 text-accent"></h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-                    <a href="https://www.adobe.com/products/premiere/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-video text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Adobe Premiere Pro 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.adobe.com/products/audition/free-trial-download.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microphone text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Adobe Audition 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.adobe.com/products/captivate/download-trial/get-started.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-magic text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Adobe Captivate 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://helpx.adobe.com/download-install/kb/photoshop-elements-downloads.html" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-image text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Adobe Photoshop Elements 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- جایگزین‌های رایگان -->
-            <div>
-                <h3 class="text-xl font-bold mb-4 free-alternatives-title">جایگزین‌های رایگان دائمی</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <a href="https://www.gimp.org/downloads/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-image text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">GIMP (جایگزین Photoshop)</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://inkscape.org/release/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-vector-square text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Inkscape (جایگزین Illustrator)</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.blackmagicdesign.com/products/davinciresolve" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-video text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">DaVinci Resolve 18 (جایگزین Premiere)</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.audacityteam.org/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-microphone text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Audacity (جایگزین Audition)</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://code.visualstudio.com/download/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-code text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Visual Studio Code</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer" class="glass-card bg-white/10 dark:bg-slate-800/50 backdrop-blur-lg border border-white/20 rounded-xl p-4 hover:scale-105 hover:bg-white/20 dark:hover:bg-slate-700/50 transition-all duration-300 group">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:scale-110 transition-transform">
-                                <i class="fas fa-palette text-white text-xl"></i>
-                            </div>
-                            <div class="flex-1 text-right">
-                                <h4 class="font-semibold text-foreground dark:text-white">Canva AI 2025</h4>
-                                <span class="text-sm text-muted-foreground dark:text-gray-400">
-                                    <i class="fas fa-download ml-1"></i>
-                                    دانلود
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Buttons for Tutorials -->
-            <div class="grid md:grid-cols-2 gap-4 mt-8">
-                <a href="install.html" class="ai-button">
-                    <i class="fas fa-download"></i>
-                    آموزش نصب نرم‌افزارها
-                </a>
-                <a href="fulltutorial.html" class="ai-button">
-                    <i class="fas fa-video"></i>
-                    آموزش صفر تا صد کار با نرم‌افزارها
-                </a>
-                <a href="webnarmafzar.html" class="ai-button">
-                    <i class="fas fa-globe"></i>
-                    وب نرم‌افزارها
-                </a>
-            </div>
-
-            <!-- New Book Resources Section -->
-            <div class="mt-12">
-                <h3 class="book-main-heading text-3xl font-bold text-center mb-8" style="color: var(--primary-blue);">
-                    <i class="fas fa-book ml-3"></i>
-                    کتاب‌های درسی و منابع آموزشی
-                </h3>
-
-                <!-- Shared Non-Technical Competencies -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">شایستگی‌های غیرفنی مشترک</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/12397" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            الزامات محیط کار
-                        </a>
-                        <a href="http://chap.sch.ir/books/11071" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی الزامات محیط کار
-                        </a>
-                        <a href="http://chap.sch.ir/books/12520" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کارگاه نوآوری و کارآفرینی
-                        </a>
-                        <a href="http://chap.sch.ir/books/9972" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی کارگاه نوآوری و کارآفرینی
-                        </a>
-                        <a href="http://chap.sch.ir/books/12518" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کاربرد فناوری‌های نوین
-                        </a>
-                        <a href="http://chap.sch.ir/books/10010" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی کاربرد فناوری‌های نوین
-                        </a>
-                        <a href="http://chap.sch.ir/books/12519" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            مدیریت تولید
-                        </a>
-                        <a href="http://chap.sch.ir/books/11079" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی مدیریت تولید
-                        </a>
-                        <a href="http://chap.sch.ir/books/12581" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            اخلاق حرفه‌ای
-                        </a>
-                        <a href="http://chap.roshd.ir/books/6916" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-video ml-2"></i>
-                            فیلم‌های آموزشی اخلاق حرفه‌ای
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Network and Software Field -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته شبکه و نرم‌افزار رایانه</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/12420" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            دانش فنی پایه
-                        </a>
-                        <a href="http://chap.sch.ir/books/12976" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نصب و راه‌اندازی سیستم‌های رایانه‌ای
-                        </a>
-                        <a href="http://chap.sch.ir/books/12977" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            تولید محتوای الکترونیک و برنامه‌سازی
-                        </a>
-                        <a href="http://chap.sch.ir/books/12402" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نقشه‌کشی فنی رایانه‌ای
-                        </a>
-                        <a href="http://chap.sch.ir/books/12531" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            توسعه برنامه‌سازی و پایگاه داده
-                        </a>
-                        <a href="http://chap.sch.ir/books/12532" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            پیاده‌سازی سیستم‌های اطلاعاتی و طراحی وب
-                        </a>
-                        <a href="http://chap.sch.ir/books/12596" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            دانش فنی تخصصی
-                        </a>
-                        <a href="http://chap.sch.ir/books/12597" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            تجارت الکترونیک و امنیت شبکه
-                        </a>
-                        <a href="http://chap.sch.ir/books/12810" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نصب و نگهداری تجهیزات شبکه و سخت‌افزار
-                        </a>
-                        <a href="http://chap.sch.ir/books/12421" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کتاب همراه هنرجو
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Multimedia Producer Field -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولیدکننده چندرسانه‌ای</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/13072" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            سیستم عامل
-                        </a>
-                        <a href="http://chap.sch.ir/books/13073" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            مفاهیم پایه فناوری اطلاعات
-                        </a>
-                        <a href="http://chap.sch.ir/books/11061" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            اطلاعات و ارتباطات
-                        </a>
-                        <a href="http://chap.sch.ir/books/11062" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            بسته‌های نرم‌افزاری Excel - PowerPoint
-                        </a>
-                        <a href="http://chap.sch.ir/books/11060" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نرم‌افزار واژه‌پرداز Word 2016
-                        </a>
-                        <a href="http://chap.sch.ir/books/11059" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            نرم‌افزار اداری تکمیلی Microsoft Access - OneNote
-                        </a>
-                        <a href="http://chap.sch.ir/books/11089" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            چندرسانه‌ای دوبعدی جلد اول - Adobe Photoshop
-                        </a>
-                        <a href="http://chap.sch.ir/books/11081" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            Adobe Audition
-                        </a>
-                        <a href="http://chap.sch.ir/books/12075" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            چندرسانه‌ای سه‌بعدی جلد دوم - Adobe Media Encoder
-                        </a>
-                        <a href="http://chap.sch.ir/books/12107" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            Adobe Premiere
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Internet Database Developer Field -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولیدکننده و توسعه‌دهنده پایگاه‌های اینترنتی</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/11068" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            سیستم‌های مدیریت محتوا - WordPress
-                        </a>
-                        <a href="http://chap.sch.ir/books/11067" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            توسعه‌دهنده صفحات وب با PHP و MySQL
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Educational Electronic Content Producer Field -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته تولید محتوای آموزشی الکترونیکی</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/11063" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            تولیدکننده محتوای الکترونیکی عمومی جلد اول - Adobe Photoshop – Adobe Animate
-                        </a>
-                        <a href="http://chap.sch.ir/books/11064" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            تولیدکننده محتوای الکترونیکی عمومی جلد دوم - Adobe Audition – Adobe Premiere – ArcSoft Media Converter
-                        </a>
-                        <a href="http://chap.sch.ir/books/11091" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            محتواساز آموزش الکترونیکی جلد اول - Adobe Captivate 2019
-                        </a>
-                        <a href="http://chap.sch.ir/books/11090" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            محتواساز آموزش الکترونیکی جلد دوم - Adobe Captivate 2019 - AutoPlay Media Studio 8
-                        </a>
-                        <a href="http://chap.sch.ir/books/11066" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کاربر گرافیکی محتوای آموزشی - Adobe Illustrator – MOHO
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Other Fields -->
-                <div class="book-section">
-                    <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">رشته‌های تصویرسازی دیجیتالی، برنامه‌نویسی بازی‌ها و پایگاه داده</h4>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <a href="http://chap.sch.ir/books/11092" target="_blank" rel="noopener noreferrer" class="book-link">
-                            <i class="fas fa-book ml-2"></i>
-                            کاربر این‌دیزاین - Adobe InDesign
-                        </a>
-                    </div>
-                </div>
+    <!-- Resources Section with Glass Square -->
+    <section id="resources" class="py-8 px-4">
+        <div class="container mx-auto text-center">
+            <div class="glass-square" onclick="window.location.href = 'amozshi.html';">
+                <div class="neon-sweep"></div>
+                <i class="fas fa-download text-6xl mb-4" style="color: #26A69A;"></i>
+                <h2 class="text-3xl font-bold text-white mb-2">نرم‌افزارهای مورد نیاز و منابع آموزشی</h2>
+                <p class="text-sm opacity-70">برای مشاهده جزئیات کلیک کنید</p>
             </div>
         </div>
     </section>
 
-    <!-- Ethics Section - New Addition for Professional Ethics Videos -->
+    <!-- Ethics Section with Glass Square -->
     <section id="ethics" class="py-8 px-4">
-        <div class="container mx-auto">
-            <div class="ethics-section">
-                <h2>
-                    <i class="fas fa-handshake ml-3 text-5xl" style="color: var(--accent-green);"></i>
-                    فیلم‌های آموزشی اخلاق حرفه‌ای
-                </h2>
-                <p class="text-lg mb-8 text-center">منابع آموزشی برای تقویت اخلاق حرفه‌ای در حوزه فناوری و آموزش</p>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <a href="https://www.aparat.com/v/abc123" target="_blank" rel="noopener noreferrer" class="ethics-video">
-                        <i class="fas fa-video ml-2"></i>
-                        اخلاق حرفه‌ای در برنامه‌نویسی (قسمت ۱)
-                    </a>
-                    <a href="https://www.aparat.com/v/def456" target="_blank" rel="noopener noreferrer" class="ethics-video">
-                        <i class="fas fa-video ml-2"></i>
-                        اصول اخلاقی در تولید محتوا (قسمت ۲)
-                    </a>
-                    <a href="https://www.aparat.com/v/ghi789" target="_blank" rel="noopener noreferrer" class="ethics-video">
-                        <i class="fas fa-video ml-2"></i>
-                        مسئولیت‌های اخلاقی طراحان وب
-                    </a>
-                    <a href="https://www.youtube.com/watch?v=jkl012" target="_blank" rel="noopener noreferrer" class="ethics-video">
-                        <i class="fab fa-youtube ml-2"></i>
-                        اخلاق در هوش مصنوعی (انگلیسی با زیرنویس)
-                    </a>
-                </div>
+        <div class="container mx-auto text-center">
+            <div class="glass-square" onclick="window.location.href = 'herfei.html';">
+                <div class="neon-sweep"></div>
+                <i class="fas fa-handshake text-6xl mb-4" style="color: #26A69A;"></i>
+                <h2 class="text-3xl font-bold text-white mb-2">فیلم‌های آموزشی اخلاق حرفه‌ای</h2>
+                <p class="text-sm opacity-70">برای مشاهده جزئیات کلیک کنید</p>
             </div>
         </div>
     </section>
 
-    <!-- Reports Section (Moved to end) -->
-    <section id="reports" class="py-4 px-4" style="background-color: var(--secondary-gray);">
-        <div class="container mx-auto">
-            <h2>
-                <i class="fas fa-chart-bar ml-3" style="color: var(--accent-green);"></i>
-                گزارش عملکرد سالانه شهرستان زرین‌دشت
-            </h2>
-            
-            <div class="grid lg:grid-cols-2 gap-4">
-                <!-- Report 1: 1402-1403 -->
-                <div class="glass-card p-2">
-                    <div class="flex items-center mb-2">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
-                             style="background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));">
-                            <i class="fas fa-file-alt text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۲-۱۴۰۳</h3>
-                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
-                        </div>
-                    </div>
-                    
-                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
-                        گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت شامل آمار دانش‌آموزان، نتایج آموزشی، پروژه‌های انجام شده و دستاوردهای سال تحصیلی ۱۴۰۲-۱۴۰۳.
-                    </p>
-                    
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
-                            <i class="fas fa-download ml-2"></i>
-                            <span>فرمت PDF</span>
-                        </div>
-                        <a href="https://drive.google.com/file/d/1kgTuGpCg3mjpKZlVtE-HqPl0UCj3q0CH/view?usp=drive_link" 
-                           target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary flex items-center text-sm px-4 py-2">
-                            <i class="fas fa-external-link-alt ml-2"></i>
-                            دانلود گزارش
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Report 2: 1403-1404 -->
-                <div class="glass-card p-2">
-                    <div class="flex items-center mb-2">
-                        <div class="w-12 h-12 rounded-full flex items-center justify-center ml-3" 
-                             style="background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));">
-                            <i class="fas fa-file-alt text-white text-xl"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold" style="color: var(--primary-blue);">گزارش عملکرد ۱۴۰۳-۱۴۰۴</h3>
-                            <p class="text-sm opacity-70 mt-1">گزارش جامع فعالیت‌های آموزشی و پرورشی</p>
-                        </div>
-                    </div>
-                    
-                    <p class="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed text-sm">
-                        گزارش جامع فعالیت‌های آموزشی و پرورشی هنرستان‌های کامپیوتر شهرستان زرین‌دشت برای سال جاری شامل پیشرفت‌های جدید، پروژه‌های نوآورانه و برنامه‌های آتی.
-                    </p>
-                    
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center text-xs" style="color: var(--accent-green);">
-                            <i class="fas fa-download ml-2"></i>
-                            <span>فرمت PDF</span>
-                        </div>
-                        <a href="https://drive.google.com/file/d/18rcNuo-kM4wrmtljy-uDN-DMWzr28U-C/view" 
-                           target="_blank" rel="noopener noreferrer" 
-                           class="btn-primary flex items-center text-sm px-4 py-2">
-                            <i class="fas fa-external-link-alt ml-2"></i>
-                            دانلود گزارش
-                        </a>
-                    </div>
-                </div>
+    <!-- Reports Section with Glass Square -->
+    <section id="reports" class="py-8 px-4">
+        <div class="container mx-auto text-center">
+            <div class="glass-square" onclick="window.location.href = 'gozarsh.html';">
+                <div class="neon-sweep"></div>
+                <i class="fas fa-chart-bar text-6xl mb-4" style="color: #26A69A;"></i>
+                <h2 class="text-3xl font-bold text-white mb-2">گزارش عملکرد سالانه شهرستان زرین‌دشت</h2>
+                <p class="text-sm opacity-70">برای مشاهده جزئیات کلیک کنید</p>
             </div>
         </div>
     </section>
@@ -2821,7 +2047,8 @@
             const viewElement = document.getElementById(articleId + '-views');
             if (viewElement) {
                 let currentViews = parseInt(viewElement.textContent.replace(/,/g, ''));
-                currentViews += Math.floor(Math.random() * 3) + 1; // Random increment 1-3
+                let currentViews = parseInt(viewElement.textContent.replace(/,/g, ''));
+                let currentViews += Math.floor(Math.random() * 3) + 1; // Random increment 1-3
                 viewElement.textContent = currentViews.toLocaleString('fa-IR');
             }
         }
@@ -2858,7 +2085,7 @@
         }
 
         // ChatGPT Integration with OpenAI API
-        const OPENAI_API_KEY = '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';
+        const OPENAI_API_KEY = 'sk-proj-4PbDvAt-tyXY8aAaHyTynx6FMEVEXVYJWB37EhCwIu5TUsrdohyv3Ezf25upC4-MkcxDp1fabNT3BlbkFJwlKgoD5bGPQVz7yUNC-aKJEd7g79lZf9ynf9ynf9ynfYqy8z-RXhferDrYKGpnGovF3UMNAY3tjmICtHwA';
         const OPENAI_API_URL = 'https://api.openai.com/v1/chat/completions';
 
         // Serper.dev Search Integration
@@ -3154,7 +2381,7 @@
             }
             
             if (message.includes('adobe') || message.includes('photoshop') || message.includes('illustrator')) {
-                return 'Photoshop/Illustrator: ویرایش + وکتور. موفقیت: پروژه گرافیکی بساز. درآمد: ۷-۱۵م (طراح محتوا).';
+                return 'Photoshop/Illustrator: ویرایش + وکتور. موفقیت: پروژه گرافیکی بساز. درآمد: ۷-۱۵م.';
             }
             
             // School questions - کوتاه
@@ -3169,7 +2396,7 @@
             
             // Learning and education questions - کارهای لازم
             if (message.includes('یادگیری') || message.includes('آموزش')) {
-                return '📚 موفقیت: روزانه ۲س تمرین، پروژه بساز، GitHub بگذار. منابع: ویدیوهای آپارات + کتاب سایت.';
+                return '📚 موفقیت: روزانه ۲س تمرین، پروژه بساز, GitHub بگذار. منابع: ویدیوهای آپارات + کتاب سایت.';
             }
             
             // Contact questions - کوتاه
@@ -3204,7 +2431,7 @@
 
             // Ethics videos fallback
             if (message.includes('اخلاق') || message.includes('فیلم')) {
-                return '📹 فیلم‌های اخلاق حرفه‌ای در بخش اخلاق سایت موجود است. برای مثال: <a href="#ethics">اینجا کلیک کنید</a>';
+                return '📹 فیلم‌های اخلاق حرفه‌ای در بخش اخلاق سایت موجود است. برای مثال: <a href="herfei.html">اینجا کلیک کنید</a>';
             }
             
             // Default responses - کوتاه و دقیق
@@ -3248,7 +2475,7 @@
                 `👤 نام: ${name}\n` +
                 `📧 ایمیل: ${email}\n` +
                 `💬 پیام: ${message || 'ندارد'}\n\n` +
-                `لطفاً راهنماییم کنید.`
+                `لطفاً راهنمایی کنید.`
             );
             
             // Send to WhatsApp
@@ -3264,16 +2491,20 @@
             
             // Hide form
             toggleRegistrationForm();
+            // Hide form
+            toggleRegistrationForm();
+            // Hide form
+            toggleRegistrationForm();
         }
 
         // Contact functions
         function sendToWhatsApp() {
-            const message = encodeURIComponent('سلام! از طریق سایت فن‌آموز زرین با شما تماس می‌گیرم. لطفاً راهنماییم کنید.');
+            const message = encodeURIComponent('سلام! از طریق سایت فن‌آموز زرین با شما تماس می‌گیرم. لطفاً راهنمایی کنید.');
             window.open(`https://wa.me/989372565994?text=${message}`, '_blank', 'noopener,noreferrer');
         }
 
         function sendToTelegram() {
-            const message = encodeURIComponent('سلام! از طریق سایت فن‌آموز زرین با شما تماس می‌گیرم. لطفاً راهنماییم کنید.');
+            const message = encodeURIComponent('سلام! از طریق سایت فن‌آموز زرین با شما تماس می‌گیرم. لطفاً راهنمایی کنید.');
             window.open(`https://t.me/cszarindasht`, '_blank', 'noopener,noreferrer');
         }
 
@@ -3281,5 +2512,5 @@
             window.open('https://eitaa.com/fatemeh_motamed', '_blank', 'noopener,noreferrer');
         }
     </script>
-</body>      
+</body>
 </html>
