@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فیلم‌های آموزشی اخلاق حرفه‌ای - گروه کامپیوتر زرین‌دشت</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        :root {
+            --primary-color: #0288D1; /* آبی اصلی - هماهنگ با تم آموزشی */
+            --secondary-color: #F5F7FA; /* خاکستری روشن برای پس‌زمینه light */
+            --accent-color: #26A69A; /* سبز برای برجسته‌سازی - هماهنگ با آبی */
+            --text-primary: #212121; /* متن اصلی light */
+            --text-secondary: #546E7A; /* متن ثانویه light */
+            --text-primary-dark: #FFFFFF; /* متن اصلی dark */
+            --text-secondary-dark: #CFD8DC; /* متن ثانویه dark */
+            --glass-bg-light: rgba(2, 136, 209, 0.15); /* شیشه‌ای آبی روشن */
+            --glass-bg-dark: rgba(255, 255, 255, 0.2); /* شیشه‌ای سفید dark */
+            --glass-border-light: rgba(255, 255, 255, 0.3); /* حاشیه شیشه‌ای light */
+            --glass-border-dark: rgba(255, 255, 255, 0.2); /* حاشیه شیشه‌ای dark */
+            --shadow-light: rgba(0,0,0,0.1); /* سایه light */
+            --shadow-dark: rgba(0,0,0,0.3); /* سایه dark */
+            --blur-amount: 8px;
+            --footer-bg: #0277BD; /* فوتر آبی تیره */
+            
+            /* Legacy support for existing styles */
+            --primary-blue: var(--primary-color);
+            --secondary-gray: var(--secondary-color);
+            --accent-green: var(--accent-color);
+            --light-bg: var(--secondary-color);
+            --dark-bg: #37474F; /* پس‌زمینه dark - خاکستری تیره هماهنگ با آبی */
+            --text-dark: var(--text-primary);
+            --text-light: var(--text-primary-dark);
+            --text-secondary-light: var(--text-secondary);
+            --glass-light: var(--glass-bg-light);
+            --glass-dark: var(--glass-bg-dark);
+            --footer-dark: var(--footer-bg);
+        }
+
+        .light-mode {
+            background-color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+
+        .light-mode .text-secondary {
+            color: var(--text-secondary);
+        }
+
+        .dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--text-primary-dark);
+        }
+
+        .dark-mode .text-secondary {
+            color: var(--text-secondary-dark);
+        }
+
+        .glass-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .glass-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+
+        .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-light);
+            transform: translateY(-2px);
+        }
+
+        .dark-mode .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-dark);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: heroShimmer 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes heroShimmer {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(45deg, rgba(0, 121, 107, 0.1), rgba(0, 31, 63, 0.1));
+            transform: translateZ(-1px) scale(1.1);
+            z-index: -1;
+        }
+
+        .logo-3d {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .logo-3d:hover {
+            transform: rotateY(15deg) rotateX(10deg) scale(1.2);
+        }
+
+        .logo-3d i {
+            transition: all 0.4s ease;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .logo-3d:hover i {
+            transform: translateZ(20px);
+            text-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+
+        .logo-3d img {
+            transition: all 0.4s ease;
+            transform: translateZ(0);
+        }
+
+        .logo-3d:hover img {
+            transform: translateZ(50px) scale(1.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-color), #00695C);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(38, 166, 154, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(38, 166, 154, 0.25);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary-color), #01579B);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(2, 136, 209, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(2, 136, 209, 0.25);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 1001;
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px var(--shadow-light);
+        }
+
+        .dark-mode .theme-toggle {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 4px 20px var(--shadow-dark);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 8px 30px var(--shadow-light);
+        }
+
+        .dark-mode .theme-toggle:hover {
+            box-shadow: 0 8px 30px var(--shadow-dark);
+        }
+
+        .theme-toggle i {
+            font-size: 18px;
+            color: var(--primary-color);
+            transition: all 0.4s ease;
+        }
+
+        .dark-mode .theme-toggle i {
+            color: var(--accent-color);
+        }
+
+        .ethics-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+        }
+
+        .dark-mode .ethics-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            color: var(--text-primary-dark);
+        }
+
+        .ethics-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-light);
+        }
+
+        .dark-mode .ethics-card:hover {
+            box-shadow: 0 15px 30px var(--shadow-dark);
+        }
+
+        .ethics-link {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .ethics-link {
+            color: var(--text-primary-dark);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .ethics-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-5px);
+            color: var(--text-primary);
+        }
+
+        .dark-mode .ethics-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: var(--text-primary-dark);
+        }
+
+        .ai-button-section {
+            background: linear-gradient(135deg, var(--secondary-color), #FFFFFF);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .dark-mode .ai-button-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+
+        .ai-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 18px 36px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(2, 136, 209, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .ai-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(2, 136, 209, 0.3);
+        }
+
+        /* Chatbot Styles - Copied from main page for consistency */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 34, 68, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chatbot-toggle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            animation: pulse 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(0, 34, 68, 0.5);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+        }
+
+        .chatbot-toggle i {
+            z-index: 1;
+            position: relative;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 84px;
+            right: 0;
+            width: 320px;
+            height: 520px;
+            background: var(--glass-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 12px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 60px var(--shadow-light);
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1002;
+        }
+
+        .dark-mode .chatbot-window {
+            background: var(--glass-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 20px 60px var(--shadow-dark);
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chatbot-message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            word-wrap: break-word;
+        }
+
+        .chatbot-message.user {
+            background: var(--accent-green);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chatbot-message.bot {
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-dark);
+            align-self: flex-start;
+        }
+
+        .dark-mode .chatbot-message.bot {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+        }
+
+        .chatbot-input-container {
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chatbot-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 25px;
+            background: var(--secondary-gray);
+            color: var(--text-dark);
+            outline: none;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode .chatbot-input {
+            background: #263238;
+            color: var(--text-light);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .chatbot-input:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+        .chatbot-send {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(46, 125, 50, 0.3);
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.4);
+        }
+
+        .chatbot-send:active {
+            transform: scale(0.95);
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        /* Typography Classes */
+        .heading-primary {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-blue);
+        }
+
+        .heading-secondary {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-blue);
+        }
+
+        .text-body {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .dark-mode .heading-primary,
+        .dark-mode .heading-secondary {
+            color: var(--text-light);
+        }
+
+        /* Responsive Design - Enhanced for full responsiveness */
+        @media (max-width: 1024px) {
+            .hero-gradient {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .ethics-card {
+                padding: 1.25rem;
+            }
+
+            .ai-button-section {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle {
+                bottom: 16px;
+                left: 16px;
+                width: 48px;
+                height: 48px;
+            }
+
+            .theme-toggle i {
+                font-size: 16px;
+            }
+
+            .ethics-card {
+                padding: 1rem;
+            }
+
+            .ethics-link {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+
+            .hero-gradient h2 {
+                font-size: 2rem !important;
+            }
+
+            .hero-gradient h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .hero-gradient p {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            .ai-button-section {
+                padding: 2rem 1rem;
+            }
+
+            .ai-button {
+                padding: 14px 28px;
+                font-size: 13px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            .chatbot-window {
+                width: 90vw;
+                height: 70vh;
+            }
+
+            /* Hamburger Menu Enhancements for Mobile */
+            .mobile-menu {
+                width: 80vw;
+                max-width: 300px;
+            }
+
+            .mobile-menu nav a {
+                padding: 1rem 0;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
+
+            .ethics-card {
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .ethics-link {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+
+            .ai-button {
+                padding: 12px 20px;
+                font-size: 12px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-gradient {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+                border-radius: 1.5rem;
+            }
+
+            .hero-gradient h2 {
+                font-size: 1.75rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-gradient h3 {
+                font-size: 1.25rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .hero-gradient p {
+                font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+
+            /* Logo adjustments for small screens */
+            .logo-3d {
+                width: 3rem;
+                height: 3rem;
+            }
+
+            .logo-3d img {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            /* Header adjustments */
+            header .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
+            /* Chatbot on small screens */
+            .chatbot-container {
+                bottom: 16px;
+                right: 16px;
+            }
+
+            .chatbot-toggle {
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+            }
+
+            .chatbot-window {
+                width: 95vw;
+                max-width: 320px;
+                height: 60vh;
+                max-height: 500px;
+                bottom: 70px;
+            }
+
+            .chatbot-messages {
+                padding: 15px;
+            }
+
+            .chatbot-input-container {
+                padding: 10px 15px;
+            }
+
+            .heading-primary {
+                font-size: 24px;
+            }
+
+            .heading-secondary {
+                font-size: 16px;
+            }
+
+            .text-body {
+                font-size: 11px;
+            }
+        }
+
+        /* Unified title styles - Responsive */
+        h2 {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: var(--primary-blue) !important;
+            text-align: center;
+            margin-bottom: 1rem !important;
+            white-space: nowrap;
+        }
+
+        .dark-mode h2 {
+            color: var(--text-primary-dark) !important;
+        }
+
+        h3 {
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            color: var(--accent-color) !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .dark-mode h3 {
+            color: var(--accent-color) !important;
+        }
+
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 20px !important;
+            }
+
+            h3 {
+                font-size: 16px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 18px !important;
+                white-space: normal;
+            }
+
+            h3 {
+                font-size: 14px !important;
+            }
+        }
+
+        /* Grid responsiveness enhancement */
+        .grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        /* Overlay for mobile menu to prevent background interaction */
+        .mobile-menu.active + .overlay {
+            display: block;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 49;
+        }
+    </style>
+</head>
+<body class="light-mode transition-all duration-300">
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" onclick="toggleMobileMenu()"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon text-xl" id="theme-icon"></i>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 m-4" style="background: var(--primary-blue); border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 31, 63, 0.3);">
+        <div class="dark-mode:bg-dark-bg transition-all duration-300" style="background: inherit; border-radius: inherit;">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex items-center logo-text">
+                        <div class="logo-3d w-16 h-16 rounded-full flex items-center justify-center ml-4" 
+                             style="background: linear-gradient(135deg, var(--accent-green), #004D40); box-shadow: 0 8px 20px rgba(0, 121, 107, 0.4);">
+                            <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;">فن‌آموز زرین</h1>
+                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">گروه کامپیوتر شهرستان زرین‌دشت</p>
+                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس </p>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex space-x-8 space-x-reverse">
+                        <a href="index.html#hero" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">خانه</a>
+                        <a href="index.html#fields" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">رشته‌ها</a>
+                        <a href="index.html#schools" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">هنرستان‌ها</a>
+                        <a href="index.html#resources" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">منابع</a>
+                        <a href="index.html#ethics" class="text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: var(--accent-green); text-shadow: 0 2px 8px rgba(0, 121, 107, 0.5);">اخلاق حرفه‌ای</a>
+                        <a href="ai.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold" 
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;" 
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'" 
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
+                    </nav>
+
+                    <!-- Mobile Menu Button - Hamburger Icon (Gray tint for visibility) -->
+                    <button class="md:hidden text-white text-2xl p-2 rounded-lg hover:bg-white/20 transition-colors" onclick="toggleMobileMenu()" style="color: #f0f0f0;">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full z-50 p-6 md:hidden" 
+                 style="background: var(--primary-blue); box-shadow: -8px 0 32px rgba(0, 31, 63, 0.3);">
+                <button class="absolute top-4 left-4 text-white text-2xl p-2 rounded-lg hover:bg-white/20 transition-colors" onclick="toggleMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <nav class="mt-12 space-y-6">
+                    <a href="index.html#hero" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">خانه</a>
+                    <a href="index.html#fields" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">رشته‌ها</a>
+                    <a href="index.html#schools" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هنرستان‌ها</a>
+                    <a href="index.html#resources" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">منابع</a>
+                    <a href="index.html#ethics" class="block text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
+                       style="font-family: 'Vazirmatn', sans-serif; color: var(--accent-green);" onclick="toggleMobileMenu()">اخلاق حرفه‌ای</a>
+                    <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold py-2 px-4 rounded-lg hover:bg-white/10" 
+                       style="font-family: 'Vazirmatn', sans-serif;" onclick="toggleMobileMenu()">هوش مصنوعی</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-gradient text-white py-24 mx-4 rounded-3xl mb-4 relative">
+        <div class="parallax-bg"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 animate-fade-in" style="color: white !important;">فیلم‌های آموزشی اخلاق حرفه‌ای</h2>
+            <h3 class="text-2xl md:text-3xl mb-4 animate-fade-in-delay-1">اصول و ارزش‌های حرفه‌ای</h3>
+            <p class="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90 animate-fade-in-delay-4">
+                در این بخش، فیلم‌های آموزشی مرتبط با اخلاق حرفه‌ای در حوزه فناوری و آموزش ارائه شده است.
+            </p>
+        </div>
+    </section>
+
+    <!-- Ethics Section -->
+    <section class="py-4 px-4" style="background-color: var(--secondary-gray);">
+        <div class="container mx-auto">
+            <h2>
+                <i class="fas fa-handshake ml-3"></i>
+                فیلم‌های آموزشی
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- ویدیو 1 -->
+                <div class="ethics-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
+                            <i class="fas fa-video text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">اخلاق حرفه‌ای در برنامه‌نویسی (قسمت ۱)</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm">این ویدیو به بررسی اصول اخلاقی در کدنویسی و توسعه نرم‌افزار می‌پردازد.</p>
+                    </div>
+                    
+                    <div class="border-t pt-4">
+                        <a href="https://www.aparat.com/v/abc123" target="_blank" rel="noopener noreferrer" class="ethics-link">
+                            <i class="fas fa-external-link-alt ml-2"></i>
+                            مشاهده ویدیو
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ویدیو 2 -->
+                <div class="ethics-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
+                            <i class="fas fa-video text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">اصول اخلاقی در تولید محتوا (قسمت ۲)</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm">بررسی مسائل اخلاقی در ایجاد و انتشار محتوای دیجیتال.</p>
+                    </div>
+                    
+                    <div class="border-t pt-4">
+                        <a href="https://www.aparat.com/v/def456" target="_blank" rel="noopener noreferrer" class="ethics-link">
+                            <i class="fas fa-external-link-alt ml-2"></i>
+                            مشاهده ویدیو
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ویدیو 3 -->
+                <div class="ethics-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
+                            <i class="fas fa-video text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">مسئولیت‌های اخلاقی طراحان وب</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm">مسئولیت‌های طراحان در حفظ حریم خصوصی و دسترسی‌پذیری.</p>
+                    </div>
+                    
+                    <div class="border-t pt-4">
+                        <a href="https://www.aparat.com/v/ghi789" target="_blank" rel="noopener noreferrer" class="ethics-link">
+                            <i class="fas fa-external-link-alt ml-2"></i>
+                            مشاهده ویدیو
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ویدیو 4 -->
+                <div class="ethics-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center ml-3">
+                            <i class="fab fa-youtube text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: var(--primary-blue);">اخلاق در هوش مصنوعی (انگلیسی با زیرنویس)</h3>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <p class="text-sm">بحث در مورد چالش‌های اخلاقی در توسعه AI.</p>
+                    </div>
+                    
+                    <div class="border-t pt-4">
+                        <a href="https://www.youtube.com/watch?v=jkl012" target="_blank" rel="noopener noreferrer" class="ethics-link">
+                            <i class="fas fa-external-link-alt ml-2"></i>
+                            مشاهده ویدیو
+                        </a>
+                    </div>
+                </div>
+            </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 mx-4 rounded-xl mb-4" style="background: var(--footer-dark); box-shadow: 0 4px 12px rgba(0, 26, 51, 0.15);">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white/20">
+                    <img src="your-logo.png" alt="لوگو" class="w-14 h-14 object-contain" />
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white">فن‌آموز زرین</h3>
+                    <p class="text-sm text-gray-200">گروه کامپیوتر آموزش پرورش زرین‌دشت</p>
+                </div>
+            </div>
+            <p class="mb-4 text-gray-200">
+                توسعه دهنده: فاطمه معتمد - رعنا پرموزه
+            </p>
+            <p class="text-sm opacity-80 text-gray-200">
+                تمامی حقوق محفوظ است © 
+            </p>
+        </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+        </button>
+        
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center">
+                        <i class="fas fa-robot ml-2"></i>
+                        <span class="font-bold">دستیار هوشمند فن‌آموز زرین</span>
+                    </div>
+                    <button class="chatbot-close md:hidden text-white text-xl" onclick="toggleChatbot()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chatbot-message bot">
+                    سلام! به بخش اخلاق حرفه‌ای خوش آمدید! 🤝<br><br>اینجا فیلم‌های آموزشی مفیدی برای تقویت اصول اخلاقی در فناوری پیدا می‌کنی. سوالی داری؟ 💬
+                </div>
+            </div>
+            
+            <div class="chatbot-input-container">
+                <input type="text" class="chatbot-input" id="chatbot-input" placeholder="پیام خود را بنویسید..." onkeypress="handleChatKeyPress(event)">
+                <button class="chatbot-send" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun text-xl';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeIcon.className = 'fas fa-moon text-xl';
+            }
+        }
+
+        // Mobile Menu Toggle - Enhanced with overlay
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.querySelector('.overlay');
+            mobileMenu.classList.toggle('active');
+            overlay.style.display = mobileMenu.classList.contains('active') ? 'block' : 'none';
+        }
+
+        // Simple Chatbot for this page (basic functionality)
+        let chatbotOpen = false;
+
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbot-window');
+            chatbotOpen = !chatbotOpen;
+            
+            if (chatbotOpen) {
+                chatbotWindow.style.display = 'flex';
+                setTimeout(() => {
+                    chatbotWindow.style.transform = 'scale(1) translateY(0)';
+                    chatbotWindow.style.opacity = '1';
+                }, 10);
+            } else {
+                chatbotWindow.style.transform = 'scale(0.9) translateY(20px)';
+                chatbotWindow.style.opacity = '0';
+                setTimeout(() => {
+                    chatbotWindow.style.display = 'none';
+                }, 400);
+            }
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatbot-input');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            // Add user message
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const userDiv = document.createElement('div');
+            userDiv.className = 'chatbot-message user';
+            userDiv.textContent = message;
+            messagesContainer.appendChild(userDiv);
+            
+            // Simple bot response
+            setTimeout(() => {
+                const botDiv = document.createElement('div');
+                botDiv.className = 'chatbot-message bot';
+                botDiv.innerHTML = 'سپاس از پیامت! برای جزئیات بیشتر در مورد اخلاق حرفه‌ای، فیلم‌های موجود رو مشاهده کن یا با سرگروه تماس بگیر: ۰۹۳۷۲۵۶۵۹۹۴ 😊';
+                messagesContainer.appendChild(botDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 500);
+            
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Smooth scrolling if needed
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Close mobile menu on window resize if desktop
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const overlay = document.querySelector('.overlay');
+                mobileMenu.classList.remove('active');
+                overlay.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
