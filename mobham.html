@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لینک کتاب های کاردانش سال تحصیلی ۱۴۰۱-۱۴۰۲ - استان فارس زرین‌دشت</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+  
+        :root {
+            --primary-color: #0288D1; /* آبی اصلی - هماهنگ با تم آموزشی */
+            --secondary-color: #F5F7FA; /* خاکستری روشن برای پس‌زمینه light */
+            --accent-color: #0288D1; /* تغییر به آبی برای دکمه‌ها */
+            --text-primary: #212121; /* متن اصلی light */
+            --text-secondary: #546E7A; /* متن ثانویه light */
+            --text-primary-dark: #FFFFFF; /* متن اصلی dark */
+            --text-secondary-dark: #CFD8DC; /* متن ثانویه dark */
+            --glass-bg-light: rgba(2, 136, 209, 0.15); /* شیشه‌ای آبی روشن */
+            --glass-bg-dark: rgba(255, 255, 255, 0.2); /* شیشه‌ای سفید dark */
+            --glass-border-light: rgba(255, 255, 255, 0.3); /* حاشیه شیشه‌ای light */
+            --glass-border-dark: rgba(255, 255, 255, 0.2); /* حاشیه شیشه‌ای dark */
+            --shadow-light: rgba(0,0,0,0.1); /* سایه light */
+            --shadow-dark: rgba(0,0,0,0.3); /* سایه dark */
+            --blur-amount: 8px;
+            --footer-bg: #0277BD; /* فوتر آبی تیره */
+      
+            /* Legacy support for existing styles */
+            --primary-blue: var(--primary-color);
+            --secondary-gray: var(--secondary-color);
+            --accent-green: var(--accent-color);
+            --light-bg: var(--secondary-color);
+            --dark-bg: #37474F; /* پس‌زمینه dark - خاکستری تیره هماهنگ با آبی */
+            --text-dark: var(--text-primary);
+            --text-light: var(--text-primary-dark);
+            --text-secondary-light: var(--text-secondary);
+            --glass-light: var(--glass-bg-light);
+            --glass-dark: var(--glass-bg-dark);
+            --footer-dark: var(--footer-bg);
+        }
+        .light-mode {
+            background-color: var(--secondary-color);
+            color: var(--text-primary);
+        }
+        .light-mode .text-secondary {
+            color: var(--text-secondary);
+        }
+        .dark-mode {
+            background-color: var(--dark-bg);
+            color: var(--text-primary-dark);
+        }
+        .dark-mode .text-secondary {
+            color: var(--text-secondary-dark);
+        }
+        .glass-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+        .dark-mode .glass-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+        .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-light);
+        }
+        .dark-mode .glass-card:hover {
+            box-shadow: 0 12px 40px var(--shadow-dark);
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: heroShimmer 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        @keyframes heroShimmer {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background: linear-gradient(45deg, rgba(0, 121, 107, 0.1), rgba(0, 31, 63, 0.1));
+            transform: translateZ(-1px) scale(1.1);
+            z-index: -1;
+        }
+        .logo-3d {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .logo-3d:hover {
+            transform: rotateY(15deg) rotateX(10deg) scale(1.2);
+        }
+        .logo-3d i {
+            transition: all 0.4s ease;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .logo-3d:hover i {
+            transform: translateZ(20px);
+            text-shadow: 0 8px 16px rgba(0,0,0,0.4);
+        }
+        .logo-3d img {
+            transition: all 0.4s ease;
+            transform: translateZ(0);
+        }
+        .logo-3d:hover img {
+            transform: translateZ(50px) scale(1.2);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), #01579B);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(2, 136, 209, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(2, 136, 209, 0.25);
+        }
+        .btn-primary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary-color), #01579B);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(2, 136, 209, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-secondary:hover::before {
+            left: 100%;
+        }
+        .btn-secondary:hover {
+            background: var(--secondary-color);
+            color: var(--text-primary);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 15px rgba(2, 136, 209, 0.25);
+        }
+        .btn-secondary:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 1001;
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px var(--shadow-light);
+        }
+        .dark-mode .theme-toggle {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 4px 20px var(--shadow-dark);
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(180deg);
+            box-shadow: 0 8px 30px var(--shadow-light);
+        }
+        .dark-mode .theme-toggle:hover {
+            box-shadow: 0 8px 30px var(--shadow-dark);
+        }
+        .theme-toggle i {
+            font-size: 18px;
+            color: var(--primary-color);
+            transition: all 0.4s ease;
+        }
+        .dark-mode .theme-toggle i {
+            color: var(--accent-color);
+        }
+        .field-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+        .course-link {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        .course-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-5px);
+        }
+        .school-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(2,136,209,0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .dark-mode .school-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .school-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,31,63,0.1);
+        }
+        .team-section {
+            background: linear-gradient(135deg, var(--secondary-color), #F5F7FA);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        .dark-mode .team-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+        .ai-glass-card {
+            background: var(--glass-bg-light);
+            backdrop-filter: blur(var(--blur-amount));
+            -webkit-backdrop-filter: blur(var(--blur-amount));
+            border: 1px solid var(--glass-border-light);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .dark-mode .ai-glass-card {
+            background: var(--glass-bg-dark);
+            border: 1px solid var(--glass-border-dark);
+            box-shadow: 0 8px 32px var(--shadow-dark);
+        }
+        .ai-glass-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 121, 107, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .ai-glass-card:hover::before {
+            opacity: 1;
+        }
+        .ai-glass-card:hover {
+            box-shadow: 0 25px 50px var(--shadow-light);
+        }
+        .dark-mode .ai-glass-card:hover {
+            box-shadow: 0 25px 50px var(--shadow-dark);
+        }
+        .floating-card {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(1deg); }
+            50% { transform: translateY(-5px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-1deg); }
+        }
+        .tilt-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .tilt-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 31, 63, 0.3);
+        }
+        .dark-mode .tilt-card:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+        .ai-tool-link {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .dark-mode .ai-tool-link {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ai-tool-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(-8px);
+            border-color: var(--accent-green);
+            box-shadow: 0 8px 25px rgba(0, 121, 107, 0.2);
+        }
+        .dark-mode .ai-tool-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .ai-tool-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        .ai-tool-link:hover::before {
+            transform: scaleY(1);
+        }
+        .ai-challenge-box {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .ai-challenge-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        .ai-section-bg {
+            background: linear-gradient(135deg,
+                rgba(2, 136, 209, 0.05) 0%,
+                rgba(38, 166, 154, 0.05) 50%,
+                rgba(245, 247, 250, 0.05) 100%);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+        }
+        .dark-mode .ai-section-bg {
+            background: linear-gradient(135deg,
+                rgba(2, 136, 209, 0.1) 0%,
+                rgba(38, 166, 154, 0.1) 50%,
+                rgba(69, 90, 100, 0.1) 100%);
+        }
+        /* Typography Classes */
+        .heading-primary {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-blue);
+        }
+        .heading-secondary {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--primary-blue);
+        }
+        .text-body {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        .dark-mode .heading-primary,
+        .dark-mode .heading-secondary {
+            color: var(--text-light);
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .heading-primary {
+                font-size: 24px;
+            }
+            .heading-secondary {
+                font-size: 16px;
+            }
+            .theme-toggle {
+                bottom: 16px;
+                left: 16px;
+                width: 48px;
+                height: 48px;
+            }
+            .theme-toggle i {
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .heading-primary {
+                font-size: 20px;
+            }
+            .heading-secondary {
+                font-size: 14px;
+            }
+        }
+        /* Additional responsive styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+            .ai-section .card, .card {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+            nav.active {
+                display: block;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                padding: 1rem;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        .ai-button-section {
+            background: linear-gradient(135deg, var(--secondary-color), #F5F7FA);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        .dark-mode .ai-button-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+        .ai-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 18px 36px;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(2, 136, 209, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .ai-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(2, 136, 209, 0.3);
+        }
+        /* Adjusted styles for reports */
+        #reports .glass-card {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        /* Reduced spacing between sections */
+        #resources + #ai-button-section {
+            margin-top: 1rem;
+        }
+        #ai-button-section + #reports {
+            margin-top: 1rem;
+        }
+        #reports {
+            padding: 1rem 0;
+        }
+        .video-link {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        .video-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-5px);
+        }
+        /* Reduced margins for resources section */
+        .mb-8 {
+            margin-bottom: 1rem !important;
+        }
+        .py-12 {
+            padding-top: 1.5rem !important;
+            padding-bottom: 1.5rem !important;
+        }
+        .gap-6 {
+            gap: 1rem !important;
+        }
+        /* تغییر رنگ h3 برای جایگزین‌های رایگان به همرنگ با h5 های آموزش */
+        .free-alternatives-title {
+            color: var(--text-primary) !important;
+            font-weight: 600;
+        }
+        .dark-mode .free-alternatives-title {
+            color: var(--text-primary-dark) !important;
+        }
+        /* Reduced spacing between fields and schools */
+        #fields {
+            padding-bottom: 1rem !important;
+        }
+        #schools {
+            padding-top: 1rem !important;
+        }
+        /* Ensure report titles fit in one line */
+        #reports h3 {
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* Smaller font for logo text */
+        .logo-text h1 {
+            font-size: 1.3rem;
+            white-space: nowrap;
+        }
+        .logo-text p {
+            font-size: 0.75rem;
+        }
+        /* Smaller fonts in resources */
+        #resources .glass-card h4 {
+            font-size: 12px;
+        }
+        #resources .glass-card span {
+            font-size: 10px;
+        }
+        #resources .glass-card h5 {
+            font-size: 11px;
+        }
+        #resources .video-link {
+            font-size: 10px;
+            padding: 8px 12px;
+        }
+        .free-alternatives-title {
+            font-size: 18px;
+        }
+        #resources .glass-card .text-sm {
+            font-size: 10px;
+        }
+        /* Styles for Ethics Videos Section */
+        .ethics-section {
+            background: linear-gradient(135deg, var(--secondary-color), #F5F7FA);
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .dark-mode .ethics-section {
+            background: linear-gradient(135deg, #455A64, var(--dark-bg));
+        }
+        .ethics-video {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .ethics-video:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-light);
+        }
+        .dark-mode .ethics-video {
+            color: var(--text-primary-dark);
+        }
+        .dark-mode .ethics-video:hover {
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 4px 12px var(--shadow-dark);
+        }
+        /* Styles for Book Resources - Updated for consistency */
+        .book-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        .dark-mode .book-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        }
+        .book-link {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 6px;
+            transition: all 0.3s ease;
+            font-size: 11px;
+        }
+        .book-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(-3px);
+            box-shadow: 0 2px 8px rgba(255,255,255,0.3);
+        }
+        .dark-mode .book-link {
+            color: white;
+        }
+        .dark-mode .book-link:hover {
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 2px 8px rgba(255,255,255,0.3);
+        }
+        /* Smaller font for book headings */
+        .book-section h4 {
+            font-size: 12px !important; /* Reduced from text-lg (18px) to 12px */
+        }
+        /* Smaller font for main book resources heading */
+        #resources h3.book-main-heading {
+            font-size: 18px !important; /* Reduced from text-3xl (30px) to 18px */
+        }
+        /* Unified title styles */
+        h2 {
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: var(--primary-blue) !important;
+            text-align: center;
+            margin-bottom: 1rem !important;
+            white-space: nowrap;
+        }
+        .dark-mode h2 {
+            color: var(--text-primary-dark) !important;
+        }
+        /* بهبودهای رسپانسیو جدید */
+        @media (max-width: 1024px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .hero-gradient {
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+            .field-card {
+                padding: 1.5rem;
+            }
+            .grid.lg\:grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            body {
+                font-size: 13px;
+            }
+            h2 {
+                font-size: 20px !important;
+            }
+            .hero-gradient {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+            .hero-gradient h2 {
+                font-size: 1.75rem !important;
+            }
+            .hero-gradient h3 {
+                font-size: 1.5rem !important;
+            }
+            .hero-gradient h4, .hero-gradient h5 {
+                font-size: 1.25rem !important;
+            }
+            .field-card {
+                padding: 1rem;
+            }
+            .course-link {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            .grid.lg\:grid-cols-4, .grid.md\:grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            .school-card {
+                padding: 1rem;
+            }
+            .school-card ul {
+                margin-right: 0;
+                padding-right: 0;
+            }
+            .team-section {
+                padding: 1.5rem;
+            }
+            .glass-card.p-8 {
+                padding: 1.5rem;
+            }
+            #resources .grid.md\:grid-cols-2.lg\:grid-cols-3 {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 0.75rem;
+            }
+            #resources .glass-card {
+                padding: 0.75rem;
+            }
+            #resources .glass-card h4 {
+                font-size: 11px;
+            }
+            .book-section {
+                padding: 1.5rem;
+            }
+            .book-link {
+                padding: 8px 12px;
+                font-size: 10px;
+            }
+            .ethics-section {
+                padding: 1.5rem;
+                margin: 1rem 0;
+            }
+            .ethics-video {
+                padding: 0.75rem;
+                margin: 0.5rem 0;
+                font-size: 12px;
+            }
+            .ai-button-section {
+                padding: 2rem 1rem;
+            }
+            .ai-button {
+                padding: 14px 24px;
+                font-size: 13px;
+            }
+            #reports .glass-card {
+                padding: 0.75rem;
+            }
+            #reports h3 {
+                font-size: 14px;
+            }
+            footer {
+                padding: 2rem 1rem;
+            }
+            .logo-text h1 {
+                font-size: 1.1rem;
+            }
+            .logo-text p {
+                font-size: 0.7rem;
+            }
+            .header {
+                margin: 0.5rem;
+            }
+            .hero-gradient {
+                margin: 0.5rem;
+                border-radius: 1rem;
+            }
+            .section {
+                margin: 0.5rem;
+                padding: 1rem;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                font-size: 12px;
+            }
+            h2 {
+                font-size: 18px !important;
+            }
+            .hero-gradient h2 {
+                font-size: 1.5rem !important;
+            }
+            .hero-gradient h3 {
+                font-size: 1.25rem !important;
+            }
+            .hero-gradient h4, .hero-gradient h5 {
+                font-size: 1rem !important;
+            }
+            .field-card {
+                padding: 0.75rem;
+            }
+            .course-link {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+            .school-card {
+                padding: 0.75rem;
+            }
+            .team-section {
+                padding: 1rem;
+            }
+            .glass-card.p-8 {
+                padding: 1rem;
+            }
+            #resources .grid.md\:grid-cols-2.lg\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            #resources .glass-card {
+                padding: 0.5rem;
+            }
+            .book-section {
+                padding: 1rem;
+            }
+            .book-link {
+                padding: 6px 10px;
+                font-size: 9px;
+            }
+            .ethics-section {
+                padding: 1rem;
+                margin: 0.5rem 0;
+            }
+            .ethics-video {
+                padding: 0.5rem;
+                font-size: 11px;
+            }
+            .ai-button-section {
+                padding: 1.5rem 0.5rem;
+            }
+            .ai-button {
+                padding: 12px 20px;
+                font-size: 12px;
+                width: 100%;
+                justify-content: center;
+            }
+            #reports .glass-card {
+                padding: 0.5rem;
+            }
+            footer {
+                padding: 1.5rem 0.5rem;
+            }
+            .logo-text {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-3d.w-16.h-16 {
+                margin-left: 0;
+                margin-bottom: 0.5rem;
+            }
+            .btn-primary, .btn-secondary {
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+        }
+        /* بهبود رسپانسیو برای هدر */
+        @media (max-width: 768px) {
+            .logo-text {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-3d.w-16.h-16 {
+                margin-left: 0;
+                margin-bottom: 0.5rem;
+            }
+            .btn-primary, .btn-secondary {
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+        }
+        /* Custom styles for requested changes */
+        #resources h2 {
+            color: #000000 !important;
+        }
+        #resources .book-main-heading {
+            color: #000000 !important;
+        }
+        .book-section h4 {
+            color: white !important;
+        }
+        #reports .glass-card p {
+            color: #37474F !important;
+        }
+        .dark-mode #reports .glass-card p {
+            color: #BDBDBD !important;
+        }
+        .glass-square {
+            width: 360px;
+            height: 360px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 2rem;
+        }
+        .glass-square:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 25px 50px rgba(0, 31, 63, 0.3);
+        }
+        .neon-sweep {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            border-radius: 24px;
+            background: linear-gradient(45deg, transparent, rgba(38, 166, 154, 0.8), transparent);
+            animation: neon-sweep 4s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes neon-sweep {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @media (max-width: 768px) {
+            .glass-square {
+                width: 280px;
+                height: 280px;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .animate-fade-in-delay-1 {
+            animation: fadeIn 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+        .animate-fade-in-delay-2 {
+            animation: fadeIn 0.8s ease-out 0.4s forwards;
+            opacity: 0;
+        }
+        .animate-fade-in-delay-3 {
+            animation: fadeIn 0.8s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+        .animate-fade-in-delay-4 {
+            animation: fadeIn 0.8s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+        .animate-fade-in-delay-5 {
+            animation: fadeIn 0.8s ease-out 1s forwards;
+            opacity: 0;
+        }
+        .animate-fade-in-delay-6 {
+            animation: fadeIn 0.8s ease-out 1.2s forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body class="light-mode transition-all duration-300">
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon text-xl" id="theme-icon"></i>
+    </div>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 m-4" style="background: var(--primary-blue); border-radius: 20px; box-shadow: 0 8px 32px rgba(0, 31, 63, 0.3);">
+        <div class="dark-mode:bg-dark-bg transition-all duration-300" style="background: inherit; border-radius: inherit;">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex items-center logo-text">
+                        <div class="logo-3d w-16 h-16 rounded-full flex items-center justify-center ml-4"
+                             style="background: linear-gradient(135deg, var(--accent-green), #004D40); box-shadow: 0 8px 20px rgba(0, 121, 107, 0.4);">
+                            <img src="your-logo.png" alt="لوگو گروه کامپیوتر" class="w-14 h-14 object-contain" />
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold text-white" style="font-family: 'Vazirmatn', sans-serif; font-weight: 700;"></h1>
+                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">گروه کامپیوتر شهرستان زرین‌دشت</p>
+                            <p class="text-sm text-gray-200" style="font-family: 'Vazirmatn', sans-serif; font-weight: 300;">استان فارس </p>
+                        </div>
+                    </div>
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex space-x-8 space-x-reverse">
+                        <a href="index.html#hero" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;"
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'"
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">خانه</a>
+                        <a href="index.html#fields" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;"
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'"
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">رشته‌ها</a>
+                        <a href="index.html#schools" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;"
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'"
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">هنرستان‌ها</a>
+                        <a href="index.html#reports" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;"
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'"
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">گزارش‌ها</a>
+                        <a href="index.html#team" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;"
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'"
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">اعضای گروه</a>
+                        <a href="index.html#resources" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;"
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'"
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">منابع</a>
+                        <a href="index.html#ethics" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;"
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'"
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">اخلاق حرفه‌ای</a>
+                        <a href="ai.html" class="text-white hover:text-accent-green transition-all duration-300 font-semibold"
+                           style="font-family: 'Vazirmatn', sans-serif; color: white;"
+                           onmouseover="this.style.color='var(--accent-green)'; this.style.textShadow='0 2px 8px rgba(0, 121, 107, 0.5)'"
+                           onmouseout="this.style.color='white'; this.style.textShadow='none'">هوش مصنوعی</a>
+                    </nav>
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-white text-2xl" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-64 h-full z-50 p-6 md:hidden"
+                 style="background: var(--primary-blue); box-shadow: -8px 0 32px rgba(0, 31, 63, 0.3);">
+                <button class="absolute top-4 left-4 text-white text-2xl" onclick="toggleMobileMenu()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <nav class="mt-12 space-y-6">
+                    <a href="index.html#hero" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                       style="font-family: 'Vazirmatn', sans-serif;">خانه</a>
+                    <a href="index.html#fields" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                       style="font-family: 'Vazirmatn', sans-serif;">رشته‌ها</a>
+                    <a href="index.html#schools" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                       style="font-family: 'Vazirmatn', sans-serif;">هنرستان‌ها</a>
+                    <a href="index.html#reports" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                       style="font-family: 'Vazirmatn', sans-serif;">گزارش‌ها</a>
+                    <a href="index.html#team" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                       style="font-family: 'Vazirmatn', sans-serif;">اعضای گروه</a>
+                    <a href="index.html#resources" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                       style="font-family: 'Vazirmatn', sans-serif;">منابع</a>
+                    <a href="index.html#ethics" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                       style="font-family: 'Vazirmatn', sans-serif;">اخلاق حرفه‌ای</a>
+                    <a href="ai.html" class="block text-white hover:text-accent-green transition-colors font-semibold"
+                       style="font-family: 'Vazirmatn', sans-serif;">هوش مصنوعی</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-gradient text-white py-24 mx-4 rounded-3xl mb-4 relative">
+        <div class="parallax-bg"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6 animate-fade-in" style="color: white !important;">لینک کتاب های کاردانش سال تحصیلی ۱۴۰۱-۱۴۰۲</h2>
+            <h3 class="text-2xl md:text-3xl mb-4 animate-fade-in-delay-1">کتاب‌ها، جزوات، طرح درس‌ها و منابع آموزشی</h3>
+            <p class="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90 animate-fade-in-delay-4">
+                دسترسی به لینک‌های کتاب‌های درسی، جزوات، بانک سوالات، طرح درس‌ها و گروه‌های مرتبط با رشته‌های کاردانش کامپیوتر.
+            </p>
+        </div>
+    </section>
+    <!-- Resources Section -->
+    <section class="py-4 px-4" id="resources" style="background-color: var(--secondary-gray);">
+        <div class="container mx-auto">
+            <h2 class="book-main-heading">
+                <i class="fas fa-book ml-3"></i>
+                کتاب‌های درسی و منابع آموزشی کاردانش
+            </h2>
+            <!-- کتاب واژه پرداز word 2016 -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب واژه پرداز word 2016</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1366" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب واژه پرداز word 2016
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب نرم افزار اداری تکمیلی Microsoft access - one note -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب نرم افزار اداری تکمیلی Microsoft access - one note</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1367" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب نرم افزار اداری تکمیلی Microsoft access - one note
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب بسته های نرم افزار ی excel-PowerPoint -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب بسته های نرم افزار ی excel-PowerPoint</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1368" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب بسته های نرم افزار ی excel-PowerPoint
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب اطلاعات و ارتباطات -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب اطلاعات و ارتباطات</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1369" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب اطلاعات و ارتباطات
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد اول) (Adobe Photoshop – Adobe Animate) -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد اول) (Adobe Photoshop – Adobe Animate)</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1370" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد اول) (Adobe Photoshop – Adobe Animate)
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد دوم) (Adobe Audition – Adobe Premiere - Arc Soft - Media Converter) -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد دوم) (Adobe Audition – Adobe Premiere - Arc Soft - Media Converter)</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1371" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب تولیدکننده محتوای الکترونیکی عمومی (جلد دوم) (Adobe Audition – Adobe Premiere - Arc Soft - Media Converter)
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب مدیریت پایگاه داده -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب مدیریت پایگاه داده</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1372" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب مدیریت پایگاه داده
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب کاربرگرافیکی محتوای آموزشی ( Adobe Illustrator – MOHO ) -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب کاربرگرافیکی محتوای آموزشی ( Adobe Illustrator – MOHO )</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1385" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب کاربرگرافیکی محتوای آموزشی ( Adobe Illustrator – MOHO )
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب توسعه دهنده صفحات وب با MySQL و PHP -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب توسعه دهنده صفحات وب با MySQL و PHP</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1386" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب توسعه دهنده صفحات وب با MySQL و PHP
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب سیستم های مدیریت محتوا -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب سیستم های مدیریت محتوا</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1387" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب سیستم های مدیریت محتوا
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب تولیدکننده چندرسانه ای دوبعدی (جلد دوم) (Adobe Animate – Adobe Audition - EDIUS) -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب تولیدکننده چندرسانه ای دوبعدی (جلد دوم) (Adobe Animate – Adobe Audition - EDIUS)</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1477" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب تولیدکننده چندرسانه ای دوبعدی (جلد دوم) (Adobe Animate – Adobe Audition - EDIUS)
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب تولیدکننده چندرسانه ای دوبعدی (جلد اول)اول)-Adobe photoshop -adobe illustrator -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب تولیدکننده چندرسانه ای دوبعدی (جلد اول)اول)-Adobe photoshop -adobe illustrator</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1538" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب تولیدکننده چندرسانه ای دوبعدی (جلد اول)اول)-Adobe photoshop -adobe illustrator
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب محتواساز آموزش الکترونیکی (جلد دوم) Adobe Captivate 2019 Autoplay media studio 8 -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب محتواساز آموزش الکترونیکی (جلد دوم) Adobe Captivate 2019 Autoplay media studio 8</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1538" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب محتواساز آموزش الکترونیکی (جلد دوم) Adobe Captivate 2019 Autoplay media studio 8
+                    </a>
+                </div>
+            </div>
+            <!-- کتاب محتواساز آموزش الکترونیکی (جلد اول) Adobe Captivate 2019 -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">کتاب محتواساز آموزش الکترونیکی (جلد اول) Adobe Captivate 2019</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1544" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        کتاب محتواساز آموزش الکترونیکی (جلد اول) Adobe Captivate 2019
+                    </a>
+                </div>
+            </div>
+            <!-- تولید کننده چند رسانه ای سه بعدی جلد اول(after effects-3d max) -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">تولید کننده چند رسانه ای سه بعدی جلد اول(after effects-3d max)</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1788" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        تولید کننده چند رسانه ای سه بعدی جلد اول(after effects-3d max)
+                    </a>
+                </div>
+            </div>
+            <!-- سایت دفتر تالیف و چاپ -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">سایت دفتر تالیف و چاپ</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://chap.sch.ir" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-globe ml-2"></i>
+                        chap.sch.ir
+                    </a>
+                </div>
+            </div>
+            <!-- لینک سری دوم جزوات دروس فنی و حرفه ای و کاردانش تهیه شده توسط همکاران -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">لینک سری دوم جزوات دروس فنی و حرفه ای و کاردانش تهیه شده توسط همکاران با تشکر از تمامی همکارانی که در تهیه این جزوات ما را یاری نموده اند</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1028" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه adobe animate
+                    </a>
+                    <a href="https://t.me/c/1471422545/1030" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه premiere
+                    </a>
+                    <a href="https://t.me/c/1471422545/1032" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه wordpress
+                    </a>
+                    <a href="https://t.me/c/1471422545/1034" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه wordpress (لینک دوم)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1098" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه (لینک سوم)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1037" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        شناسایی و سرویس قطعات تبلت
+                    </a>
+                    <a href="https://t.me/c/1471422545/1041" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه excel 2019
+                    </a>
+                    <a href="https://t.me/c/1471422545/1042" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        بسته آموزشی تولید محتوای الکترونیکی
+                    </a>
+                    <a href="https://t.me/c/1471422545/1043" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه captivate 2019 چهارفصل اول
+                    </a>
+                    <a href="https://t.me/c/1471422545/1052" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه راه اندازی wordpress روی cpanel
+                    </a>
+                    <a href="https://t.me/c/1471422545/1053" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه سیستم عامل مقدماتی پیشرفته
+                    </a>
+                    <a href="https://t.me/c/1471422545/1055" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه پاورپوینت پودمان ۴و۵ تولید محتوای الکترونیک و برنامه سازی
+                    </a>
+                    <a href="https://t.me/c/1471422545/1057" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه پودمان اول تا پنجم دانش فنی پایه
+                    </a>
+                    <a href="https://t.me/c/1471422545/1066" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه (لینک اضافی)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1072" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه (لینک اضافی ۲)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1077" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه (لینک اضافی ۳)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1081" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه indesign فصل اول تا دوازدهم
+                    </a>
+                    <a href="https://t.me/c/1471422545/1092" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه (لینک اضافی ۴)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1109" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه (لینک اضافی ۵)
+                    </a>
+                    <a href="https://t.me/c/1471422545/866" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه (لینک اضافی ۶)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1123" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه (لینک اضافی ۷)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1094" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه طراحی و پیاده سازی فروشگاه الکترونیکی با تکنیک های Php, mysql,jquery, ajax
+                    </a>
+                    <a href="https://t.me/c/1471422545/1096" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        مقدمات و مبانی php,sql
+                    </a>
+                    <a href="https://t.me/c/1471422545/1099" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه آشنایی با قطعات لپ تاپ تهیه شده توسط استان اصفهان
+                    </a>
+                    <a href="https://t.me/c/1471422545/857" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        سایت آفلاین w3school آموزش html,cssو...
+                    </a>
+                    <a href="https://t.me/c/1471422545/870" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه illustrator
+                    </a>
+                    <a href="https://t.me/c/1471422545/871" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه icdl
+                    </a>
+                    <a href="https://t.me/c/1471422545/882" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه corel draw
+                    </a>
+                    <a href="https://t.me/c/1471422545/884" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        سه کتاب برای آموزش eduis
+                    </a>
+                    <a href="https://t.me/c/1471422545/889" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه cinema 4d
+                    </a>
+                    <a href="https://t.me/c/1471422545/890" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        کتاب کاربر رایانه رشته مدیریت
+                    </a>
+                    <a href="https://t.me/c/1471422545/909" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        کتاب کاربر مایا مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/910" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        کتاب افترافکت مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/911" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه انیمیت مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/912" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه موهو مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/913" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه وردپرس مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/914" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه بازی سازی با موتور یونیتی مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/915" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه کاربر اندروید مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/916" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه اسکرچ مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/917" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه poser مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/919" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه اتوپلی مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/921" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه indesign مورد تایید دفتر تالیف
+                    </a>
+                    <a href="https://t.me/c/1471422545/922" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        کتاب مدیریت پایگاه داده و برنامه نویسی کاردانش چاپ ۱۴۰۰
+                    </a>
+                    <a href="https://t.me/c/1471422545/930" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه coreldraw تهیه شده توسط استان گیلان
+                    </a>
+                    <a href="https://t.me/c/1471422545/936" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه poser همراه با نمونه سوال
+                    </a>
+                    <a href="https://t.me/c/1471422545/937" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه کامل wordpress تهیه شده استان آذربایجان شرقی
+                    </a>
+                    <a href="https://t.me/c/1471422545/938" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه کاربر رایانه همراه با نمونه سوال ۱۴۰۰
+                    </a>
+                    <a href="https://t.me/c/1471422545/947" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه PowerPoint 2016
+                    </a>
+                    <a href="https://t.me/c/1471422545/948" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه word 2016
+                    </a>
+                    <a href="https://t.me/c/1471422545/952" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه bootstrap
+                    </a>
+                    <a href="https://t.me/c/1471422545/954" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه jquery
+                    </a>
+                    <a href="https://t.me/c/1471422545/956" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه افترافکت تهیه شده توسط استان سمنان
+                    </a>
+                    <a href="https://t.me/c/1471422545/1120" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه نرم افزار ادیوس
+                    </a>
+                    <a href="https://t.me/c/1471422545/1140" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه one note تهیه شده توسط گروه کامپیوتر سمنان
+                    </a>
+                    <a href="https://t.me/c/1471422545/1141" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه Adobe audition گروه کامپیوتر سمنان
+                    </a>
+                    <a href="https://t.me/c/1471422545/1143" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه افترافکت گروه کامپیوتر سمنان
+                    </a>
+                    <a href="https://t.me/c/1471422545/1423" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-file-alt ml-2"></i>
+                        جزوه کامل و سوالات adobe indesign
+                    </a>
+                </div>
+            </div>
+            <!-- لینک بانک سوالات دروس فنی و حرفه ای تهیه شده توسط همکاران با تشکر از تمامی همکارانی که در تهیه بانک سوالات همکاری نموده اند -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">لینک بانک سوالات دروس فنی و حرفه ای تهیه شده توسط همکاران با تشکر از تمامی همکارانی که در تهیه بانک سوالات همکاری نموده اند</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1018" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-question-circle ml-2"></i>
+                        بانک سوالات دانش فنی پایه
+                    </a>
+                    <a href="https://t.me/c/1471422545/1019" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-question-circle ml-2"></i>
+                        بانک سوالات نصب و راه اندازی سیستم
+                    </a>
+                    <a href="https://t.me/c/1471422545/1020" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-question-circle ml-2"></i>
+                        بانک سوالات تولید محتوای الکترونیک و برنامه سازی
+                    </a>
+                    <a href="https://t.me/c/1471422545/1021" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-question-circle ml-2"></i>
+                        بانک سوالات توسعه برنامه سازی و پایگاه داده
+                    </a>
+                    <a href="https://t.me/c/1471422545/1022" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-question-circle ml-2"></i>
+                        بانک سوالات پیاده سازی سیستمهای اطلاعاتی و طراحی وب
+                    </a>
+                    <a href="https://t.me/c/1471422545/1023" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-question-circle ml-2"></i>
+                        بانک سوالات دانش فنی تخصصی
+                    </a>
+                    <a href="https://t.me/c/1471422545/1024" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-question-circle ml-2"></i>
+                        بانک سوالات نصب و نگهداری تجهیرات شبکه و سخت افزار
+                    </a>
+                    <a href="https://t.me/c/1471422545/1025" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-question-circle ml-2"></i>
+                        بانک سوالات تجارت الکترونیک و امنیت شبکه
+                    </a>
+                </div>
+            </div>
+            <!-- لینک طرح درس روزانه و سالانه دروس فنی وکاردانش تهیه شده توسط همکاران با تشکر از تمامی همکارانی که در تهیه طرح درس ها ما را یاری نموده اند -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">لینک طرح درس روزانه و سالانه دروس فنی وکاردانش تهیه شده توسط همکاران با تشکر از تمامی همکارانی که در تهیه طرح درس ها ما را یاری نموده اند</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/c/1471422545/1403" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس سالانه تولید کننده محتوای الکترونیک کاردانش
+                    </a>
+                    <a href="https://t.me/c/1471422545/1362" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه و سالانه تولید محتوای الکترونیک و برنامه سازی
+                    </a>
+                    <a href="https://t.me/c/1471422545/1342" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1405" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۲)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1351" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه وسالانه دانش فنی پایه
+                    </a>
+                    <a href="https://t.me/c/1471422545/1407" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۳)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1437" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۴)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1350" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس سالانه محتوای ساز کاردانش
+                    </a>
+                    <a href="https://t.me/c/1471422545/1348" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه و سالانه indesign
+                    </a>
+                    <a href="https://t.me/c/1471422545/1347" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس سالانه تجارت الکترونیک و امنیت
+                    </a>
+                    <a href="https://t.me/c/1471422545/1345" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس سالانه نقشه کشی فنی
+                    </a>
+                    <a href="https://t.me/c/1471422545/1344" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۵)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1411" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۶)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1343" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس سالانه کاربر تولید محتوا کاردانش
+                    </a>
+                    <a href="https://t.me/c/1471422545/1340" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه وسالانه کاربر رایانه کاردانش
+                    </a>
+                    <a href="https://t.me/c/1471422545/1417" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۷)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1415" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۸)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1338" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس تلفیقی کاربر illustrator
+                    </a>
+                    <a href="https://t.me/c/1471422545/1335" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس سالانه طرحی وب
+                    </a>
+                    <a href="https://t.me/c/1471422545/1333" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس سالانه توسعه برنامه سازی و پایگاه داده
+                    </a>
+                    <a href="https://t.me/c/1471422545/1331" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس سالانه ورد پرس کاردانش
+                    </a>
+                    <a href="https://t.me/c/1471422545/1409" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه نصب و راه اندازی سیستم های رایانه ای
+                    </a>
+                    <a href="https://t.me/c/1471422545/1437" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۹)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1413" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه فتوشاپ کاردانش
+                    </a>
+                    <a href="https://t.me/c/1471422545/1430" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه سالانه ورد پرس کاردانش
+                    </a>
+                    <a href="https://t.me/c/1471422545/1433" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس (لینک اضافی ۱۰)
+                    </a>
+                    <a href="https://t.me/c/1471422545/1431" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس php ,mysql کاردانش
+                    </a>
+                    <a href="https://t.me/c/1471422545/1437" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه و سالانه ورد ۲۰۱۶ و تایپ رایانه ای
+                    </a>
+                    <a href="https://t.me/c/1471422545/1437" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-calendar-alt ml-2"></i>
+                        طرح درس روزانه کاربر مالی
+                    </a>
+                </div>
+            </div>
+            <!-- گروه‌های دبیرخانه کشوری کامپیوتر (فنی‌حرفه‌ای و کاردانش) -->
+            <div class="book-section">
+                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);">📣 گروه‌های دبیرخانه کشوری کامپیوتر (فنی‌حرفه‌ای و کاردانش) 🌐 آدرس وب‌سایت دبیرخانه راهبری کامپیوتر مستقر در زنجان: 🌐 https://zncd.ir</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="https://t.me/+beIyxpcv1FI1MWVk" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه دانش فنی تخصصی
+                    </a>
+                    <a href="https://t.me/+b8IHgwzS1Fk1ZDRk" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه پیاده‌سازی سیستم‌های اطلاعاتی و طراحی صفحات وب
+                    </a>
+                    <a href="https://t.me/+x4cTpefD-r5kNzhk" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه Premiere
+                    </a>
+                    <a href="https://t.me/+og9ZGlyvM5UxMjhk" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه Captivate
+                    </a>
+                    <a href="https://t.me/+YjYbFQMm-ho1MDRk" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه After Effect
+                    </a>
+                    <a href="https://t.me/+owe_H5PCDh42NWU0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه Adobe animate
+                    </a>
+                    <a href="https://t.me/+UCop74entxY3MjQ0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه Autoplay
+                    </a>
+                    <a href="https://t.me/+-zQvVlKrDqs1ODU0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه کاربر اتوماسیون اداری
+                    </a>
+                    <a href="https://t.me/+h8CzSmcIvEQwYmY8" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه شهروند الکترونیک
+                    </a>
+                    <a href="https://t.me/+j9PGOgvvLb9jZWI0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه Illustrator
+                    </a>
+                    <a href="https://t.me/+0lhWh5K6umk0M2Zk" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه توسعه دهنده صفحات وب php , mysql
+                    </a>
+                    <a href="https://t.me/+V_7YMHwgxABhYTI8" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه coreldraw
+                    </a>
+                    <a href="https://t.me/+ldixH3dPF9E4Nzc8" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه indesign
+                    </a>
+                    <a href="https://t.me/+JXY5b4KDWqg0NzQ0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه Photoshop
+                    </a>
+                    <a href="https://t.me/+hrIMlYvzDAdhNWE0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه Edius
+                    </a>
+                    <a href="https://t.me/+wf_4IjXhyRI3Nzc0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه Cinema4D
+                    </a>
+                    <a href="https://t.me/+JXY5b4KDWqg0NzQ0" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-users ml-2"></i>
+                        ✅ گروه PhotoShop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-12 mx-4 rounded-xl mb-4" style="background: var(--footer-dark); box-shadow: 0 4px 12px rgba(0, 26, 51, 0.15);">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white/20">
+                    <img src="your-logo.png" alt="لوگو" class="w-14 h-14 object-contain" />
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold">فن‌آموز زرین</h3>
+                    <p class="text-sm">گروه کامپیوتر آموزش پرورش زرین‌دشت</p>
+                </div>
+            </div>
+            <p class="mb-4">
+                توسعه دهنده: فاطمه معتمد - رعنا پرموزه
+            </p>
+            <p class="text-sm opacity-80">
+                تمامی حقوق محفوظ است ©
+            </p>
+        </div>
+    </footer>
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+      
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                themeIcon.className = 'fas fa-sun text-xl';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                themeIcon.className = 'fas fa-moon text-xl';
+            }
+        }
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = event.target.closest('button');
+      
+            if (!mobileMenu.contains(event.target) && !menuButton) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+        // View counter functionality
+        function updateViewCount(articleId) {
+            const viewElement = document.getElementById(articleId + '-views');
+            if (viewElement) {
+                let currentViews = parseInt(viewElement.textContent.replace(/,/g, ''));
+                currentViews += Math.floor(Math.random() * 3) + 1; // Random increment 1-3
+                viewElement.textContent = currentViews.toLocaleString('fa-IR');
+            }
+        }
+        // Simulate view updates every 30 seconds
+        setInterval(() => {
+            const articles = ['article1', 'article2', 'article3'];
+            const randomArticle = articles[Math.floor(Math.random() * articles.length)];
+            updateViewCount(randomArticle);
+        }, 30000);
+        // Update views when articles section comes into view
+        const articlesSection = document.getElementById('articles');
+        if (articlesSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Small delay to make it feel natural
+                        setTimeout(() => {
+                            updateViewCount('article1');
+                        }, 1000);
+                        setTimeout(() => {
+                            updateViewCount('article2');
+                        }, 2000);
+                        setTimeout(() => {
+                            updateViewCount('article3');
+                        }, 3000);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+      
+            observer.observe(articlesSection);
+        }
+    </script>
+</body>
+</html>
