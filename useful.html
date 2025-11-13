@@ -16,7 +16,7 @@
             font-size: 14px;
             line-height: 1.5;
         }
-       
+     
         :root {
             --primary-color: #0288D1; /* آبی اصلی - هماهنگ با تم آموزشی */
             --secondary-color: #F5F7FA; /* خاکستری روشن برای پس‌زمینه light */
@@ -33,7 +33,7 @@
             --shadow-dark: rgba(0,0,0,0.3); /* سایه dark */
             --blur-amount: 8px;
             --footer-bg: #0277BD; /* فوتر آبی تیره */
-           
+         
             /* Legacy support for existing styles */
             --primary-blue: var(--primary-color);
             --secondary-gray: var(--secondary-color);
@@ -571,12 +571,12 @@
                 border-radius: 0;
                 z-index: 9999;
             }
-           
+         
             .chatbot-container {
                 bottom: 15px;
                 right: 15px;
             }
-           
+         
             .chatbot-toggle {
                 width: 56px;
                 height: 56px;
@@ -595,32 +595,32 @@
                 border-radius: 0;
                 z-index: 9999;
             }
-           
+         
             .chatbot-header {
                 padding: 20px 15px 15px 15px;
                 padding-top: max(20px, env(safe-area-inset-top));
             }
-           
+         
             .chatbot-messages {
                 padding: 15px;
                 padding-bottom: max(15px, env(safe-area-inset-bottom));
             }
-           
+         
             .chatbot-input-container {
                 padding: 15px;
                 padding-bottom: max(15px, env(safe-area-inset-bottom));
             }
-           
+         
             .chatbot-contact-buttons {
                 padding: 15px;
                 padding-bottom: max(15px, env(safe-area-inset-bottom));
             }
-           
+         
             .chatbot-container {
                 bottom: 12px;
                 right: 12px;
             }
-           
+         
             .chatbot-toggle {
                 width: 52px;
                 height: 52px;
@@ -797,7 +797,7 @@
                 width: 320px;
                 height: 480px;
             }
-           
+         
             .heading-primary {
                 font-size: 24px;
             }
@@ -1486,7 +1486,7 @@
                 <i class="fas fa-link ml-3"></i>
                 لیست سایت‌ها
             </h2>
-           
+         
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- سایت‌های اصلی -->
                 <div class="field-card">
@@ -1512,9 +1512,11 @@
                     <a href="https://ela.ir/" class="video-link"><i class="fas fa-external-link-alt ml-2"></i>الا (ویدیوهای رایگان و پولی برای دروس مدرسه و تست‌ها): https://ela.ir/</a>
                     <a href="https://gajino.com/" class="video-link"><i class="fas fa-external-link-alt ml-2"></i>گاجینو (ویدیوهای آموزشی مدرسه با محتوای رایگان اولیه): https://gajino.com/</a>
                     <a href="https://biomaze.ir/" class="video-link"><i class="fas fa-external-link-alt ml-2"></i>ماز (مطالب کنکوری و دروس مدرسه با تمرکز روی آزمون‌ها): https://biomaze.ir/</a>
-               <!-- گروه‌های دبیرخانه کشوری کامپیوتر (فنی‌حرفه‌ای و کاردانش) -->
+                </div>
+            </div>
+            <!-- گروه‌های دبیرخانه کشوری کامپیوتر (فنی‌حرفه‌ای و کاردانش) - اصلاح شده -->
             <div class="book-section">
-                <h4 class="font-bold mb-4 text-base" style="color: var(--accent-green);"گروه‌های دبیرخانه کشوری کامپیوتر (فنی‌حرفه‌ای و کاردانش)">
+                <h4 class="font-bold mb-4 text-base" style="color: white;">گروه‌های دبیرخانه کشوری کامپیوتر (فنی‌حرفه‌ای و کاردانش)</h4>
                 <div class="grid md:grid-cols-2 gap-4">
                     <a href="https://t.me/+beIyxpcv1FI1MWVk" target="_blank" rel="noopener noreferrer" class="book-link">
                         <i class="fas fa-users ml-2"></i>
@@ -1580,12 +1582,10 @@
                         <i class="fas fa-users ml-2"></i>
                         ✅ گروه Cinema4D
                     </a>
-                    <a href="https://t.me/+JXY5b4KDWqg0NzQ0" target="_blank" rel="noopener noreferrer" class="book-link">
-                        <i class="fas fa-users ml-2"></i>
-                        ✅ گروه PhotoShop
-                    </a>
                 </div>
             </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer class="py-12 mx-4 rounded-xl mb-4" style="background: var(--footer-dark); box-shadow: 0 4px 12px rgba(0, 26, 51, 0.15);">
         <div class="container mx-auto px-6 text-center">
@@ -1612,11 +1612,11 @@
         <div class="chatbot-notification" id="chatbot-notification" onclick="openChatbotWithNotification()">
             سلام وقت بخیر! به وب‌سایت فن‌آموز زرین خوش آمدید. لطفاً اگر سوالی دارید روی من کلیک کنید.
         </div>
-       
+     
         <button class="chatbot-toggle" onclick="toggleChatbot()">
             <i class="fas fa-robot"></i>
         </button>
-       
+     
         <div class="chatbot-window" id="chatbot-window">
             <div class="chatbot-header">
                 <div class="flex items-center justify-between">
@@ -1629,20 +1629,20 @@
                     </button>
                 </div>
             </div>
-           
+         
             <div class="chatbot-messages" id="chatbot-messages">
                 <div class="chatbot-message bot">
                     سلام! به وبسایت فن‌آموز زرین خوش آمدید! 🌟<br><br>من دستیار هوشمند شما هستم و می‌تونم راجع به:<br>• رشته‌های کامپیوتر و کاردانش<br>• هنرستان‌ها و ثبت نام<br>• ابزارهای هوش مصنوعی<br>• فرصت‌های شغلی<br>• منابع آموزشی<br><br>کمکتون کنم! درباره چه موضوعی دوست دارید صحبت کنیم؟ 💬
                 </div>
             </div>
-           
+         
             <div class="chatbot-input-container">
                 <input type="text" class="chatbot-input" id="chatbot-input" placeholder="پیام خود را بنویسید..." onkeypress="handleChatKeyPress(event)">
                 <button class="chatbot-send" onclick="sendMessage()">
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
-           
+         
             <!-- Registration Form -->
             <div class="chatbot-registration-form" id="registration-form" style="padding: 15px 20px; border-top: 1px solid rgba(255,255,255,0.1); display: none;">
                 <h4 style="margin: 0 0 15px 0; color: var(--primary-blue); font-size: 14px; font-weight: 600;">فرم ثبت نام سریع</h4>
@@ -1684,7 +1684,7 @@
         function toggleTheme() {
             const body = document.body;
             const themeIcon = document.getElementById('theme-icon');
-           
+         
             if (body.classList.contains('light-mode')) {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
@@ -1717,7 +1717,7 @@
         document.addEventListener('click', function(event) {
             const mobileMenu = document.getElementById('mobile-menu');
             const menuButton = event.target.closest('button');
-           
+         
             if (!mobileMenu.contains(event.target) && !menuButton) {
                 mobileMenu.classList.remove('active');
             }
@@ -1757,7 +1757,7 @@
                     }
                 });
             }, { threshold: 0.5 });
-           
+         
             observer.observe(articlesSection);
         }
         // ChatGPT Integration with OpenAI API
@@ -1811,7 +1811,7 @@
         function toggleChatbot() {
             const chatbotWindow = document.getElementById('chatbot-window');
             chatbotOpen = !chatbotOpen;
-           
+         
             if (chatbotOpen) {
                 chatbotWindow.style.display = 'flex';
                 chatbotWindow.classList.remove('hidden');
@@ -1820,7 +1820,7 @@
                     chatbotWindow.style.transform = 'scale(1) translateY(0)';
                     chatbotWindow.style.opacity = '1';
                 }, 10);
-               
+             
                 // Send welcome message if first time opening
                 if (conversationHistory.length === 0) {
                     setTimeout(() => {
@@ -1936,18 +1936,18 @@
         async function sendMessage() {
             const input = document.getElementById('chatbot-input');
             const message = input.value.trim();
-           
+         
             if (!message) return;
-           
+         
             addMessage(message, true);
             input.value = '';
             questionCount++;
-           
+         
             // Add to conversation history
             conversationHistory.push({ role: 'user', message: message });
-           
+         
             showTypingIndicator();
-           
+         
             try {
                 // Check if search is needed (e.g., if message is about external info)
                 let searchResults = '';
@@ -1957,11 +1957,11 @@
                 // Use ChatGPT
                 const prompt = `${WEBSITE_CONTEXT}\n\nسوال کاربر: ${message}\n\nنتایج جستجو (اگر مرتبط): ${searchResults}\n\nلطفاً پاسخ کاملی به فارسی بدهید که شامل اطلاعات دقیق از محتوای سایت باشد.`;
                 const response = await callOpenAIAPI(prompt);
-               
+             
                 hideTypingIndicator();
                 addMessage(response);
                 conversationHistory.push({ role: 'assistant', message: response });
-               
+             
                 // If user asks too many questions, suggest contact
                 if (questionCount >= 5) {
                     setTimeout(() => {
@@ -1969,7 +1969,7 @@
                     }, 2000);
                     questionCount = 0; // Reset counter
                 }
-               
+             
             } catch (error) {
                 hideTypingIndicator();
                 // Fallback to local responses
@@ -1980,7 +1980,7 @@
         }
         function getFallbackResponse(userMessage) {
             const message = userMessage.toLowerCase();
-           
+         
             // Greeting responses - کوتاه و مستقیم
             if (message.includes('سلام') || message.includes('درود') || message.includes('صبح بخیر') || message.includes('عصر بخیر') || message.includes('شب بخیر') || message.includes('hi') || message.includes('hello') || message.includes('hey')) {
                 const greetings = [
@@ -1990,17 +1990,17 @@
                 ];
                 return greetings[Math.floor(Math.random() * greetings.length)];
             }
-           
+         
             // About website/developer - کوتاه
             if (message.includes('نویسنده') || message.includes('سازنده') || message.includes('طراح') || message.includes('رعنا') || message.includes('پرموزه')) {
                 return '👩‍💻 سایت توسط <strong>رعنا پرموزه</strong> طراحی شده. سرگروه: <strong>فاطمه معتمد</strong>.';
             }
-           
+         
             // About Fatemeh Motamed - کوتاه
             if (message.includes('فاطمه') || message.includes('معتمد') || message.includes('سرگروه')) {
                 return '<strong>فاطمه معتمد</strong>: سرگروه. تماس: ۰۹۳۷۲۵۶۵۹۹۴ | تلگرام: @cszarindasht | ایتا: @fatemeh_motamed';
             }
-           
+         
             // Comprehensive AI questions - کوتاه و مفید
             if (message.includes('هوش مصنوعی') || message.includes('ai') || message.includes('ابزار')) {
                 const aiResponses = [
@@ -2010,69 +2010,69 @@
                 ];
                 return aiResponses[Math.floor(Math.random() * aiResponses.length)];
             }
-           
+         
             // Course/Field questions - تمرکز روی موفقیت و درآمد
             if (message.includes('رشته') || message.includes('دوره') || message.includes('کلاس')) {
                 return '🎓 رشته‌ها: وب (HTML/CSS/JS/PHP - درآمد ۸-۲۰م) | محتوا (Photoshop/Premiere - ۶-۱۵م).<br>برای موفقیت: پروژه عملی بساز، AI استفاده کن، پورتفولیو بساز. کدوم رشته؟';
             }
-           
+         
             // Specific tool questions - کوتاه
             if (message.includes('wordpress') || message.includes('وردپرس')) {
                 return 'WordPress: نصب + قالب + افزونه. درآمد فریلنس: ۵-۲۰م. تماس: ۰۹۳۷۲۵۶۵۹۹۴';
             }
-           
+         
             if (message.includes('php') || message.includes('mysql')) {
                 return 'PHP/MySQL: پایگاه داده + امنیت. برای موفقیت: پروژه واقعی بساز. درآمد: ۱۰-۲۵م.';
             }
-           
+         
             if (message.includes('html') || message.includes('css') || message.includes('javascript')) {
                 return 'HTML/CSS/JS: پایه وب. موفقیت: responsive طراحی کن + JS تعاملی. شغل: طراح وب (۸-۱۸م).';
             }
-           
+         
             if (message.includes('adobe') || message.includes('photoshop') || message.includes('illustrator')) {
                 return 'Photoshop/Illustrator: ویرایش + وکتور. موفقیت: پروژه گرافیکی بساز. درآمد: ۷-۱۵م (طراح محتوا).';
             }
-           
+         
             // School questions - کوتاه
             if (message.includes('هنرستان') || message.includes('مدرسه')) {
                 return '🏫 ۴ هنرستان: زینب کبری (وب+محتوا)، والفجر (محتوا). تماس مدیر: ۰۷۱۵۳۷۲۴۸۹۵. برای ثبت نام: ۰۹۳۷۲۵۶۵۹۹۴';
             }
-           
+         
             // Future and technology questions - تمرکز موفقیت
             if (message.includes('آینده') || message.includes('فناوری') || message.includes('2025')) {
                 return '🚀 ۲۰۲۵: AI + وب موبایل. موفقیت: مهارت JS + AI یاد بگیر. درآمد: ۱۰-۳۰م. رشته وب ما ایده‌آله.';
             }
-           
+         
             // Learning and education questions - کارهای لازم
             if (message.includes('یادگیری') || message.includes('آموزش')) {
                 return '📚 موفقیت: روزانه ۲س تمرین، پروژه بساز, GitHub بگذار. منابع: ویدیوهای آپارات + کتاب سایت.';
             }
-           
+         
             // Contact questions - کوتاه
             if (message.includes('تماس') || message.includes('شماره')) {
                 return '📞 فاطمه معتمد: ۰۹۳۷۲۵۶۵۹۹۴ | @cszarindasht | @fatemeh_motamed';
             }
-           
+         
             // Programming questions - درآمد و موفقیت
             if (message.includes('برنامه نویسی') || message.includes('کد') || message.includes('وب')) {
                 return '💻 وب: HTML/JS/PHP. موفقیت: اپ ساده بساز. درآمد: ۸-۲۰م. شروع: منابع پایه ۱۰.';
             }
-           
+         
             // Content creation questions
             if (message.includes('محتوا') || message.includes('گرافیک')) {
                 return '🎨 محتوا: Photoshop + Premiere. موفقیت: ویدیو آموزشی بساز. درآمد: ۶-۱۵م.';
             }
-           
+         
             // Thanks responses - کوتاه
             if (message.includes('ممنون') || message.includes('مرسی')) {
                 return 'خواهش! 😊 سوال دیگه؟';
             }
-           
+         
             // Job/Career questions - درآمد
             if (message.includes('شغل') || message.includes('درآمد')) {
                 return '💰 وب: ۸-۲۰م | محتوا: ۶-۱۵م. موفقیت: پورتفولیو + فریلنس (پونیشا).';
             }
-           
+         
             // Registration questions
             if (message.includes('ثبت نام')) {
                 return '📝 ثبت نام: مدارک + مصاحبه. تماس: ۰۹۳۷۲۵۶۵۹۹۴';
@@ -2081,14 +2081,14 @@
             if (message.includes('اخلاق') || message.includes('فیلم')) {
                 return '📹 فیلم‌های اخلاق حرفه‌ای در بخش اخلاق سایت موجود است. برای مثال: <a href="index.html#ethics">اینجا کلیک کنید</a>';
             }
-           
+         
             // Default responses - کوتاه و دقیق
             const defaultResponses = [
                 '🌟 بپرس درباره رشته/شغل/AI. آماده‌ام!',
                 '💡 موفقیت: تمرین روزانه + پروژه. جزئیات؟',
                 '🚀 فن‌آموز زرین: وب/محتوا. کدوم علاقه؟'
             ];
-           
+         
             return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
         }
         function handleChatKeyPress(event) {
@@ -2100,7 +2100,7 @@
         function toggleRegistrationForm() {
             const form = document.getElementById('registration-form');
             const isVisible = form.style.display !== 'none';
-           
+         
             if (isVisible) {
                 form.style.display = 'none';
             } else {
@@ -2109,11 +2109,11 @@
         }
         function submitRegistration(event) {
             event.preventDefault();
-           
+         
             const name = document.getElementById('reg-name').value;
             const email = document.getElementById('reg-email').value;
             const message = document.getElementById('reg-message').value;
-           
+         
             // Create WhatsApp message
             const whatsappMessage = encodeURIComponent(
                 `🎓 درخواست ثبت نام - فن‌آموز زرین\n\n` +
@@ -2122,18 +2122,18 @@
                 `💬 پیام: ${message || 'ندارد'}\n\n` +
                 `لطفاً راهنمایی کنید.`
             );
-           
+         
             // Send to WhatsApp
             window.open(`https://wa.me/989372565994?text=${whatsappMessage}`, '_blank', 'noopener,noreferrer');
-           
+         
             // Show success message
             addMessage('✅ درخواست ثبت نام شما ارسال شد! <strong>خانم فاطمه معتمد</strong> به زودی با شما تماس خواهند گرفت.<br><br>📱 تلفن: ۰۹۳۷۲۵۶۵۹۹۴<br>📱 تلگرام: @cszarindasht<br>📱 ایتا: @fatemeh_motamed');
-           
+         
             // Clear form
             document.getElementById('reg-name').value = '';
             document.getElementById('reg-email').value = '';
             document.getElementById('reg-message').value = '';
-           
+         
             // Hide form
             toggleRegistrationForm();
         }
