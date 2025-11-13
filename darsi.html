@@ -16,7 +16,6 @@
             font-size: 14px;
             line-height: 1.5;
         }
- 
         :root {
             --primary-color: #0288D1; /* آبی اصلی - هماهنگ با تم آموزشی */
             --secondary-color: #F5F7FA; /* خاکستری روشن برای پس‌زمینه light */
@@ -33,7 +32,7 @@
             --shadow-dark: rgba(0,0,0,0.3); /* سایه dark */
             --blur-amount: 8px;
             --footer-bg: #0277BD; /* فوتر آبی تیره */
-     
+    
             /* Legacy support for existing styles */
             --primary-blue: var(--primary-color);
             --secondary-gray: var(--secondary-color);
@@ -1318,10 +1317,6 @@
                         <i class="fas fa-book ml-2"></i>
                         طراحی وب مقدماتی جلد دوم
                     </a>
-                    <a href="https://drive.google.com/file/d/1sgrAPkPTbb0NQdGa3_NMj6nxN0ZVSlB2/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="book-link">
-                        <i class="fas fa-book ml-2"></i>
-                        تجارت الکترونیک و امنیت شبکه
-                    </a>
                     <a href="http://chap.sch.ir/books/12421" target="_blank" rel="noopener noreferrer" class="book-link">
                         <i class="fas fa-book ml-2"></i>
                         کتاب همراه هنرجو
@@ -1363,6 +1358,10 @@
                     <a href="https://drive.google.com/file/d/1tprrGkB5KPIQhdpaVUYfdxlSdiEhjLFv/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="book-link">
                         <i class="fas fa-book ml-2"></i>
                         دانش فنی تخصصی
+                    </a>
+                    <a href="https://drive.google.com/file/d/1sgrAPkPTbb0NQdGa3_NMj6nxN0ZVSlB2/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="book-link">
+                        <i class="fas fa-book ml-2"></i>
+                        تجارت الکترونیک و امنیت شبکه
                     </a>
                 </div>
             </div>
@@ -1419,7 +1418,7 @@
         function toggleTheme() {
             const body = document.body;
             const themeIcon = document.getElementById('theme-icon');
-     
+    
             if (body.classList.contains('light-mode')) {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
@@ -1452,7 +1451,7 @@
         document.addEventListener('click', function(event) {
             const mobileMenu = document.getElementById('mobile-menu');
             const menuButton = event.target.closest('button');
-     
+    
             if (!mobileMenu.contains(event.target) && !menuButton) {
                 mobileMenu.classList.remove('active');
             }
@@ -1492,7 +1491,7 @@
                     }
                 });
             }, { threshold: 0.5 });
-     
+    
             observer.observe(articlesSection);
         }
         // موتور جستجو
@@ -1501,9 +1500,7 @@
             const resultsContainer = document.getElementById('searchResults');
             const resourcesSection = document.getElementById('resources');
             const allBookLinks = document.querySelectorAll('.book-link');
-
             let results = [];
-
             if (query === '') {
                 // اگر خالی باشد، همه منابع را نشان بده و نتایج را مخفی کن
                 resourcesSection.classList.remove('search-active');
@@ -1514,16 +1511,14 @@
                 resourcesSection.classList.add('search-active');
                 resultsContainer.style.display = 'block';
             }
-
             allBookLinks.forEach(link => {
                 const text = link.textContent.toLowerCase();
                 if (text.includes(query)) {
                     results.push(link.cloneNode(true));
                 }
             });
-
             if (results.length > 0) {
-                resultsContainer.innerHTML = results.map(result => 
+                resultsContainer.innerHTML = results.map(result =>
                     `<a href="${result.href}" target="_blank" rel="noopener noreferrer" class="search-result-item block text-decoration-none" style="color: inherit; direction: rtl;">
                         ${result.innerHTML}
                     </a>`
